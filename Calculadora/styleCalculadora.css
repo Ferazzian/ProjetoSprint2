@@ -13,14 +13,14 @@ body {
     align-items: center;
 }
 
-.H1 {
+H1 {
     font-size: 30px;
     font-weight: bold;
-    color: #F5EBD6;
+    color: #395D05;
 }
 
 .linha_header {
-    background-color: black;
+    background-color: #395D05;
     margin-top: -0.57%;
     width: 700px;
     height: 2px;
