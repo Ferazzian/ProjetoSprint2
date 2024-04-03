@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FERAZIAN | Simulador</title>
+    <script type="text/javascript" src="scriptLogin2.js"></script>
+    <link rel="stylesheet" href="styleLogin2.css">
+</head>
+
+<body>
+    <div class="Cadastro" id="tela_cadastro">
+        <div class="container_button_Login">
+            <button onclick="Tela_Login()" class="buttonLogin">Login</button>
+        </div>
+        <div class="headerCadastro">
+            <h1>CADASTRO</h1>
+        </div>
+        <div class="CenterCadastro">
+            <div class="container_input_Cadastro">
+
+                <p class="p">Nome</p>
+                <input class="input_Cadastro" type="text" id="input_nome">
+                
+                <p class="p">Email</p>
+                <input class="input_Cadastro" type="text" id="input_email" placeholder="Ex: jose1234@email.com">
+                
+                <p class="p">Senha</p>
+                <input class="input_Cadastro" type="text" id="input_email">
+                
+                <p class="p">Confirmar Senha</p>
+                <input class="input_Cadastro" type="password" id="input_confirmar_senha">
+
+                <div class="container_button">
+                    <button class="button" onclick="Cadastro()">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="Nome">
+        <div class="headerNome">
+            <h1>FERAZZIAN</h1>
+        </div>
+        <div class="CenterNome">
+            <span class="legenda">Nós transformamos seu futuro.</span>
+        </div>
+    </div>
+
+
+    <div class="Login" id="tela_login">
+        <div class="container_button_up">
+            <button onclick="Tela_Cadastro()" class="buttonCadastro">Criar Conta</button>
+        </div>
+        <div class="headerLogin">
+            <h1>LOGIN</h1>
+        </div>
+        <div class="CenterLogin">
+            <div class="container_input_Login">
+
+                <p class="p">Email</p>
+                <input class="input_Login" type="text" id="input_email" placeholder="Ex: jose1234@email.com">
+                <p class="p">Senha</p>
+                <input class="input_Login" type="password" id="input_senha">
+
+                <div class="container_button">
+                    <button class="button" onclick="login()">Entrar</button>
+                    <p class="Esqueci">Esqueci minha senha</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

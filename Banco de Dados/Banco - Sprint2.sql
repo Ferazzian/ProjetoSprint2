@@ -13,15 +13,16 @@ create table Fazenda (
 idFazenda int primary key auto_increment, 
 nome_fazenda varchar(50),
 logradouro varchar(60), 
-telefone_fazenda varchar(20), 
-email_fazenda varchar(50),
+telefone_fazenda varchar(20), -- retirar
+email_fazenda varchar(50), -- retirar
 UF char(2));
  
-create table Plantacao (
-idPlantacao int auto_increment primary key,
-SensorTemp float,
+create table Plantacao ( -- trocar nome para sensor
+idPlantacao int auto_increment primary key, -- idhectare
+SensorTemp float, -- 1 sensor por hectare
 SensorUmid float,
 HoraColeta datetime);
+-- colocar campo tipo de grão
 
 alter table Usuario add column fkFazenda int, add constraint UsuarioFazenda foreign key (fkFazenda) references Fazenda(idFazenda);
 
@@ -62,7 +63,7 @@ insert into Plantacao values
 -- Fazenda Falcão
 ( null, 24.8, 34, '2024-02-18 14:33:56');
 
-alter table plantacao add column statusSensor char(10);
+alter table plantacao add column statusSensor char(10); -- retirar statusSensor
 alter table plantacao add constraint chkstatusSensor check (statusSensor in('Ligado','Desligado'));
 select * from plantacao;
 update plantacao set statusSensor = 'Ligado' where idPlantacao = 1;
@@ -90,4 +91,4 @@ SensorTemp as Temperatura, SensorUmid as Umidade, HoraColeta as Horário
 from Usuario
 join Fazenda on fkFazenda = idFazenda
 join Plantacao on fkPlantacao = idPlantacao
-where idFazenda = 2;
+;
