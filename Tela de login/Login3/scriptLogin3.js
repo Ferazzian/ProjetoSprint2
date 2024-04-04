@@ -15,21 +15,33 @@ function Cadastro() {
     }
     if (com < 0 && br < 0) {
         alert('Seu email deve acabar em .com ou .br.');
+
     } else if (tamanho_senha < 8) {
+        input_senha_cadastro.value = ``;
         alert('Senha muito fraca. Utilize letras, números e caracteres especiais para proteger sua senha.');
+
     } else if (senha_cadastro != confirmar_cadastro) {
+        input_senha_cadastro.value = ``;
+        input_confirmar_senha_cadastro.value = ``;
         alert("Falha ao autenticar senha.")
+
     } else if (telefone_cadastro == "") {
-        alert("Necessário um telefone para contato.")
+        alert("Necessário um telefone para contato.");
+        
     } else {
-        alert(`Uma mensagem foi enviada para o número ${telefone_cadastro} e um email para ${email_cadastro}`);
+        input_nome_cadastro.value = ``;
+        input_email_cadastro.value = ``;
+        input_telefone_cadastro.value = ``;
+        input_senha_cadastro.value = ``;
+        input_confirmar_senha_cadastro.value = ``;
+        alert(`${nome_cadastro}, uma mensagem foi enviada para o número ${telefone_cadastro} e um email para ${email_cadastro}`);
         Tela_Login();
     }
 }
 
 var contador = 4;
 
-function login() {
+function Login() {
     var email_login = input_email_login.value;
     var senha_login = input_senha_login.value;
     var email_cadastro = input_email_cadastro.value;
@@ -56,12 +68,16 @@ function login() {
     }
 }
 
-function Tela_Login() {
-    tela_cadastro.style.display = `none`;
-    tela_login.style.display = `unset`;
+function Tela_Login() { // todo mundo left
+    CadastroLeft.style.display = `unset`;
+    tela_login_left.style.display = `unset`;
+    CadastroRight.style.display = `none`;
+    tela_login_right.style.display = `none`;
 }
 
-function Tela_Cadastro() {
-    tela_cadastro.style.display = `unset`;
-    tela_login.style.display = `none`;
+function Tela_Cadastro() { // todo mundo right
+    CadastroLeft.style.display = `none`;
+    tela_login_left.style.display = `none`;
+    CadastroRight.style.display = `unset`;
+    tela_login_right.style.display = `unset`;
 }

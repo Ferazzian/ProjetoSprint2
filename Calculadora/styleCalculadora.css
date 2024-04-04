@@ -35,7 +35,7 @@ H1 {
 
 .container_input {
     background-color: black;
-    opacity: 85%;
+    opacity: 80%;
     color: white;
     display: flex;
     flex-direction: column;
@@ -86,19 +86,21 @@ button {
 button:hover {
     /* hover = quando o mouse passa em cima */
     transform: scale(1.05);
-    /* aumenta o botão em 10%*/
+    /* aumenta o botão em 5%*/
 }
 
 .H2 {
+    font-weight: bolder;
     font-size: 20px;
-    color: #C4DC65;
+    color: #395D05;
     margin-bottom: 5px;
 }
 
 .div1 {
     background-color: black;
-    opacity: 85%;
+    opacity: 80%;
     color: white;
+    line-height: 27px;
     flex-direction: column;
     justify-content: space-evenly;
     width: 450px;
@@ -114,12 +116,24 @@ button:hover {
 
 @keyframes moveToLeft {
     from {
-        margin-right: -64.8%;
+        margin-right: -65.5%;
         /* define onde a animação COMEÇA */
+        opacity: 0%;
     }
 
     to {
         margin-right: 0%;
         /* define onde a animação TERMINA */
+        opacity: 80%;
     }
+}
+
+.ganho {
+    color: #c4dc65;
+    display: inline;
+}
+
+.perda {
+    color: red;
+    display: inline;
 }

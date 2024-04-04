@@ -5,12 +5,12 @@ function calcular() {
     var PerdaHec = Number(input_perda.value); // perdas por cada hectare
 
     var perda = (PerdaHec * Faturamento) / 100; // encontra a porcentagem da perda dentro do faturamento
-    var perda10 = perda - (perda * 0.10); // diminuição da perda em 10%
+    var perda20 = perda - (perda * 0.20); // diminuição da perda em 10%
     var total = Faturamento * NumHec; // faturamento com todos o hectares
     var preju = total * (PerdaHec / 100);
     var total2 = total - preju; // faturamento total com as perdas antes
     var retorno = preju * 0.20; // retorno de 10% do que foi perdido
-    var final = total - preju + retorno; // faturamento total com as perdas depois
+    var final = total2 + retorno; // faturamento total com as perdas depois
 
     if (NumHec < 100) { // é necessário ter no mínimo 100 hectares
         div1.innerHTML = '';
@@ -20,12 +20,13 @@ function calcular() {
     else {
         div1.innerHTML = `
             <span class="H2">Simulando:</span>
-            Ao não utilizar nossos processos de monitoramento, você tem uma perda de R$${perda} por hectare
-            <br>
-            Já com o nosso monitoramento, você perde R$${perda10} por hectare, elevando os lucros de R$${total2} para R$${final}
+            <span>Ao não utilizar nossos processos de monitoramento, você tem uma perda de <span class="perda">R$${perda.toFixed(2).replaceAll('.', ',')}</span> por hectare
+            <br><br>
+            Já com o nosso monitoramento, você perde <span class="ganho">R$${perda20.toFixed(2).replaceAll('.', ',')}</span> por hectare, elevando os lucros de <span class="perda">R$${total2.toFixed(2).replaceAll('.', ',')}</span> para <span class="ganho">R$${final.toFixed(2).replaceAll('.', ',')}</span>
             <br><br>
             <span class="H2">Como Funciona?</span>
-            Com nossos serviços de monitoramento da temperatura e umidade de sua plantação, há uma diminuição percentual de 10% na perda pela Ferrugem Asiática, gerando um retorno de 20% de lucro.
+            <br><br>
+            Com nossos serviços de monitoramento da temperatura e umidade de sua plantação, há uma diminuição percentual de 10% na perda pela Ferrugem Asiática, gerando um retorno de 20% de lucro.</span>
             `
     }
 }

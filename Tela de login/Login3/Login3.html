@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FERAZZIAN | Entrar</title>
-    <script type="text/javascript" src="scriptLogin2.js"></script>
-    <link rel="stylesheet" href="styleLogin2.css">
+    <script type="text/javascript" src="scriptLogin3.js"></script>
+    <link rel="stylesheet" href="styleLogin3.css">
 </head>
 
 <body>
+    <div class="CadastroLeft" id="CadastroLeft"></div>
+    <div class="CadastroRight" id="CadastroRight"></div>
     <div class="Cadastro" id="tela_cadastro">
         <div class="headerCadastro">
             <h1>CADASTRO</h1>
@@ -34,14 +36,12 @@
                 <input class="input_Cadastro" type="password" id="input_confirmar_senha_cadastro">
 
                 <div class="container_button">
-                    <button class="button" onclick="Cadastro()">Cadastrar</button>
+                    <button class="button" onclick="Cadastro()">Cadastre-se</button>
                     <p onclick="Tela_Login()" class="buttonLogin">Já tenho uma conta</p>
                 </div>
             </div>
         </div>
     </div>
-
-
     <div class="Nome">
         <div class="headerNome">
             <h1>FERAZZIAN</h1>
@@ -51,8 +51,7 @@
         </div>
     </div>
 
-
-    <div class="Login" id="tela_login">
+    <div class="LoginLeft" id="tela_login_left">
         <div class="headerLogin">
             <h1>LOGIN</h1>
         </div>
@@ -65,9 +64,30 @@
                 <input class="input_Login" type="password" id="input_senha_login">
 
                 <div class="container_button">
-                    <button class="button" onclick="login()">Entrar</button>
+                    <button class="button" onclick="Login()">Entrar</button>
                     <p onclick="Esqueci()" class="Esqueci">Esqueci minha senha</p>
                     <span onclick="Tela_Cadastro()" class="buttonCadastro">Criar Conta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="LoginRight" id="tela_login_right">
+        <div class="headerLogin">
+            <h1>LOGIN</h1>
+        </div>
+        <div class="CenterLogin">
+            <div class="container_input_Login">
+
+                <p class="pLogin">Email</p>
+                <input class="input_Login" type="text" placeholder="Ex: jose1234@email.com">
+                <p class="pLogin">Senha</p>
+                <input class="input_Login" type="password">
+
+                <div class="container_button">
+                    <button class="button">Entrar</button>
+                    <p class="Esqueci">Esqueci minha senha</p>
+                    <span class="buttonCadastro">Criar Conta</span>
                 </div>
             </div>
         </div>
