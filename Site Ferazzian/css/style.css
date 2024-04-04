@@ -6,8 +6,12 @@ body{
 
 .nav-home{
     display: flex;
+    align-items: center;
     margin-left: 20px;
     margin: 30px;
+    margin-top: 30px;
+    height: 100px;
+    width: fit-content;
 }
 
 a{
@@ -16,7 +20,7 @@ a{
 }
 
 .link-navbar{
-    margin-left: 100px;
+    margin-left: 87px;
     font-size: 14px;
 }
 
@@ -33,4 +37,16 @@ a{
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    transition: 0.4s;
+}
+
+.button-nav:hover{
+    background-color: white;
+    color: #395D05;
+    border: 1px solid #000;
+    transition: 0.4s;
+}
+
+.img-home{
+    width: 100%;
 }
