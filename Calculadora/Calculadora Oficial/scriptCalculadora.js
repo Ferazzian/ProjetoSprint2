@@ -4,6 +4,11 @@ function calcular() {
     var NumHec = Number(input_num.value); // número de hectares
     var PerdaHec = Number(input_perda.value); // perdas por cada hectare
 
+    if (PerdaHec == '') {
+        PerdaHec = Number(50);
+        input_perda.placeholder = `Em média, 50%`;
+    }
+
     var perda = (PerdaHec * Faturamento) / 100; // encontra a porcentagem da perda dentro do faturamento
     var perda20 = perda - (perda * 0.20); // diminuição da perda em 10%
     var total = Faturamento * NumHec; // faturamento com todos o hectares
@@ -16,12 +21,11 @@ function calcular() {
         div1.innerHTML = '';
         div1.style.display = `none`;
         alert("O numero minimo de Hectares é 100");
-    }
-    else {
+    } else {
         div1.innerHTML = `
             <span class="H2">Simulando:</span>
-            <span>Ao não utilizar nossos processos de monitoramento, você tem uma perda de <span class="perda">R$${perda.toFixed(2).replaceAll('.', ',')}</span> por hectare
-            <br><br>
+            <span>Ao não utilizar nossos processos de monitoramento, você tem uma perda de <span class="perda">R$${perda.toFixed(2).replaceAll('.', ',')}</span> por hectare pela Ferrugem Asiática
+            <br>
             Já com o nosso monitoramento, você perde <span class="ganho">R$${perda20.toFixed(2).replaceAll('.', ',')}</span> por hectare, elevando os lucros de <span class="perda">R$${total2.toFixed(2).replaceAll('.', ',')}</span> para <span class="ganho">R$${final.toFixed(2).replaceAll('.', ',')}</span>
             <br><br>
             <span class="H2">Como Funciona?</span>

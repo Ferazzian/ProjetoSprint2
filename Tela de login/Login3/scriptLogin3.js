@@ -17,23 +17,23 @@ function Cadastro() {
         alert('Seu email deve acabar em .com ou .br.');
 
     } else if (tamanho_senha < 8) {
-        input_senha_cadastro.value = ``;
+        senha_cadastro.value = ``;
         alert('Senha muito fraca. Utilize letras, números e caracteres especiais para proteger sua senha.');
 
     } else if (senha_cadastro != confirmar_cadastro) {
-        input_senha_cadastro.value = ``;
-        input_confirmar_senha_cadastro.value = ``;
+        senha_cadastro.value = ``;
+        confirmar_cadastro.value = ``;
         alert("Falha ao autenticar senha.")
 
     } else if (telefone_cadastro == "") {
         alert("Necessário um telefone para contato.");
         
     } else {
-        input_nome_cadastro.value = ``;
-        input_email_cadastro.value = ``;
-        input_telefone_cadastro.value = ``;
-        input_senha_cadastro.value = ``;
-        input_confirmar_senha_cadastro.value = ``;
+        nome_cadastro.value = ``;
+        email_cadastro.value = ``;
+        telefone_cadastro.value = ``;
+        senha_cadastro.value = ``;
+        confirmar_cadastro.value = ``;
         alert(`${nome_cadastro}, uma mensagem foi enviada para o número ${telefone_cadastro} e um email para ${email_cadastro}`);
         Tela_Login();
     }
@@ -49,8 +49,8 @@ function Login() {
     var nome_cadastro = input_nome_cadastro.value;
 
     if (email_login != email_cadastro || senha_login != senha_cadastro) {
-        input_email_login.value = ``;
-        input_senha_login.value = ``;
+        email_login.value = ``;
+        senha_login.value = ``;
         contador--;
         if (contador < 1) {
             alert("Conta bloqueada por motivos de segurança. Favor contactar gerente.");
@@ -62,9 +62,9 @@ function Login() {
         alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
         // continua para o site
     } else {
-        alert("Conta bloqueada por motivos de segurança. Favor contactar agente.");
         input_email_login.value = ``;
-        input_senha_login.value = ``;
+        senha_login.value = ``;
+        alert("Conta bloqueada por motivos de segurança. Favor contactar agente.");
     }
 }
 

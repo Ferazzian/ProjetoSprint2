@@ -4,7 +4,7 @@ body {
     margin: 0%;
     padding: 0%;
     background-image: url(campo.jpg);
-    background-size: cover;
+    background-size: cover; 
 }
 
 .header {
@@ -55,7 +55,7 @@ H1 {
     border: solid white 2px;
     border-radius: 5px;
     font-weight: bold;
-    padding-left: 20px;
+    padding-left: 30px;
     color: white;
 }
 
@@ -91,8 +91,8 @@ button:hover {
 
 .H2 {
     font-weight: bolder;
-    font-size: 20px;
-    color: #395D05;
+    font-size: 23px;
+    /* color: #395D05; */
     margin-bottom: 5px;
 }
 
