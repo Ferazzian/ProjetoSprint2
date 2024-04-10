@@ -1,49 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-    <!-- Fonte google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Fonte google fonts -->
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferazzian</title>
+    <link rel="stylesheet" href="style.css">
+    <title>home</title>
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <img src="./assets/logo.png" alt="" width="72px">
+            <li><a href="">Home</a></li>
+            <li><a href="">Sobre nós</a></li>
+            <li><a href="">Como funciona</a></li>
+            <li><a href="">Feedbacks</a></li>
+            <li><a href="">Contato</a></li>
+            <li><a href="">Calculadora Financeira</a></li>
+            <li><a href=""><button class="btnStyle">Login</button></a></li>
+        </ul>
+    </nav>
 
-    <section class="home-inicial">
-        <nav class="nav-home">
-            <img src="/assets/logo.png" alt="" width="72px">
-            <a class="link-navbar" href="">Home</a>
-            <a class="link-navbar" href="">Quem somos</a>
-            <a class="link-navbar" href="">Como Funciona?</a>
-            <a class="link-navbar" href="">Feedbacks</a>
-            <a class="link-navbar" href="">Contato</a>
-            <a class="link-navbar" href="">Calculadora Financeira</a>
-            <button class="button-nav" style="margin-left: 100px;">Login</button>
-        </nav>
-        <div class="first-image-texts">
-            <img class="img-home" src="/assets/foto-home.png" alt="">
-            <h1>Plantando o futuro <br> sem espaço para fungos.</h1>
-            <p>Nosso compromisso com a excelência na <br> produção de soja.</p>
-        </div>
-    </section>
-
-    <section class="space-quem-somos">
-        <div>
-            <div class="img-quem-somos">
-            <img src="/assets/Soja na caneca.png" alt="">
+    <main>
+        <header>
+            <div class="imgHome">
+                <h1>Plantando o futuro <br> sem espaço para fungos.</h1>
+                <p>Nosso compromisso com a excelência na <br> produção de soja.</p>
             </div>
-            <h1>Quem somos</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsum, aspernatur alias cupiditate, perferendis tempora deserunt velit voluptas nisi dicta, aut natus amet nesciunt. Recusandae officiis quod</p>
-            <button class="button-nav">Saiba mais</button>
-        </div>
-    </section>
+        </header>
+        <article class="articleQuemSomos">
+            <div class="articleImgSoja">
+                <img src="./assets/Soja na caneca.png" alt="" id="sojaImg">
+            </div>
+            <div class="articleTexto">
+                <h1>quem somos?</h1>
+                <p>Quer saber como nos reunimos e criamos essa ideia incrível</p>
 
+                <a href="#"><button class="btnStyle">Saiba Mais</button></a>
+            </div>
+        </article>
+
+        <article class="articlefun">
+            <h1>Como funciona</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi veniam, dignissimos, cum, excepturi culpa
+                voluptatum illum sunt nobis mollitia quas autem quo a explicabo at accusamus dolorum quae. Pariatur
+                dolore id beatae. Officia harum mollitia facilis delectus recusandae ratione iste illum quod nam. Fugiat
+                consequatur modi nostrum distinctio odio aliquam!</p>
+
+            <a href="#"><button class="btnStyle">Saiba Mais</button></a>
+        </article>
+
+    </main>
 </body>
 
 </html>
