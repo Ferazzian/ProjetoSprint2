@@ -47,7 +47,7 @@ main {
     flex-direction: column;
     justify-content: center;
     max-width: 1440px;
-    border: solid 5px red;
+
 }
 
 header {
@@ -86,6 +86,29 @@ header {
     background-color: #F5E5B9;
 }
 
+.articlefun{
+    display: flex;
+    height: 550px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.articleTextoFun{
+    color: #fff;
+    width: 50%;
+
+
+}
+.articleTextoFun h1{
+    font-size: 70px;
+    margin-bottom: 40px;
+}
+.articleTextoFun p{
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+
 /* .articleImgSoja, .articleTexto{
     border: solid 5px red;
 
@@ -106,11 +129,6 @@ header {
 .articleTexto .btnStyle{
     width: 225px;
     height: 48px;
-}
-
-.sojaImg{
-    bottom: 50px;
-    top: 20px;
 }
 
 .articlefun {
