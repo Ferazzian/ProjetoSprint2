@@ -18,9 +18,7 @@ body {
 nav{
     height: 75px;
     width: 100%;
-    background: rgb(20,20,20);
-    background: rgb(55,33,33);
-    background: linear-gradient(180deg, rgba(55,33,33,1) 0%, rgba(12,73,6,1) 97%, rgba(6,70,6,1) 100%);
+    background-color: #506C3B;
 }
 
 nav ul{
@@ -130,7 +128,7 @@ header {
 
 } */
 .articleTexto{
-    margin-left: 40px;
+    margin-left: 80px;
 }
 
 .articleTexto h1{
@@ -145,9 +143,9 @@ header {
 
 .articleTexto .btnStyle{
     width: 225px;
-    height: 48px;
+    height: 60px;
     border-radius: 2px;
-    margin-left: 600px;
+    margin-left: 480px;
 }
 
 .articlefun {
@@ -155,4 +153,10 @@ header {
     height: 550px;
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.articlefun .btnStyle{
+    border-radius: 2px;
+    width: 170px;
+    height: 55px;
 }
