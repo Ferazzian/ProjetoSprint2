@@ -72,7 +72,7 @@ header {
 }
 
 .imgHome{
-    background-image: url('./assets/foto-home.png');
+    background-image: url('./assets/homeHeader.png');
     height: 550px;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -102,6 +102,7 @@ header {
     background-color: #F5E5B9;
 }
 
+
 .articlefun{
     display: flex;
     height: 550px;
@@ -112,8 +113,6 @@ header {
 .articleTextoFun{
     color: #fff;
     width: 50%;
-
-
 }
 .articleTextoFun h1{
     font-size: 70px;
@@ -124,11 +123,6 @@ header {
     margin-bottom: 40px;
 }
 
-
-/* .articleImgSoja, .articleTexto{
-    border: solid 5px red;
-
-} */
 .articleTexto{
     margin-left: 40px;
 }
@@ -155,4 +149,35 @@ header {
     height: 550px;
     background-repeat: no-repeat;
     background-size: 100%;
+}
+.articleCalculadora{
+    display: flex;
+    align-items: center;
+    height: 750px;
+    background-color: #F5E5B9;
+}
+
+.articleCalculadoraTexto{
+    border: solid 5px red;
+    width: 60%;
+    height: 50%;
+}
+
+.articleCalculadoraImg{
+    border: solid 5px red;
+    width: 40%;
+}
+
+.articleCalculadoraTexto h1 {
+    font-size: 70px;
+
+    margin-bottom: 40px;
+}
+.articleCalculadoraTexto p {
+    margin-bottom: 40px;
+    font-size: 38px;
+}
+
+.articleCalculadora .btnStyle{
+    margin-left: 600px
 }
