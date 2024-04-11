@@ -94,12 +94,16 @@ header {
 .imgHome h1 p{
     padding-left: 50px;
 }
+
 .articleQuemSomos {
     display: flex;
     height: 550px;
     background-color: #F5E5B9;
 }
 
+.articleQuemSomos h1{
+    color: #395D05;
+}
 
 .articlefun{
     display: flex;
@@ -148,13 +152,6 @@ header {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-<<<<<<< HEAD
-
-.articlefun .btnStyle{
-    border-radius: 2px;
-    width: 170px;
-    height: 55px;
-=======
 .articleCalculadora{
     display: flex;
     align-items: center;
@@ -163,27 +160,29 @@ header {
 }
 
 .articleCalculadoraTexto{
-    border: solid 5px red;
     width: 60%;
     height: 50%;
 }
 
 .articleCalculadoraImg{
-    border: solid 5px red;
     width: 40%;
+    height: 100%;
 }
 
 .articleCalculadoraTexto h1 {
     font-size: 70px;
-
+    color: #395D05;
     margin-bottom: 40px;
 }
 .articleCalculadoraTexto p {
     margin-bottom: 40px;
-    font-size: 38px;
+    font-size: 36px;
+
 }
 
 .articleCalculadora .btnStyle{
-    margin-left: 600px
->>>>>>> e2b858fc3147deaf9f171a185fc3e53ffa9348fb
+    margin-left: 600px;
+    width: 150px;
+    height: 50px;
+    border-radius: 2px;
 }
