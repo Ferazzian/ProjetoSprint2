@@ -1,4 +1,4 @@
-create database ferezian;
+create database ferazzian;
 use ferezian;
 
 create table Usuario (
