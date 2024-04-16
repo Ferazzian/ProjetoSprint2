@@ -1,5 +1,5 @@
 create database ferazzian;
-use ferezian;
+use ferazzian;
 
 create table Usuario (
 idUsuario int primary key auto_increment,
