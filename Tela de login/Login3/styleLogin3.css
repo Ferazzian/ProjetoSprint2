@@ -82,6 +82,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 500px;
+    margin-top: -20px;
 }
 
 .pCadastro {
@@ -91,12 +92,13 @@ body {
 .input_Cadastro {
     margin-top: -10px;
     width: 350px;
-    height: 36px;
+    height: 40px;
     background-color: transparent;
     border: solid white;
     border-radius: 5px;
     font-weight: bold;
     padding-left: 20px;
+    padding-top: 10px;
     color: white;
 }
 
