@@ -1,3 +1,4 @@
+-- Active: 1713288107577@@127.0.0.1@3306@ferazzian
 create database ferazzian;
 use ferazzian;
 
@@ -10,6 +11,11 @@ CREATE TABLE empresa (
   cidade VARCHAR(45),
   bairro VARCHAR(45)
   );
+INSERT INTO empresa VALUES
+(default, 'Fazenda Bela Vista','12345-678','26.186.289/0001-79','122','São Paulo','Bela Vista'),
+(default, 'Fazenda Vista Verde','87654-321','26.186.289/0001-78','143','São Paulo','Vista Verde'),
+(default, 'Fazenda Santa Rita','54321-876','26.186.289/0001-77','333','São Paulo','Rural do Vale');
+
 
 CREATE TABLE funcionario (
   idFuncionario INT UNIQUE,
@@ -19,6 +25,11 @@ CREATE TABLE funcionario (
   REFERENCES empresa(idEmpresa),
   nomeFuncionario VARCHAR(45),
   cargo VARCHAR(45)
+
+INSERT INTO funcionario VALUES
+(1,'54198667767','1','Antonio','Supevisor'),
+(2,'35168661167','2','Renan','Gerente de Produção'),
+(3,'24138768717','3','Pedro','Supevisor');
 );
 
 CREATE TABLE usuario (
@@ -32,6 +43,10 @@ CREATE TABLE usuario (
   FOREIGN KEY (fkFuncionarioUsuario) 
   REFERENCES funcionario(idFuncionario)
 );
+INSERT INTO usuario VALUES
+(1,'Antonio','antonio@belavista.com','11961713435','76hf238rB',1),
+(2,'Renan','renan@vistaverde.com','11962719090','sdh586T',2),
+(3,'Pedro','pedro@santarita.com','11966723334','Hrfer3412',3);
 
 CREATE TABLE fazenda (
   idFazenda INT PRIMARY KEY AUTO_INCREMENT,
@@ -41,12 +56,20 @@ CREATE TABLE fazenda (
   tamHectare float,
   fkEmpresaFazenda INT, CONSTRAINT fkEmpFazenda FOREIGN KEY (fkEmpresaFazenda) REFERENCES empresa(idEmpresa)
 );
+INSERT INTO fazenda VALUES
+(null,'Soja Orgânica','2024-01-01','2024-04-30',1.5,1),
+(null,'Soja Convencional','2024-03-01','2024-06-29',3.7,2),
+(null,'Soja Orgânica','2024-04-01','2024-07-30',50.5,3);
 
 CREATE TABLE sensor (
   idSensor INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(45),
   fkSensorFazenda INT, CONSTRAINT fkSensorFzd FOREIGN KEY (fkSensorFazenda) REFERENCES fazenda(idFazenda)
 );
+INSERT INTO sensor VALUES
+(1,'DHT11-A1',1),
+(2,'DHT11-A2',2),
+(3,'DHT11-A3',3);
 
 CREATE TABLE parametro (
   idParametro INT PRIMARY KEY AUTO_INCREMENT,
@@ -58,6 +81,10 @@ CREATE TABLE parametro (
   CONSTRAINT fkSensorParam FOREIGN KEY (fkSensorParametro) 
   REFERENCES sensor(idSensor)
 );
+INSERT INTO parametro VALUES
+(1,'20','15','60','41',1),
+(2,'28','11','75','55',2),
+(3,'26','17','78','61',3);
 
 CREATE TABLE dadosSensor (
   idDadosSensor INT AUTO_INCREMENT,
@@ -67,36 +94,6 @@ CREATE TABLE dadosSensor (
   sensorUmid FLOAT,
   horaColeta DATETIME
 );
-
-INSERT INTO empresa VALUES
-(null,'Fazenda Bela Vista','12345-678','26186289000179','122','São Paulo','Bela Vista'),
-(null,'Fazenda Vista Verde','87654-321','46070868001998','143','São Paulo','Vista Verde'),
-(null,'Fazenda Santa Rita','54321-876','60318797000100','333','São Paulo','Rural do Vale');
-
-INSERT INTO funcionario VALUES
-(1,'54198667767','1','Antonio','Supevisor'),
-(2,'35168661167','2','Renan','Gerente de Produção'),
-(3,'24138768717','3','Pedro','Supevisor');
-
-INSERT INTO usuario VALUES
-(1,'Antonio','antonio@belavista.com','11961713435','76hf238rB',1),
-(2,'Renan','renan@vistaverde.com','11962719090','sdh586T',2),
-(3,'Pedro','pedro@santarita.com','11966723334','Hrfer3412',3);
-
-INSERT INTO fazenda VALUES
-(null,'Soja Orgânica','2024-01-01','2024-04-30',1.5,1),
-(null,'Soja Convencional','2024-03-01','2024-06-29',3.7,2),
-(null,'Soja Orgânica','2024-04-01','2024-07-30',50.5,3);
-
-INSERT INTO sensor VALUES
-(1,'DHT11-A1',1),
-(2,'DHT11-A2',2),
-(3,'DHT11-A3',3);
-
-INSERT INTO parametro VALUES
-(1,'20','15','60','41',1),
-(2,'28','11','75','55',2),
-(3,'26','17','78','61',3);
 
 INSERT INTO dadosSensor VALUES
 (1,1,'20','70','2024-01-01 00:00:00');
@@ -127,6 +124,3 @@ ON sensor.fkSensorFazenda = fazenda.idFazenda
 JOIN  dadosSensor 
 ON dadosSensor.fkSensorDados = sensor.idSensor
 WHERE idEmpresa = 1;
-
-
-
