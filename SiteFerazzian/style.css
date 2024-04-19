@@ -185,7 +185,7 @@ main {
 
 .articleFeed{
     background-color: #F5E5B9;
-    height: 750px;
+    height: 950px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -198,10 +198,25 @@ main {
 }
 
 footer{
+
+    height: 200px;
     background-image: url('./assets/homeHeader.png');
     background-repeat: no-repeat;
     background-size: 100%;
 }
+.footerPai{
+    color: #fff;
+    font-weight: lighter;
+    display: flex;
+    margin: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerTextoRigth{
+    margin-left: 100px;
+}
+
 
 hr{
     height: 1px;
@@ -214,10 +229,9 @@ hr{
 
 
 .articleBoxFeed{
-    border: solid 5px red;
     width: 400px;
-    height: 500px;
-    background-image: url('./assets/maisplanta.png');
+    height: 570px;
+    background-image: url('./assets/card\ background.png');
     background-repeat: no-repeat;
     background-size: 150%;
 }
@@ -226,17 +240,42 @@ hr{
     border: solid 5px #fff;
     height: 93%;
     margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 
-.BoxFilhoCard img{
-    margin-top: 70px;
-    border-radius: 40%;
-    border: 5px solid #fff;
+.BoxFilhoCard{
+    background-image: url('./assets/imagemmulher.jpg');
+    background-repeat: no-repeat;
+    background-size: 150%;
+    margin-top: 60px;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 50px;
 }
 
-.BoxFilhoCard p{
-    margin-top: 40px;
+.BoxFilhoCardTexto{
+    width: 100%;
     color: #fff;
-    font-size: 30px;
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+.articleTextoFeed{
+    height: 300px;
+}
+.articleTextoFeed h1{
+    font-size: 70px;
+    color: #395D05;
+    margin-bottom: 20px;
+}
+.articleTextoFeed h2{
+    font-size: 70px;
+    color: #000000;
+    font-weight: lighter;
+    margin-bottom: 50px;
+
 }
