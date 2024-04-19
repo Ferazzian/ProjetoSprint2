@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('assets/background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+#titulo {
+  font-size: 70px;
+  font-weight:900;
+  color: #C4DC65;
+  padding-left: 120px;
+  margin-bottom: -8px;
+}
+
+#linha {
+  background-color: #C4DC65;
+  width: 640px;
+  height: 2px;
+  margin-left: 120px;
+  margin-bottom: 50px;
+}
+
+.conteudo {
+  height: fit-content;
+  width: 850px;
+  margin-left: 20px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+li {
+  font-size: 32px;
+}
