@@ -46,6 +46,7 @@ nav a:hover{
     border: none;
     cursor: pointer;
     transition: 0.4s;
+    font-size: 20px;
 }
 
 .btnStyle:hover{
@@ -87,7 +88,6 @@ main {
     font-size: 38px;
 }
 
-
 .articleQuemSomos {
     display: flex;
     height: 650px;
@@ -127,7 +127,7 @@ main {
     padding-top: 80px;
 }
 .articleTexto p{
-    font-size: 38px;
+    font-size: 45px;
     padding-bottom: 40px;
 }
 
@@ -136,6 +136,7 @@ main {
     height: 60px;
     border-radius: 2px;
     margin-left: 480px;
+    margin-top: 10%;
 }
 
 .articlefun {
@@ -195,10 +196,11 @@ main {
 }
 
 footer{
-    height: 250px;
+    height:110px;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgba(106, 105, 105, 0.9)), url("./assets/homeHeader.png");
     background-repeat: no-repeat;
     background-size: 100%;
+    object-fit: fit;
 }
 
 .footerPai{
@@ -209,9 +211,8 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: 30px;
     font-size: 10px;
-    margin: 0px 40px;
 }
 
 .footerTextoRigth{
@@ -293,17 +294,22 @@ footer{
 }
 
 .parallax{
+    display: flex;
     height: 400px;
     background-image: url(./assets/imagemparallax.jpg);
     background-attachment: fixed;
-    padding-top: 100px;
-    letter-spacing: 60px;
+    letter-spacing: 49px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .parallax p{
-    font-size: 100px;
-    color: #fff;
     display: flex;
+    font-size: 90px;
+    color: #fff;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding-left: 5%;
 }
