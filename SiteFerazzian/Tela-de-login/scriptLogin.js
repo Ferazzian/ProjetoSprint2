@@ -21,8 +21,8 @@ function Cadastro() {
         alert('Senha muito fraca. Utilize letras, números e caracteres especiais para proteger sua senha.');
 
     } else if (senha_cadastro != confirmar_cadastro) {
-        senha_cadastro.value = ``;
-        confirmar_cadastro.value = ``;
+        input_senha_cadastro.value = ``;
+        input_confirmar_senha_cadastro.value = ``;
         alert("Falha ao autenticar senha.");
 
     } else if (telefone_cadastro == "") {
