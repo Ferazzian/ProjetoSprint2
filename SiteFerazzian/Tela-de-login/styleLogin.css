@@ -28,7 +28,7 @@ body {
     }
 
     to {
-        margin-left: -50%;
+        margin-left: -51%;
     }
 }
 
@@ -40,7 +40,7 @@ body {
 
 @keyframes CadastroGoRight {
     from {
-        margin-left: -50%;
+        margin-left: -51%;
     }
 
     to {
@@ -71,7 +71,7 @@ body {
 }
 
 .CenterCadastro {
-    margin-top: -20px;
+    margin-top: -25px;
     display: flex;
     justify-content: center;
     height: 400px;
@@ -98,7 +98,8 @@ body {
     border-radius: 5px;
     font-weight: bold;
     padding-left: 20px;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: white;
 }
 
@@ -121,7 +122,7 @@ body {
 
 .Nome {
     height: 100vh;
-    width: 50vw;
+    width: 51vw;
     background-color: black;
     opacity: 50%;
     color: white;
@@ -169,7 +170,7 @@ body {
 .LoginRight {
     display: none;
     height: 100vh;
-    width: 50vw;
+    width: 49.95vw;
     background-color: black;
     opacity: 80%;
     animation: LoginGoRight 1s ease-in-out;
