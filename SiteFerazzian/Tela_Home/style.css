@@ -326,11 +326,13 @@ footer {
     display: flex;
     height: 400px;
     background-image: url(/SiteFerazzian/assets/imagemparallax.jpg);
+    background-size: cover;
     background-attachment: fixed;
     letter-spacing: 49px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-repeat: no-repeat;
 }
 
 .parallax p {
