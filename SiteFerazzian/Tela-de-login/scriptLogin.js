@@ -23,7 +23,7 @@ function Cadastro() {
     } else if (senha_cadastro != confirmar_cadastro) {
         senha_cadastro.value = ``;
         confirmar_cadastro.value = ``;
-        alert("Falha ao autenticar senha.")
+        alert("Falha ao autenticar senha.");
 
     } else if (telefone_cadastro == "") {
         alert("Necessário um telefone para contato.");
@@ -35,7 +35,7 @@ function Cadastro() {
         senha_cadastro.value = ``;
         confirmar_cadastro.value = ``;
         alert(`${nome_cadastro}, uma mensagem foi enviada para o número ${telefone_cadastro} e um email para ${email_cadastro}`);
-        Tela_Login();
+        Tela_Cadastro();
     }
 }
 
@@ -60,7 +60,6 @@ function Login() {
     } else if (contador > 0) {
         contador = 4;
         alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
-        // continua para o site
         window.location.replace('../Dashboard/dashboard.html')
     } else {
         input_email_login.value = ``;
