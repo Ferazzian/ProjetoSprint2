@@ -1,10 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     font-family: "Inter", sans-serif;
 }
+
 body {
     width: 100%;
     margin: auto;
@@ -15,13 +16,13 @@ body {
 
 }
 
-nav{
+nav {
     height: 75px;
     width: 100%;
     background-color: #506C3B;
 }
 
-nav ul{
+nav ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -32,12 +33,12 @@ nav a {
     transition: 0.4s;
 }
 
-nav a:hover{
+nav a:hover {
     border-bottom: 2px solid #fff;
     transition: 0.8s;
 }
 
-.btnStyle{
+.btnStyle {
     background-color: #395D05;
     height: 30px;
     width: 90px;
@@ -49,7 +50,8 @@ nav a:hover{
     font-size: 20px;
 }
 
-.btnStyle:hover{
+
+.btnStyle:hover {
     background-color: white;
     color: #395D05;
     border: 1px solid #000;
@@ -64,10 +66,8 @@ main {
 
 }
 
-
-
-.imgHome{
-    background-image: url('./assets/homeHeader.png');
+.imgHome {
+    background-image: url('/SiteFerazzian/assets/homeHeader.png');
     height: 650px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -80,6 +80,7 @@ main {
     padding-left: 50px;
 
 }
+
 .imgHome p {
     margin-left: 50px;
 
@@ -94,44 +95,66 @@ main {
     background-color: #F5E5B9;
 }
 
-.articleQuemSomos h1{
+.articleQuemSomos h1 {
     color: #395D05;
 }
 
-.articlefun{
+.articlefun {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.articleTextoFun{
+.articleTextoFun {
     color: #fff;
     width: 50%;
 }
-.articleTextoFun h1{
+
+.articleTextoFun h1 {
     font-size: 70px;
     margin-bottom: 40px;
 }
-.articleTextoFun p{
+
+.articleTextoFun p {
     font-size: 24px;
     margin-bottom: 40px;
 }
 
-.articleTexto{
+.articleTextoFun .btnStyle {
+    background-color: #395D05;
+    height: 50px;
+    width: 150px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+    font-size: 20px;
+}
+
+.articleTextoFun .btnStyle:hover {
+    background-color: white;
+    color: #395D05;
+    border: 1px solid #000;
+    transition: 0.4s;
+}
+
+.articleTexto {
     margin-left: 80px;
 }
 
-.articleTexto h1{
+.articleTexto h1 {
     font-size: 70px;
     padding-bottom: 60px;
     padding-top: 80px;
 }
-.articleTexto p{
+
+.articleTexto p {
     font-size: 45px;
     padding-bottom: 40px;
 }
 
-.articleTexto .btnStyle{
+.articleTexto .btnStyle {
     width: 225px;
     height: 60px;
     border-radius: 2px;
@@ -140,24 +163,25 @@ main {
 }
 
 .articlefun {
-    background-image: url('./assets/campo.jpg');
+    background-image: url('/SiteFerazzian/assets/campo.jpg');
     height: 650px;
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.articleCalculadora{
+
+.articleCalculadora {
     display: flex;
     align-items: center;
     height: 750px;
     background-color: #F5E5B9;
 }
 
-.articleCalculadoraTexto{
+.articleCalculadoraTexto {
     width: 60%;
     height: 50%;
 }
 
-.articleCalculadoraImg{
+.articleCalculadoraImg {
     width: 40%;
     height: 100%;
 }
@@ -167,20 +191,21 @@ main {
     color: #395D05;
     margin-bottom: 40px;
 }
+
 .articleCalculadoraTexto p {
     margin-bottom: 40px;
     font-size: 36px;
 
 }
 
-.articleCalculadora .btnStyle{
+.articleCalculadora .btnStyle {
     margin-left: 600px;
     width: 150px;
     height: 50px;
     border-radius: 2px;
 }
 
-.articleFeed{
+.articleFeed {
     background-color: #F5E5B9;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(106, 105, 105, 14));
     height: 950px;
@@ -189,21 +214,21 @@ main {
     flex-direction: column;
 }
 
-.articleFeed .articleContainerFeed{
+.articleFeed .articleContainerFeed {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-footer{
-    height:110px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgba(106, 105, 105, 0.9)), url("./assets/homeHeader.png");
+footer {
+    height: 110px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgba(106, 105, 105, 0.9)), url("/SiteFerazzian/assets/homeHeader.png");
     background-repeat: no-repeat;
     background-size: 100%;
     object-fit: fit;
 }
 
-.footerPai{
+.footerPai {
     border-top: solid 4px #fff;
     color: #fff;
     font-weight: 400;
@@ -215,14 +240,14 @@ footer{
     font-size: 10px;
 }
 
-.footerTextoRigth{
+.footerTextoRigth {
     margin-left: 50%;
 }
 
-.articleBoxFeed{
+.articleBoxFeed {
     width: 400px;
     height: 570px;
-    background-image: url('./assets/card\ background.png');
+    background-image: url('/SiteFerazzian/assets/card\ background.png');
     background-repeat: no-repeat;
     background-size: 150%;
 }
@@ -236,28 +261,8 @@ footer{
     flex-direction: column;
 }
 
-#user2{
-    background-image: url('./assets/user2.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: 60px;
-    border-radius: 100%;
-    width: 140px;
-    height: 140px;
-    margin-bottom: 50px;
-}
-#user1{
-    background-image: url('./assets/user1.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: 60px;
-    border-radius: 100%;
-    width: 140px;
-    height: 140px;
-    margin-bottom: 50px;
-}
-#user3{
-    background-image: url('./assets/user3.jpg');
+#user2 {
+    background-image: url('/SiteFerazzian/assets/user2.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     margin-top: 60px;
@@ -267,25 +272,49 @@ footer{
     margin-bottom: 50px;
 }
 
-.BoxFilhoCardTexto{
+#user1 {
+    background-image: url('/SiteFerazzian/assets/user1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 60px;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 50px;
+}
+
+#user3 {
+    background-image: url('/SiteFerazzian/assets/user3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 60px;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 50px;
+}
+
+.BoxFilhoCardTexto {
     width: 100%;
     color: #fff;
     font-size: 20px;
 }
 
-.BoxFilhoCardTexto h1{
+.BoxFilhoCardTexto h1 {
     font-weight: 100;
 }
 
-.articleTextoFeed{
+.articleTextoFeed {
     height: 300px;
 }
-.articleTextoFeed h1{
+
+.articleTextoFeed h1 {
     font-size: 70px;
     color: #395D05;
     margin-bottom: 20px;
 }
-.articleTextoFeed h2{
+
+.articleTextoFeed h2 {
     font-size: 70px;
     color: #000000;
     font-weight: lighter;
@@ -293,10 +322,10 @@ footer{
 
 }
 
-.parallax{
+.parallax {
     display: flex;
     height: 400px;
-    background-image: url(./assets/imagemparallax.jpg);
+    background-image: url(/SiteFerazzian/assets/imagemparallax.jpg);
     background-attachment: fixed;
     letter-spacing: 49px;
     justify-content: center;
@@ -304,7 +333,7 @@ footer{
     text-align: center;
 }
 
-.parallax p{
+.parallax p {
     display: flex;
     font-size: 90px;
     color: #fff;
