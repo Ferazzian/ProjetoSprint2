@@ -113,17 +113,48 @@ var dht11 = new Chart(
   {
     type: 'line', // Tipo de gráfico: linha
     data: {
+      labels: ['10,45', '10:46', '10:47', '10:58', '11:00', '12:00'],
       datasets: [{
         label: 'Temperatura', // Rótulo do conjunto de dados
         type: 'line', // Tipo de linha
-        borderColor: ['orange'], // Cor da borda
-        backgroundColor: ['yellow'] // Cor de fundo
+        data: [30, 29, 28, 25, 22, 29],
+        borderColor: ['yellow'], // Cor da borda
+        // backgroundColor: ['yellow'] // Cor de fundo
       },
       {
         label: 'Umidade', // Rótulo do conjunto de dados
         type: 'line', // Tipo de linha
-        borderColor: ['#45b3e7'], // Cor da borda
-        backgroundColor: ['blue'] // Cor de fundo
+        data: [80, 82, 80, 85, 80, 60],
+        borderColor: ['blue'], // Cor da borda
+        // backgroundColor: ['blue'] // Cor de fundo
+      },
+      {
+        label: 'Temperatura Máxima', // Rótulo do conjunto de dados
+        type: 'line', // Tipo de linha
+        data: [28, 28, 28 ,28, 28, 28],
+        borderColor: ['red'], // Cor da borda
+        // backgroundColor: ['blue'] // Cor de fundo
+      },
+      {
+        label: 'Temperatura Mínima', // Rótulo do conjunto de dados
+        type: 'line', // Tipo de linha
+        data: [18, 18, 18 ,18, 18, 18],
+        borderColor: ['cyan'], // Cor da borda
+        // backgroundColor: ['blue'] // Cor de fundo
+      },
+      {
+        label: 'Umidade Máxima', // Rótulo do conjunto de dados
+        type: 'line', // Tipo de linha
+        data: [80, 80, 80 ,80, 80, 80],
+        borderColor: ['orangered'], // Cor da borda
+        // backgroundColor: ['blue'] // Cor de fundo
+      },
+      {
+        label: 'Umidade Mínima', // Rótulo do conjunto de dados
+        type: 'line', // Tipo de linha
+        data: [60, 60, 60 ,60, 60, 60],
+        borderColor: ['lime'], // Cor da borda
+        // backgroundColor: ['blue'] // Cor de fundo
       }],
     },
     options: {
