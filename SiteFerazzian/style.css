@@ -12,7 +12,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* max-width: 1440px; */
 
 }
 
@@ -23,7 +22,6 @@ nav{
 }
 
 nav ul{
-    /* max-width: 1440px; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -35,8 +33,8 @@ nav a {
 }
 
 nav a:hover{
-    color: #000;
-    transition: 0.4s;
+    border-bottom: 2px solid #fff;
+    transition: 0.8s;
 }
 
 .btnStyle{
@@ -62,7 +60,6 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    /* max-width: 1440px; */
 
 }
 
@@ -103,7 +100,6 @@ main {
 
 .articlefun{
     display: flex;
-    height: 550px;
     align-items: center;
     justify-content: space-around;
 }
@@ -144,7 +140,7 @@ main {
 
 .articlefun {
     background-image: url('./assets/campo.jpg');
-    height: 550px;
+    height: 650px;
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -206,6 +202,7 @@ footer{
 }
 
 .footerPai{
+    border-top: solid 4px #fff;
     color: #fff;
     font-weight: 400;
     font-style: italic;
@@ -214,6 +211,7 @@ footer{
     justify-content: center;
     padding-top: 150px;
     font-size: 10px;
+    margin: 0px 40px;
 }
 
 .footerTextoRigth{
@@ -237,11 +235,30 @@ footer{
     flex-direction: column;
 }
 
-
-.BoxFilhoCard{
-    background-image: url('./assets/imagemmulher.jpg');
+#user2{
+    background-image: url('./assets/user2.jpg');
     background-repeat: no-repeat;
-    background-size: 150%;
+    background-size: 100%;
+    margin-top: 60px;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 50px;
+}
+#user1{
+    background-image: url('./assets/user1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 60px;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 50px;
+}
+#user3{
+    background-image: url('./assets/user3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
     margin-top: 60px;
     border-radius: 100%;
     width: 140px;
@@ -276,7 +293,7 @@ footer{
 }
 
 .parallax{
-    height: 200px;
+    height: 400px;
     background-image: url(./assets/imagemparallax.jpg);
     background-attachment: fixed;
     padding-top: 100px;
