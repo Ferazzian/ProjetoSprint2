@@ -61,6 +61,7 @@ function Login() {
         contador = 4;
         alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
         // continua para o site
+        window.location.replace('../Dashboard/dashboard.html')
     } else {
         input_email_login.value = ``;
         senha_login.value = ``;
