@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 nav {
@@ -29,12 +28,12 @@ nav ul {
 }
 
 nav a {
-    color: #fff;
+    color: white;
     transition: 0.4s;
 }
 
 nav a:hover {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid white;
     transition: 0.8s;
 }
 
@@ -63,7 +62,6 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-
 }
 
 .imgHome {
@@ -319,7 +317,6 @@ footer {
     color: #000000;
     font-weight: lighter;
     margin-bottom: 50px;
-
 }
 
 .parallax {
