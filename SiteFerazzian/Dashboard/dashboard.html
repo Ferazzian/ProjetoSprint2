@@ -22,9 +22,9 @@
           <span>Fazenda: AAC</span>
           <div id="select">
             <span>Hectare:</span>
-            <select name="hectare" id="hectare">
-              <option>1</option>
-              <option>2</option>
+            <select id="select_hectare" onchange="grafico()">
+              <option selected value="1">1</option>
+              <option value="2">2</option>
             </select>
           </div>
           <span>Tipo: Conservada</span>
@@ -71,13 +71,16 @@
               <h2>Umidade</h2><span>60%</span>
             </div>
             <div id="riscoKpi" class="KPI">
-              <h2>Risco</h2><span>Médio</span>
+              <h2>Risco</h2><span id="risco">Médio</span>
             </div>
           </div>
         </div>
 
-        <div class="grafico">
+        <div class="grafico" id="div1">
           <canvas id="dht11"></canvas>
+        </div>
+        <div class="grafico" id="div2">
+          <canvas id="dht11_2"></canvas>
         </div>
       </div>
   </div>
@@ -87,11 +90,30 @@
 </html>
 
 <script>
+  function grafico() {
+    var hectare = Number(select_hectare.value);
+    if (hectare == 1) {
+      div1.style.display = `unset`;
+      div2.style.display = `none`;
+      risco.innerHTML = `Médio`;
+      risco.style.color = `orange`;
+    } else if (hectare == 2) {
+      div1.style.display = `none`;
+      div2.style.display = `unset`;
+      risco.innerHTML = `Alto`;
+      risco.style.color = `red`;
+      alert('Alerta de risco');
+    }
+  }
   /* -- dht11Umidade -- */
   // Configuração do contexto para o gráfico de umidade do sensor DHT11
   var contextoDht11Umidade = document.getElementById('dht11').getContext('2d');
   contextoDht11Umidade.canvas.width = 1000;
   contextoDht11Umidade.canvas.height = 445;
+
+  var contextoDht11Umidade2 = document.getElementById('dht11_2').getContext('2d');
+  contextoDht11Umidade2.canvas.width = 1000;
+  contextoDht11Umidade2.canvas.height = 445;
   // Criação do gráfico de umidade do sensor DHT11
   var dht11 = new Chart(
     contextoDht11Umidade,
@@ -110,6 +132,80 @@
           label: 'Umidade', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [80, 82, 80, 85, 80, 60],
+          borderColor: ['blue'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [28, 28, 28, 28, 28, 28],
+          borderColor: ['red'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Temperatura Mínima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [18, 18, 18, 18, 18, 18],
+          borderColor: ['cyan'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Umidade Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [80, 80, 80, 80, 80, 80],
+          borderColor: ['orangered'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Umidade Mínima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [60, 60, 60, 60, 60, 60],
+          borderColor: ['lime'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Temperatura e Umidade'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_2 = new Chart(
+    contextoDht11Umidade2,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10,45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [{
+          label: 'Temperatura', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [18, 17, 18, 20, 22, 24],
+          borderColor: ['yellow'], // Cor da borda
+          // backgroundColor: ['yellow'] // Cor de fundo
+        },
+        {
+          label: 'Umidade', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [64, 70, 67, 60, 63, 70],
           borderColor: ['blue'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         },
