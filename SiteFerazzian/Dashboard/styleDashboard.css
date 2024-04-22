@@ -202,6 +202,10 @@ body {
   margin-top: 5px;
 }
 
+#riscoKpi span {
+  color: orange;
+}
+
 #tempKpi span {
   font-size: 32px;
 }

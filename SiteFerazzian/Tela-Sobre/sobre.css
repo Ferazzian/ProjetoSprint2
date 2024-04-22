@@ -4,6 +4,7 @@ body {
   background-image: url('assets/background.jpg');
   color: white;
   display: flex;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
 }

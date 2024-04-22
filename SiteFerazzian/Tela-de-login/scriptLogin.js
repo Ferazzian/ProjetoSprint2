@@ -60,7 +60,7 @@ function Login() {
     } else if (contador > 0) {
         contador = 4;
         alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
-        window.location.replace('../Dashboard/dashboard.html')
+        window.location.replace('../Dashboard/dashboard.html') // redireciona para a dashboard, caso seja efetuado o login
     } else {
         input_email_login.value = ``;
         senha_login.value = ``;

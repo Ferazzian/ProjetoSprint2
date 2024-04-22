@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 nav {
@@ -29,12 +28,12 @@ nav ul {
 }
 
 nav a {
-    color: #fff;
+    color: white;
     transition: 0.4s;
 }
 
 nav a:hover {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid white;
     transition: 0.8s;
 }
 
@@ -63,11 +62,10 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-
 }
 
 .imgHome {
-    background-image: url('/SiteFerazzian/assets/homeHeader.png');
+    background-image: url('../assets/homeHeader.png');
     height: 650px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -163,7 +161,7 @@ main {
 }
 
 .articlefun {
-    background-image: url('/SiteFerazzian/assets/campo.jpg');
+    background-image: url('../assets/campo.jpg');
     height: 650px;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -222,7 +220,7 @@ main {
 
 footer {
     height: 110px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgba(106, 105, 105, 0.9)), url("/SiteFerazzian/assets/homeHeader.png");
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgba(106, 105, 105, 0.9)), url("../assets/homeHeader.png");
     background-repeat: no-repeat;
     background-size: 100%;
     object-fit: fit;
@@ -247,7 +245,7 @@ footer {
 .articleBoxFeed {
     width: 400px;
     height: 570px;
-    background-image: url('/SiteFerazzian/assets/card\ background.png');
+    background-image: url('../assets/cardbackground.png');
     background-repeat: no-repeat;
     background-size: 150%;
 }
@@ -262,7 +260,7 @@ footer {
 }
 
 #user2 {
-    background-image: url('/SiteFerazzian/assets/user2.jpg');
+    background-image: url('../assets/user2.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     margin-top: 60px;
@@ -273,7 +271,7 @@ footer {
 }
 
 #user1 {
-    background-image: url('/SiteFerazzian/assets/user1.jpg');
+    background-image: url('../assets/user1.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     margin-top: 60px;
@@ -284,7 +282,7 @@ footer {
 }
 
 #user3 {
-    background-image: url('/SiteFerazzian/assets/user3.jpg');
+    background-image: url('../assets/user3.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     margin-top: 60px;
@@ -301,7 +299,7 @@ footer {
 }
 
 .BoxFilhoCardTexto h1 {
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .articleTextoFeed {
@@ -319,18 +317,19 @@ footer {
     color: #000000;
     font-weight: lighter;
     margin-bottom: 50px;
-
 }
 
 .parallax {
     display: flex;
     height: 400px;
-    background-image: url(/SiteFerazzian/assets/imagemparallax.jpg);
+    background-image: url('../assets/imagemparallax.jpg');
+    background-size: cover;
     background-attachment: fixed;
     letter-spacing: 49px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-repeat: no-repeat;
 }
 
 .parallax p {
