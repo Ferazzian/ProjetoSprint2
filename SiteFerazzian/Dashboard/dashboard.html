@@ -34,21 +34,6 @@
 
       <section class="legenda">
         <div class="conteudoLeg">
-          <h2>Filtros</h2>
-          <div class="filtrosChk">
-            <h3>Temperatura</h3>
-          <div ><input type="checkbox" class="checkbox"><span>Temperatura Máxima</span></div>
-          <br>
-          <div><input type="checkbox" class="checkbox"><span>Temperatura Mínima</span></div>
-
-          <h3>Umidade</h3>
-          <div><input type="checkbox" class="checkbox"><span>Umidade Máxima</span></div>
-          <br>
-          <div><input type="checkbox" class="checkbox"><span>Umidade Mínima</span></div>
-          </div>
-
-          <div class="linha"></div>
-
           <h2>Legenda</h2>
 
           <div id="conteudoLeg">
@@ -78,21 +63,21 @@
     <section class="dashboard">
       <div class="alinharGraficoKpi">
         <div class="alinharKpi">
-            <div>
-              <div id="tempKpi" class="KPI">
-                <h2>Temperatura</h2><span>29°C</span>
-              </div>
-              <div id="umidKpi" class="KPI">
-                <h2>Umidade</h2><span>60%</span>
-              </div>
-              <div id="riscoKpi" class="KPI">
-                <h2>Risco</h2><span>Médio</span>
-              </div>
+          <div>
+            <div id="tempKpi" class="KPI">
+              <h2>Temperatura</h2><span>29°C</span>
             </div>
+            <div id="umidKpi" class="KPI">
+              <h2>Umidade</h2><span>60%</span>
+            </div>
+            <div id="riscoKpi" class="KPI">
+              <h2>Risco</h2><span>Médio</span>
+            </div>
+          </div>
         </div>
 
         <div class="grafico">
-            <canvas id="dht11"></canvas>
+          <canvas id="dht11"></canvas>
         </div>
       </div>
   </div>
@@ -103,125 +88,125 @@
 
 <script>
   /* -- dht11Umidade -- */
-// Configuração do contexto para o gráfico de umidade do sensor DHT11
-var contextoDht11Umidade = document.getElementById('dht11').getContext('2d');
-contextoDht11Umidade.canvas.width = 1000;
-contextoDht11Umidade.canvas.height = 450;
-// Criação do gráfico de umidade do sensor DHT11
-var dht11 = new Chart(
-  contextoDht11Umidade,
-  {
-    type: 'line', // Tipo de gráfico: linha
-    data: {
-      labels: ['10,45', '10:46', '10:47', '10:58', '11:00', '12:00'],
-      datasets: [{
-        label: 'Temperatura', // Rótulo do conjunto de dados
-        type: 'line', // Tipo de linha
-        data: [30, 29, 28, 25, 22, 29],
-        borderColor: ['yellow'], // Cor da borda
-        // backgroundColor: ['yellow'] // Cor de fundo
-      },
-      {
-        label: 'Umidade', // Rótulo do conjunto de dados
-        type: 'line', // Tipo de linha
-        data: [80, 82, 80, 85, 80, 60],
-        borderColor: ['blue'], // Cor da borda
-        // backgroundColor: ['blue'] // Cor de fundo
-      },
-      {
-        label: 'Temperatura Máxima', // Rótulo do conjunto de dados
-        type: 'line', // Tipo de linha
-        data: [28, 28, 28 ,28, 28, 28],
-        borderColor: ['red'], // Cor da borda
-        // backgroundColor: ['blue'] // Cor de fundo
-      },
-      {
-        label: 'Temperatura Mínima', // Rótulo do conjunto de dados
-        type: 'line', // Tipo de linha
-        data: [18, 18, 18 ,18, 18, 18],
-        borderColor: ['cyan'], // Cor da borda
-        // backgroundColor: ['blue'] // Cor de fundo
-      },
-      {
-        label: 'Umidade Máxima', // Rótulo do conjunto de dados
-        type: 'line', // Tipo de linha
-        data: [80, 80, 80 ,80, 80, 80],
-        borderColor: ['orangered'], // Cor da borda
-        // backgroundColor: ['blue'] // Cor de fundo
-      },
-      {
-        label: 'Umidade Mínima', // Rótulo do conjunto de dados
-        type: 'line', // Tipo de linha
-        data: [60, 60, 60 ,60, 60, 60],
-        borderColor: ['lime'], // Cor da borda
-        // backgroundColor: ['blue'] // Cor de fundo
-      }],
-    },
-    options: {
-      scales: {
-        xAxes: [{
-          distribution: 'series', // Distribuição do eixo x
-          ticks: {
-            beginAtZero: true // Começar no zero
-          }
+  // Configuração do contexto para o gráfico de umidade do sensor DHT11
+  var contextoDht11Umidade = document.getElementById('dht11').getContext('2d');
+  contextoDht11Umidade.canvas.width = 1000;
+  contextoDht11Umidade.canvas.height = 445;
+  // Criação do gráfico de umidade do sensor DHT11
+  var dht11 = new Chart(
+    contextoDht11Umidade,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10,45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [{
+          label: 'Temperatura', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [30, 29, 28, 25, 22, 29],
+          borderColor: ['yellow'], // Cor da borda
+          // backgroundColor: ['yellow'] // Cor de fundo
+        },
+        {
+          label: 'Umidade', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [80, 82, 80, 85, 80, 60],
+          borderColor: ['blue'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [28, 28, 28, 28, 28, 28],
+          borderColor: ['red'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Temperatura Mínima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [18, 18, 18, 18, 18, 18],
+          borderColor: ['cyan'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Umidade Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [80, 80, 80, 80, 80, 80],
+          borderColor: ['orangered'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Umidade Mínima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [60, 60, 60, 60, 60, 60],
+          borderColor: ['lime'], // Cor da borda
+          // backgroundColor: ['blue'] // Cor de fundo
         }],
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Temperatura e Umidade'// Rótulo do eixo y
-          },
-          ticks: {
-            beginAtZero: true // Começar no zero
-          }
-        }]
       },
-      animation: {
-        duration: 0 // Duração da animação: 0 (desativado)
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Temperatura e Umidade'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
       }
     }
-  }
-);
+  );
 
-// Declaração de variáveis de controle
-var paginacao = {};
-var tempo = {};
-// Função para obter os dados dos sensores e atualizar os gráficos
-function obterDados(grafico, endpoint) {
-  // Requisição HTTP para obter os dados do endpoint
-  var http = new XMLHttpRequest();
-  http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
-  http.send(null);
-  // Parse dos valores recebidos
-  var valores = JSON.parse(http.responseText);
-  // Verificação e inicialização das variáveis de controle de paginação e tempo
-  if (paginacao[endpoint] == null) {
-    paginacao[endpoint] = 0;
-  }
-  if (tempo[endpoint] == null) {
-    tempo[endpoint] = 0;
-  }
-  // Exibir a partir do último elemento exibido anteriormente
-  var ultimaPaginacao = paginacao[endpoint];
-  paginacao[endpoint] = valores.length;
-  var valores = valores.slice(ultimaPaginacao);
-  // Atualização dos dados no gráfico
-  valores.forEach((valor) => {
-    // Máximo de 60 itens exibidos no gráfico
-    if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-      grafico.data.labels.shift();
-      grafico.data.datasets[0].data.shift();
+  // Declaração de variáveis de controle
+  var paginacao = {};
+  var tempo = {};
+  // Função para obter os dados dos sensores e atualizar os gráficos
+  function obterDados(grafico, endpoint) {
+    // Requisição HTTP para obter os dados do endpoint
+    var http = new XMLHttpRequest();
+    http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
+    http.send(null);
+    // Parse dos valores recebidos
+    var valores = JSON.parse(http.responseText);
+    // Verificação e inicialização das variáveis de controle de paginação e tempo
+    if (paginacao[endpoint] == null) {
+      paginacao[endpoint] = 0;
     }
+    if (tempo[endpoint] == null) {
+      tempo[endpoint] = 0;
+    }
+    // Exibir a partir do último elemento exibido anteriormente
+    var ultimaPaginacao = paginacao[endpoint];
+    paginacao[endpoint] = valores.length;
+    var valores = valores.slice(ultimaPaginacao);
+    // Atualização dos dados no gráfico
+    valores.forEach((valor) => {
+      // Máximo de 60 itens exibidos no gráfico
+      if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+        grafico.data.labels.shift();
+        grafico.data.datasets[0].data.shift();
+      }
 
-    // Adição dos novos valores aos dados do gráfico
-    grafico.data.labels.push(tempo[endpoint]++);
-    grafico.data.datasets[0].data.push(parseFloat(valor));
-    grafico.update(); // Atualização do gráfico
-  })
-}
+      // Adição dos novos valores aos dados do gráfico
+      grafico.data.labels.push(tempo[endpoint]++);
+      grafico.data.datasets[0].data.push(parseFloat(valor));
+      grafico.update(); // Atualização do gráfico
+    })
+  }
 
-// Chamada periódica para obter e atualizar os dados dos sensores nos gráficos
-setInterval(() => {
-  obterDados(dht11, 'dht11');
-  obterDados(chave, 'chave');
-}, 1000); // Intervalo de atualização: 1 segundo
+  // Chamada periódica para obter e atualizar os dados dos sensores nos gráficos
+  setInterval(() => {
+    obterDados(dht11, 'dht11');
+    obterDados(chave, 'chave');
+  }, 1000); // Intervalo de atualização: 1 segundo
 </script>

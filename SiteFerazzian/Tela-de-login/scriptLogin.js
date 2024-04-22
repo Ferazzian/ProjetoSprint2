@@ -49,23 +49,24 @@ function Login() {
     var nome_cadastro = input_nome_cadastro.value;
 
     if (email_login != email_cadastro || senha_login != senha_cadastro) {
-        email_login.value = ``;
-        senha_login.value = ``;
+        input_email_login.value = ``;
+        input_senha_login.value = ``;
         contador--;
         if (contador < 1) {
             alert("Conta bloqueada por motivos de segurança. Favor contactar gerente.");
         } else {
             alert(`Email ou senha incorretos. ${contador} chances restantes`);
         }
-    } else if (contador > 0) {
+    } else {
         contador = 4;
         alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
         window.location.replace('../Dashboard/dashboard.html') // redireciona para a dashboard, caso seja efetuado o login
-    } else {
-        input_email_login.value = ``;
-        senha_login.value = ``;
-        alert("Conta bloqueada por motivos de segurança. Favor contactar agente.");
     }
+    // } else {
+    //     input_email_login.value = ``;
+    //     senha_login.value = ``;
+    //     alert("Conta bloqueada por motivos de segurança. Favor contactar agente.");
+    // }
 }
 
 function Tela_Login() { // todo mundo left
