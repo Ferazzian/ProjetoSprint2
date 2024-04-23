@@ -23,7 +23,8 @@
           <div id="select">
             <span>Hectare:</span>
             <select id="select_hectare" onchange="grafico()">
-              <option selected value="1">1</option>
+              <option selected value="#">#</option>
+              <option  value="1">1</option>
               <option value="2">2</option>
             </select>
           </div>
@@ -65,21 +66,21 @@
         <div class="alinharKpi">
           <div>
             <div id="tempKpi" class="KPI">
-              <h2>Temperatura</h2><span>29°C</span>
+              <h2>Temperatura</h2><span id="temp"></span>
             </div>
             <div id="umidKpi" class="KPI">
-              <h2>Umidade</h2><span>60%</span>
+              <h2>Umidade</h2><span id="umid"></span>
             </div>
             <div id="riscoKpi" class="KPI">
-              <h2>Risco</h2><span id="risco">Médio</span>
+              <h2>Risco</h2><span id="risco"></span>
             </div>
           </div>
         </div>
 
-        <div class="grafico" id="div1">
+        <div class="grafico" id="div1" style="display: none;">
           <canvas id="dht11"></canvas>
         </div>
-        <div class="grafico" id="div2">
+        <div class="grafico" id="div2" style="display: none;">
           <canvas id="dht11_2"></canvas>
         </div>
       </div>
@@ -90,18 +91,30 @@
 </html>
 
 <script>
+
   function grafico() {
     var hectare = Number(select_hectare.value);
-    if (hectare == 1) {
+    if (hectare == '#') {
+      div1.style.display = `none`;
+      div2.style.display = `none`;
+      risco.innerHTML = `---`;
+      risco.style.color = `---`;
+
+    } else if (hectare == 1) {
       div1.style.display = `unset`;
       div2.style.display = `none`;
       risco.innerHTML = `Médio`;
       risco.style.color = `orange`;
+      temp.innerHTML = '29°C';
+      umid.innerHTML = '60%';
+
     } else if (hectare == 2) {
       div1.style.display = `none`;
       div2.style.display = `unset`;
       risco.innerHTML = `Alto`;
       risco.style.color = `red`;
+      temp.innerHTML = '24°C';
+      umid.innerHTML = '70%';
       alert('Alerta de risco');
     }
   }
@@ -136,31 +149,17 @@
           // backgroundColor: ['blue'] // Cor de fundo
         },
         {
-          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [28, 28, 28, 28, 28, 28],
-          borderColor: ['red'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
-        },
-        {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
-          borderColor: ['cyan'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
-        },
-        {
-          label: 'Umidade Máxima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [80, 80, 80, 80, 80, 80],
-          borderColor: ['orangered'], // Cor da borda
+          borderColor: ['red'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [60, 60, 60, 60, 60, 60],
-          borderColor: ['lime'], // Cor da borda
+          borderColor: ['orange'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         }],
       },
@@ -210,31 +209,17 @@
           // backgroundColor: ['blue'] // Cor de fundo
         },
         {
-          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [28, 28, 28, 28, 28, 28],
-          borderColor: ['red'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
-        },
-        {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
-          borderColor: ['cyan'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
-        },
-        {
-          label: 'Umidade Máxima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [80, 80, 80, 80, 80, 80],
-          borderColor: ['orangered'], // Cor da borda
+          borderColor: ['red'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [60, 60, 60, 60, 60, 60],
-          borderColor: ['lime'], // Cor da borda
+          borderColor: ['orange'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         }],
       },
