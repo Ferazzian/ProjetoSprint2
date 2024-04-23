@@ -4,7 +4,7 @@
 int dht_pin = A5;                    // nomeia o pino A5 conectado ao sensor
 DHT dht_1 = DHT(dht_pin, dht_type);  // cria o sensor dht_1 e envia para a biblioteca suas informações de modelo e pino
 
-void setup() {         // só acontece uma vez no código
+void setup() {         // só acontece uma vez no cc:\Users\coffe\OneDrive - SPTech School\P.I\ProjetoSprint2\projeto-ferazzian\Arduíno\DHT11___Sprint2Ferazzian\DHT11___Sprint2Ferazzian.inoódigo
   Serial.begin(9600);  // inicia o Serial.Monitor com uma taxa de 9600 baud rates
   dht_1.begin();       // inicia o sensor dht_1
 }
@@ -29,29 +29,9 @@ void loop() {
   }
 
   else {
-    Serial.print("Umidade:");
     Serial.print(umidade);
-    Serial.print(", ");
-    Serial.print("U_Máxima:");
-    Serial.print(umidadeMax);
-    Serial.print(", ");
-    Serial.print("U_Mínima:");
-    Serial.print(umidadeMin);
-    Serial.print(", ");
-    Serial.print("U_Mocada:");
-    Serial.print(umidadeMocada);
-    Serial.print(", ");
-    Serial.print("Temperatura:");
-    Serial.print(temperatura);
-    Serial.print(", ");
-    Serial.print("T_Máxima:");
-    Serial.print(temperaturaMax);
-    Serial.print(", ");
-    Serial.print("T_Mínima:");
-    Serial.print(temperaturaMin);
-    Serial.print(", ");
-    Serial.print("T_Mocada:");
-    Serial.println(temperaturaMocada);
+    Serial.print(",");
+    Serial.println(temperatura);
   }
-  delay(1000);  // faz uma leitura a cada 1 segundo
+  delay(5000);  // faz uma leitura a cada 1 segundo
 }

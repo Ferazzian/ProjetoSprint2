@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
   <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+  <script src="main.js" defer></script>
   <link rel="stylesheet" href="styleDashboard.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,8 +91,8 @@
 
 </html>
 
-<script>
 
+<script>
   function grafico() {
     var hectare = Number(select_hectare.value);
     if (hectare == '#') {
@@ -288,6 +289,5 @@
   // Chamada periódica para obter e atualizar os dados dos sensores nos gráficos
   setInterval(() => {
     obterDados(dht11, 'dht11');
-    obterDados(chave, 'chave');
-  }, 1000); // Intervalo de atualização: 1 segundo
+  }, 5000); // Intervalo de atualização: 5 segundo
 </script>

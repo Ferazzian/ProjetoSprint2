@@ -85,12 +85,10 @@ INSERT INTO parametro VALUES
 (3,'26','17','78','61',3);
 
 CREATE TABLE dadosSensor (
-  idDadosSensor INT AUTO_INCREMENT,
-  fkSensorDados INT, PRIMARY KEY (idDadosSensor, fkSensorDados), FOREIGN KEY (fkSensorDados) 
-  REFERENCES sensor(idSensor),
-  sensorTemp FLOAT,
-  sensorUmid FLOAT,
-  horaColeta DATETIME
+  idDadosSensor INT PRIMARY KEY AUTO_INCREMENT,
+  sensorTemp DECIMAL,
+  sensorUmid DECIMAL,
+  horaColeta DATETIME default current_timestamp
 );
 
 INSERT INTO dadosSensor VALUES

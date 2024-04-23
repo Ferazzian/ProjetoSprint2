@@ -1,5 +1,7 @@
 // Importa os módulos necessários
 // não altere!
+
+
 const serialport = require('serialport'); // Módulo para comunicação serial
 const express = require('express'); // Módulo para criar um servidor web
 const mysql = require('mysql2'); // Módulo para conectar ao MySQL
@@ -26,7 +28,7 @@ const serial = async (
         {
             // altere!
             // Credenciais do banco de dados
-            host: 'localhost',
+            host: '10.18.33.46',
             user: 'aluno',
             password: 'Sptech#2024',
             database: 'ferazzian',
@@ -57,12 +59,12 @@ const serial = async (
     // Processa os dados recebidos do Arduino
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         console.log(data);
-        const valores = data.split(';');
+        const valores = data.split(',');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
-        const lm35Temperatura = parseFloat(valores[2]);
-        const luminosidade = parseFloat(valores[3]);
-        const chave = parseInt(valores[4]);
+        // const lm35Temperatura = parseFloat(valores[2]);
+        // const luminosidade = parseFloat(valores[3]);
+        // const chave = parseInt(valores[4]);
 
         // Armazena os valores dos sensores nos arrays correspondentes
         valoresDht11Umidade.push(dht11Umidade);
@@ -75,7 +77,7 @@ const serial = async (
             // Este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
                 'INSERT INTO dadosSensor (sensorTemp, sensorUmid) VALUES (?, ?)',
-                [dht11Umidade, dht11Temperatura]
+                [dht11Temperatura, dht11Umidade]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
         
