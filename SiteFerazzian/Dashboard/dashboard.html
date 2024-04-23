@@ -24,7 +24,7 @@
             <span>Hectare:</span>
             <select id="select_hectare" onchange="grafico()">
               <option selected value="#">#</option>
-              <option  value="1">1</option>
+              <option value="1">1</option>
               <option value="2">2</option>
             </select>
           </div>
@@ -65,14 +65,14 @@
       <div class="alinharGraficoKpi">
         <div class="alinharKpi">
           <div>
+            <div id="riscoKpi" class="KPI">
+              <h2>Risco</h2><span id="risco"></span>
+            </div>
             <div id="tempKpi" class="KPI">
               <h2>Temperatura</h2><span id="temp"></span>
             </div>
             <div id="umidKpi" class="KPI">
               <h2>Umidade</h2><span id="umid"></span>
-            </div>
-            <div id="riscoKpi" class="KPI">
-              <h2>Risco</h2><span id="risco"></span>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
       div1.style.display = `unset`;
       div2.style.display = `none`;
       risco.innerHTML = `Médio`;
-      risco.style.color = `orange`;
+      risco.style.color = `orangered`;
       temp.innerHTML = '29°C';
       umid.innerHTML = '60%';
 
@@ -137,28 +137,35 @@
         datasets: [{
           label: 'Temperatura', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [30, 29, 28, 25, 22, 29],
+          data: [32, 34, 36, 32, 30, 35],
           borderColor: ['yellow'], // Cor da borda
           // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Umidade', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [80, 82, 80, 85, 80, 60],
+          data: [60, 62, 55, 61, 51, 55],
           borderColor: ['blue'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [28, 28, 28, 28, 28, 28],
+          borderColor: ['red'], // Cor da borda
+          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
-          borderColor: ['red'], // Cor da borda
+          borderColor: ['cyan'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [60, 60, 60, 60, 60, 60],
+          data: [80, 80, 80, 80, 80, 80],
           borderColor: ['orange'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         }],
@@ -204,22 +211,29 @@
         {
           label: 'Umidade', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [64, 70, 67, 60, 63, 70],
+          data: [80, 85, 80, 95, 85, 90],
           borderColor: ['blue'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [28, 28, 28, 28, 28, 28],
+          borderColor: ['red'], // Cor da borda
+          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
-          borderColor: ['red'], // Cor da borda
+          borderColor: ['cyan'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [60, 60, 60, 60, 60, 60],
-          borderColor: ['orange'], // Cor da borda
+          data: [80, 80, 80, 80, 80, 80],
+          borderColor: ['orangered'], // Cor da borda
           // backgroundColor: ['blue'] // Cor de fundo
         }],
       },
