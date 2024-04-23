@@ -3,7 +3,7 @@ use ferazzian;
 
 CREATE TABLE empresa (
   idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-  nomeFazenda VARCHAR(45),
+  nomeEmpresa VARCHAR(45),
   cep CHAR(9),
   cnpj CHAR(18),
   numero VARCHAR(45)
@@ -122,3 +122,12 @@ ON sensor.fkSensorFazenda = fazenda.idFazenda
 JOIN  dadosSensor 
 ON dadosSensor.fkSensorDados = sensor.idSensor
 WHERE idEmpresa = 1;
+
+
+
+select empresa.nomeFazenda as NomeEmpresa,
+fazenda.tipoSoja as TipoSoja,
+fazenda.dataColheita as DataColheita
+from empresa join fazenda on fazenda.fkEmpresaFazenda = empresa.idEmpresa; 
+
+
