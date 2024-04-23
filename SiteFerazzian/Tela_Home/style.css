@@ -106,6 +106,7 @@ main {
 .articleTextoFun {
     color: #fff;
     width: 50%;
+    margin-left: -650px;
 }
 
 .articleTextoFun h1 {

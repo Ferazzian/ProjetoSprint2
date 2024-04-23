@@ -1,4 +1,6 @@
 body {
+  padding: 0%;
+  margin: 0%;
   color: white;
   font-family: 'Inter', sans-serif;
   width: 100%;
@@ -8,10 +10,111 @@ body {
   overflow-x: hidden;
 }
 
+.Alerta {
+  margin-top: 25vh;
+  margin-left: 535px;
+  background-color: #395D05;
+  opacity: 70%;
+  width: 450px;
+  height: 250px;
+  text-align: center;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container_button_voltar {
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  border: solid black 2px;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  width: 80px;
+  height: 35px;
+  font-weight: bold;
+  background-color: #395D05;
+}
+
+.button:hover {
+  background-color: white;
+  color: #395D05;
+  border: 1px solid #000;
+  transition: 0.4s;
+}
+
+.tela_hectare {
+  display: unset;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.linha_header {
+  background-color: white;
+  margin-top: -0.57%;
+  width: 850px;
+  height: 2px;
+}
+
+.container_center {
+  margin-top: 20vh;
+  display: none;
+  justify-content: center;
+  height: 300px;
+}
+
+.caixa {
+  display: flex;
+  width: 550px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.hectare {
+  width: 150px;
+  height: 120px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hectare:hover {
+  cursor: pointer;
+}
+
+#hectare1 {
+  background-color: #395D05;
+}
+
+#hectare2 {
+  background-color: orange;
+}
+
+#hectare3 {
+  background-color: red;
+}
+
+.tela_grafico {
+  display: none;
+}
+
 .container {
   display: flex;
   width: 100%;
   height: 100%;
+  padding-left: 10px;
 }
 
 .legInf {
@@ -49,7 +152,7 @@ body {
 #select {
   display: flex;
   border-radius: 3px;
-  background-color:#395D05 ;
+  background-color: #395D05;
   width: 130px;
   align-items: center;
   justify-content: center;
@@ -100,9 +203,9 @@ body {
   border-radius: 4px;
   opacity: 90%;
   width: 1190px;
-  height: 660px;
+  height: 600px;
   margin-left: 20px;
-  
+
 }
 
 .linha {
@@ -126,26 +229,31 @@ body {
   height: 10px;
   background-color: yellow;
 }
+
 #vermelho {
   width: 10px;
   height: 10px;
   background-color: red;
 }
+
 #ciano {
   width: 10px;
   height: 10px;
   background-color: cyan;
 }
+
 #azul {
   width: 10px;
   height: 10px;
   background-color: blue;
 }
+
 #laranja {
   width: 10px;
   height: 10px;
   background-color: orangered;
 }
+
 #lemon {
   width: 10px;
   height: 10px;
@@ -195,9 +303,11 @@ body {
 #tempKpi h2 {
   margin-top: 5px;
 }
+
 #umidKpi h2 {
   margin-top: 5px;
 }
+
 #riscoKpi h2 {
   margin-top: 5px;
 }
@@ -209,12 +319,15 @@ body {
 #tempKpi span {
   font-size: 32px;
 }
+
 #umidKpi span {
   font-size: 32px;
 }
+
 #riscoKpi span {
   font-size: 32px;
 }
+
 #umidKpi {
   display: flex;
   flex-direction: column;
@@ -225,6 +338,7 @@ body {
   height: 100px;
   background-color: #395D05;
 }
+
 #riscoKpi {
   display: flex;
   flex-direction: column;
