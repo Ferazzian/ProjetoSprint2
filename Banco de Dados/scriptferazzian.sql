@@ -1,4 +1,3 @@
--- Active: 1713288107577@@127.0.0.1@3306@ferazzian
 create database ferazzian;
 use ferazzian;
 
@@ -7,14 +6,12 @@ CREATE TABLE empresa (
   nomeFazenda VARCHAR(45),
   cep CHAR(9),
   cnpj CHAR(18),
-  numero VARCHAR(45),
-  cidade VARCHAR(45),
-  bairro VARCHAR(45)
+  numero VARCHAR(45)
   );
 INSERT INTO empresa VALUES
-(default, 'Fazenda Bela Vista','12345-678','26.186.289/0001-79','122','São Paulo','Bela Vista'),
-(default, 'Fazenda Vista Verde','87654-321','26.186.289/0001-78','143','São Paulo','Vista Verde'),
-(default, 'Fazenda Santa Rita','54321-876','26.186.289/0001-77','333','São Paulo','Rural do Vale');
+(default, 'Fazenda Bela Vista','12345-678','26.186.289/0001-79','122'),
+(default, 'Fazenda Vista Verde','87654-321','26.186.289/0001-78','143'),
+(default, 'Fazenda Santa Rita','54321-876','26.186.289/0001-77','333');
 
 
 CREATE TABLE funcionario (
@@ -25,12 +22,13 @@ CREATE TABLE funcionario (
   REFERENCES empresa(idEmpresa),
   nomeFuncionario VARCHAR(45),
   cargo VARCHAR(45)
+  );
 
 INSERT INTO funcionario VALUES
 (1,'54198667767','1','Antonio','Supevisor'),
 (2,'35168661167','2','Renan','Gerente de Produção'),
 (3,'24138768717','3','Pedro','Supevisor');
-);
+
 
 CREATE TABLE usuario (
   idUsuario INT UNIQUE,
