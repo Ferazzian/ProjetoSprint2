@@ -76,9 +76,10 @@
         <section class="informacao">
           <div class="conteudoInf">
             <span>Fazenda: AAC</span>
-            <!-- <select id="select_grafico">
-              <option value="1"></option>
-            </select> -->
+            <select id="select_grafico" onchange="grafico_tipo()">
+              <option value="1">Gráficos Compilados</option>
+              <option value="2">Gráficos Separados</option>
+            </select>
             <span>Tipo: Conservada</span>
             <span>Hora da coleta: 12:00</span>
           </div>
@@ -166,18 +167,29 @@
     tela_hectare.style.display = `none`;
     tela_grafico.style.display = `unset`;
     dashboard.style.height = `640px`;
-    div1.style.display = `unset`;
+    div1.style.display = `none`;
     div2.style.display = `none`;
     div3.style.display = `none`;
-    div4.style.display = `unset`;
-    div5.style.display = `none`;
+    div4.style.display = `none`;
+    div5.style.display = `unset`;
     risco.innerHTML = `Baixo`;
     risco.style = `color: white`;
     riscoKpi.style = `background-color: #395D05`;
     temp.innerHTML = '35°C';
     umid.innerHTML = '48%';
+  }
 
-    var select = Number(select_grafico.value);
+  function grafico_tipo() {
+    var select = select_grafico.value;
+    if (select == "1") {
+      div1.style.display = `none`;
+      div4.style.display = `none`;
+      div5.style.display = `unset`;
+    } else {
+      div1.style.display = `unset`;
+      div4.style.display = `unset`;
+      div5.style.display = `none`;
+    }
   }
 
   function hectare2() {
