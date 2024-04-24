@@ -359,7 +359,6 @@
           {
             label: 'Umidade', // Rótulo do conjunto de dados
             type: 'line', // Tipo de linha
-            data: [60, 62, 55, 61, 51, 48],
             borderColor: ['blue'], // Cor da borda
           },
           {
@@ -557,6 +556,7 @@
 
   // Chamada periódica para obter e atualizar os dados dos sensores nos gráficos
   setInterval(() => {
-    obterDados(dht11, 'dht11');
+    obterDados(dht11_1U, 'dht11/umidade');
+    obterDados(dht11_1T, 'dht11/temperatura');
   }, 5000); // Intervalo de atualização: 5 segundo
 </script>
