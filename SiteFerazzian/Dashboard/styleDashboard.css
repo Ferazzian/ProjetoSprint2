@@ -116,11 +116,11 @@ body {
 }
 
 #hectare1 {
-  background-color: #395D05;
+  background-color: orange;
 }
 
 #hectare2 {
-  background-color: orange;
+  background-color: #395D05;
 }
 
 #hectare3 {
@@ -230,12 +230,22 @@ body {
 
 .container_grafico {
   display: flex;
-  /* width: 1150px; */
-  /* height: 500px; */
   justify-content: space-around;
 }
 
-#div1 {
+#div1T {
+  margin-right: 10px;
+  border-right: solid white 2px;
+  padding-right: 15px;
+}
+
+#div2T {
+  margin-right: 10px;
+  border-right: solid white 2px;
+  padding-right: 15px;
+}
+
+#div3T {
   margin-right: 10px;
   border-right: solid white 2px;
   padding-right: 15px;
