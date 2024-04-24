@@ -4,36 +4,49 @@ function Cadastro() {
     var telefone_cadastro = input_telefone_cadastro.value;
     var senha_cadastro = input_senha_cadastro.value;
     var confirmar_cadastro = input_confirmar_senha_cadastro.value;
+    var cpf = input_cpf.value;
+    var empresa = input_selecionar_empresa_cadastro.value;
 
+    var tamanho_email = email_cadastro.length;
     var arroba = email_cadastro.indexOf('@');
-    var com = email_cadastro.indexOf('.com');
-    var br = email_cadastro.indexOf('.br');
+    var ponto = email_cadastro.indexOf('.');
     var tamanho_senha = senha_cadastro.length;
+    var tamanho_cpf = cpf.length;
 
-    if (arroba < 0) {
-        alert('Seu email deve possuir @.');
-    }
-    if (com < 0 && br < 0) {
-        alert('Seu email deve acabar em .com ou .br.');
-
+    if (nome_cadastro == "") {
+        input_nome_cadastro.value = ``;
+        input_nome_cadastro.placeholder = `O campo 'nome' é necessário para cadastro.`;
+    } else if (arroba < 0 || ponto < 0) {
+        input_email_cadastro.value = ``;
+        input_email_cadastro.placeholder = `O campo 'email' está inválido.`;
+    } else if (tamanho_email < 5) {
+        input_email_cadastro.value = ``;
+        input_email_cadastro.placeholder = `O campo 'email' está inválido.`;
+    } else if (telefone_cadastro == "") {
+        input_telefone_cadastro.placeholder = `O campo 'telefone' é necessário para cadastro.`;
     } else if (tamanho_senha < 8) {
-        senha_cadastro.value = ``;
-        alert('Senha muito fraca. Utilize letras, números e caracteres especiais para proteger sua senha.');
+        input_senha_cadastro.placeholder = `Senha muito fraca. Necessário no mínimo 8 caracteres.`;
 
     } else if (senha_cadastro != confirmar_cadastro) {
         input_senha_cadastro.value = ``;
         input_confirmar_senha_cadastro.value = ``;
-        alert("Falha ao autenticar senha.");
+        input_senha_cadastro.placeholder = `Falha ao autenticar senha.`;
+        input_confirmar_senha_cadastro.placeholder = `Falha ao autenticar senha.`;
+    } else if (cpf == "") {
+        input_cpf.placeholder = `O campo 'CPF' é necessário para cadastro.`;
 
-    } else if (telefone_cadastro == "") {
-        alert("Necessário um telefone para contato.");
-        
+    } else if (tamanho_cpf < 11) {
+        input_cpf.value = ``;
+        input_cpf.placeholder = `O campo 'CPF' está inválido.`;
+    } else if (empresa == "#") {
+        alert("O campo 'empresa' é necessário para cadastro");
     } else {
         nome_cadastro.value = ``;
         email_cadastro.value = ``;
         telefone_cadastro.value = ``;
         senha_cadastro.value = ``;
         confirmar_cadastro.value = ``;
+        cpf.value = ``;
         alert(`${nome_cadastro}, uma mensagem foi enviada para o número ${telefone_cadastro} e um email para ${email_cadastro}`);
         Tela_Cadastro();
     }
