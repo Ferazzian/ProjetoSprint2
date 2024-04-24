@@ -14,12 +14,11 @@ void loop() {
   // cria variaveis de valor decimal (float) que armazena os dados captados pelo sensor
   float umidade = dht_1.readHumidity();  // %
   float umidadeMocada = umidade - 48;
-  int umidadeMax = 62;
-  int umidadeMin = 58;
+  int umidadeMin = 80;
 
   float temperatura = dht_1.readTemperature();  // C°
   float temperaturaMocada = temperatura - 5.5;
-  int temperaturaMax = 28;
+  int temperaturaMax = 26;
   int temperaturaMin = 18;
 
   ///////////////////////////////////////////////////////////////
