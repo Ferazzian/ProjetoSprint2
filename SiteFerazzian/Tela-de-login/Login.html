@@ -10,11 +10,13 @@
 </head>
 
 <body>
-    <div class="CadastroLeft" id="CadastroLeft"></div>
-    <div class="CadastroRight" id="CadastroRight"></div>
-    <div class="Cadastro" id="tela_cadastro">
-        <div class="container_button_voltar_login"> <a href="../Tela_Home/index.html">
-                <button class="button_voltar">Voltar</button></a>
+    <div class="CadastroLeft" id="CadastroLeft"></div> <!-- Animação para enviar para esquerda -->
+    <div class="CadastroRight" id="CadastroRight"></div> <!-- Animação para enviar para direita -->
+    <div class="Cadastro" id="tela_cadastro"> <!-- Divisória que envolve metade da tela -->
+        <div class="container_button_voltar_login">
+            <a href="../Tela_Home/index.html">
+                <button class="button_voltar">Voltar</button> <!-- Botão que envia para a tela home -->
+            </a>
         </div>
 
         <div class="headerLogin">
@@ -34,12 +36,12 @@
                 <div class="container_button">
                     <button class="button" onclick="Login()">Entrar</button>
                     <p onclick="Esqueci()" class="Esqueci">Esqueci minha senha</p>
-                    <p onclick="Tela_Login()" class="buttonLogin">Criar uma conta</p>
+                    <p onclick="Tela_Login()" class="buttonLogin">Criar uma conta</p> <!-- Todas as telas vão para esquerda -->
                 </div>
             </div>
         </div>
     </div>
-    <div class="Nome">
+    <div class="Nome"> <!-- Divisória que envolve metade da tela -->
         <div class="headerNome">
             <h1>FERAZZIAN</h1>
         </div>
@@ -48,7 +50,7 @@
         </div>
     </div>
 
-    <div class="LoginLeft" id="tela_login_left">
+    <div class="LoginLeft" id="tela_login_left"> <!-- Divisória que envolve é enviada para esquerda metade da tela e recebe valores -->
         <div class="headerCadastro">
             <h1>CADASTRO</h1>
         </div>
@@ -74,6 +76,7 @@
                 <p class="pCadastro">CPF:</p>
                 <input class="input_Cadastro" type="number" id="input_cpf">
 
+                <p class="pCadastro">Empresa:</p>
                 <select class="input_Cadastro" id="input_selecionar_empresa_cadastro">
                     <option value="#">SELECIONE SUA EMPRESA</option>
                     <option value="1">EMPRESA 1</option>
@@ -84,13 +87,14 @@
 
                 <div class="container_button">
                     <button class="button" onclick="Cadastro()">Cadastre-se</button>
-                    <p onclick="Tela_Cadastro()" class="buttonLogin">Já tenho uma conta</p>
+                    <p onclick="Tela_Cadastro()" class="buttonLogin">Já tenho uma conta</p> <!-- Todas as telas vão para direita -->
                 </div>
             </div>
         </div>
     </div>
 
     <div class="LoginRight" id="tela_login_right">
+        <!-- Divisória que envolve é enviada para direita metade da tela e não recebe valores -->
         <div class="headerCadastro">
             <h1>CADASTRO</h1>
         </div>
@@ -102,7 +106,7 @@
 
                 <p class="pCadastro">Email:</p>
                 <input class="input_Cadastro" type="email""
-                    placeholder=" Ex: jose1234@email.com">
+                    placeholder="Ex: jose1234@email.com">
 
                 <p class="pCadastro">Telefone:</p>
                 <input class="input_Cadastro" type="tel">
@@ -116,12 +120,13 @@
                 <p class="pCadastro">CPF:</p>
                 <input class="input_Cadastro" type="number">
 
+                <p class="pCadastro">Empresa:</p>
                 <select class="input_Cadastro" id="input_selecionar_empresa_cadastro1">
-                    <option >SELECIONE SUA EMPRESA</option>
-                    <option >EMPRESA 1</option>
-                    <option >EMPRESA 2</option>
-                    <option >EMPRESA 3</option>
-                    <option >EMPRESA 4</option>
+                    <option>SELECIONE SUA EMPRESA</option>
+                    <option>EMPRESA 1</option>
+                    <option>EMPRESA 2</option>
+                    <option>EMPRESA 3</option>
+                    <option>EMPRESA 4</option>
                 </select>
 
                 <div class="container_button">

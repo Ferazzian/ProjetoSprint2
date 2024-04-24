@@ -34,7 +34,7 @@ nav a {
 
 nav a:hover {
     font-weight: bold;
-    transition: 0.8s;
+    transition: 0.4s;
 }
 
 .btnStyle {
