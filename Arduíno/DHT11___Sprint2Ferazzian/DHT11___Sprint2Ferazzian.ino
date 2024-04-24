@@ -13,14 +13,14 @@ void loop() {
 
   // cria variaveis de valor decimal (float) que armazena os dados captados pelo sensor
   float umidade = dht_1.readHumidity();  // %
+  float umidadeMocada = umidade - 48;
   int umidadeMax = 62;
   int umidadeMin = 58;
-  float umidadeMocada = umidade - 48;
 
   float temperatura = dht_1.readTemperature();  // C°
+  float temperaturaMocada = temperatura - 5.5;
   int temperaturaMax = 28;
   int temperaturaMin = 18;
-  float temperaturaMocada = temperatura - 5.5;
 
   ///////////////////////////////////////////////////////////////
   // Se não houver leitura, ele exibi uma mensagem de erro   "is nan" = "é nulo", escreve a frase de erro no monitor e pula linha com "ln"
@@ -29,9 +29,9 @@ void loop() {
   }
 
   else {
-    Serial.print(umidade);
-    Serial.print(",");
-    Serial.println(temperatura);
+    Serial.print(temperatura);
+    Serial.print(";");
+    Serial.println(umidade);
   }
-  delay(5000);  // faz uma leitura a cada 1 segundo
+  delay(5000);  // faz uma leitura a cada 5 segundo
 }
