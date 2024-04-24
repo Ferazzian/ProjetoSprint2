@@ -76,10 +76,6 @@
         <section class="informacao">
           <div class="conteudoInf">
             <span>Fazenda: AAC</span>
-            <select id="select_grafico" onchange="grafico_tipo()">
-              <option value="1">Gráficos Compilados</option>
-              <option value="2">Gráficos Separados</option>
-            </select>
             <span>Tipo: Conservada</span>
             <span>Hora da coleta: 12:00</span>
           </div>
@@ -129,10 +125,6 @@
             </div>
           </div>
           <div class="container_grafico">
-            <div class="grafico" id="div5" style="display: none;">
-              <canvas id="dht11_1TU"></canvas>
-            </div>
-
             <div class="grafico" id="div1" style="display: none;">
               <canvas id="dht11_1T"></canvas>
             </div>
@@ -167,29 +159,15 @@
     tela_hectare.style.display = `none`;
     tela_grafico.style.display = `unset`;
     dashboard.style.height = `640px`;
-    div1.style.display = `none`;
+    div1.style.display = `unset`;
     div2.style.display = `none`;
     div3.style.display = `none`;
-    div4.style.display = `none`;
-    div5.style.display = `unset`;
+    div4.style.display = `unset`;
     risco.innerHTML = `Baixo`;
     risco.style = `color: white`;
     riscoKpi.style = `background-color: #395D05`;
     temp.innerHTML = '35°C';
     umid.innerHTML = '48%';
-  }
-
-  function grafico_tipo() {
-    var select = select_grafico.value;
-    if (select == "1") {
-      div1.style.display = `none`;
-      div4.style.display = `none`;
-      div5.style.display = `unset`;
-    } else {
-      div1.style.display = `unset`;
-      div4.style.display = `unset`;
-      div5.style.display = `none`;
-    }
   }
 
   function hectare2() {
@@ -229,10 +207,6 @@
 
   /* -- dht11Umidade -- */
   // Configuração do contexto para o gráfico de umidade do sensor DHT11
-  var contextoDht11Umidade1TU = document.getElementById('dht11_1TU').getContext('2d');
-  contextoDht11Umidade1TU.canvas.width = 1000;
-  contextoDht11Umidade1TU.canvas.height = 430;
-
   var contextoDht11Umidade1T = document.getElementById('dht11_1T').getContext('2d');
   contextoDht11Umidade1T.canvas.height = 260;
 
@@ -248,68 +222,6 @@
   contextoDht11Umidade3.canvas.height = 430;
 
   // Criação do gráfico de umidade do sensor DHT11
-  var dht11_1TU = new Chart(
-    contextoDht11Umidade1TU,
-    {
-      type: 'line', // Tipo de gráfico: linha
-      data: {
-        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
-        datasets: [{
-          label: 'Temperatura', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [32, 34, 36, 32, 30, 35],
-          borderColor: ['yellow'], // Cor da borda
-        },
-        {
-          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [28, 28, 28, 28, 28, 28],
-          borderColor: ['red'], // Cor da borda
-        },
-        {
-          label: 'Temperatura Mínima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [18, 18, 18, 18, 18, 18],
-          borderColor: ['cyan'], // Cor da borda
-        },
-        {
-          label: 'Umidade', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [60, 62, 55, 61, 51, 48],
-          borderColor: ['blue'], // Cor da borda
-        },
-        {
-          label: 'Umidade Mínima', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [80, 80, 80, 80, 80, 80],
-          borderColor: ['orange'], // Cor da borda
-        }],
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            distribution: 'series', // Distribuição do eixo x
-            ticks: {
-              beginAtZero: true // Começar no zero
-            }
-          }],
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'TEMPERATURA E UMIDADE'// Rótulo do eixo y
-            },
-            ticks: {
-              beginAtZero: true // Começar no zero
-            }
-          }]
-        },
-        animation: {
-          duration: 0 // Duração da animação: 0 (desativado)
-        }
-      }
-    }
-  );
-
   var dht11_1T = new Chart(
     contextoDht11Umidade1T,
     {
