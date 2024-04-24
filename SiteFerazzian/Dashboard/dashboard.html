@@ -54,13 +54,14 @@
         </div>
       </div>
     </div>
-    <div class="Alerta" id="alerta">
-      <center>
-        <h3>O monitoramento da FERAZZIAN detectou hectares com risco de desenvolvimento da Ferrugem Asiática. Clique
-          para
-          continuar</h3>
-        <button class="button" onclick="informado()">Continuar</button>
-      </center>
+    <div class="container_alerta" id="container_alerta">
+      <div class="Alerta" id="alerta">
+        <center>
+          <h3>O monitoramento da FERAZZIAN detectou hectares com risco de desenvolvimento da Ferrugem Asiática.</h3>
+          <h3 class="h3">Clique para continuar:</h3>
+          <button class="button_continuar" onclick="informado()">Continuar</button>
+        </center>
+      </div>
     </div>
   </div>
 
@@ -145,7 +146,7 @@
 <script>
 
   function informado() {
-    alerta.style.display = `none`;
+    container_alerta.style.display = `none`;
     container_hectare.style.display = `flex`;
   }
 
