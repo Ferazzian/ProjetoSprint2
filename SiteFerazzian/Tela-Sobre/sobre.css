@@ -9,7 +9,7 @@ body {
   overflow-y: hidden;
 }
 
-.btnStyle{
+.btnStyle {
   background-color: #395D05;
   height: 30px;
   width: 90px;
@@ -26,35 +26,38 @@ a {
   height: 30px;
 }
 
-.btnStyle:hover{
+.btnStyle:hover {
   background-color: white;
   color: #395D05;
   border: 1px solid #000;
   transition: 0.4s;
 }
 
+.container_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #titulo {
   font-size: 50px;
-  font-weight:900;
-  color: #C4DC65;
-  padding-left: 245px;
-  margin-bottom: -8px;
+  font-weight: 900;
+  color: white;
 }
 
 #linha {
-  margin-top: 10px;
-  background-color: #C4DC65;
-  width: 355px;
+  margin-top: -20px;
+  background-color: white;
+  width: 420px;
   height: 2px;
-  margin-left: 245px;
   margin-bottom: 50px;
 }
+
 .conteudo {
-  height: fit-content;
-  width: 840px;
-  margin: 20px;
-  font-size: 30px;
+  height: 500px;
+  margin-top: -25px;
+  margin-left: 15px;
+  font-size: 25px;
 }
 
 img {

@@ -10,7 +10,29 @@ body {
   overflow-x: hidden;
 }
 
-.btnStyle{
+.container_header {
+  margin-top: -30px;
+  width: 1040px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#titulo {
+  font-size: 50px;
+  font-weight: 900;
+  color: white;
+}
+
+#linha {
+  margin-top: -20px;
+  background-color: white;
+  width: 510px;
+  height: 2px;
+  margin-bottom: 50px;
+}
+
+.btnStyle {
   background-color: #395D05;
   height: 30px;
   width: 90px;
@@ -26,39 +48,28 @@ a {
   margin: 10px;
 }
 
-.btnStyle:hover{
+.btnStyle:hover {
   background-color: white;
   color: #395D05;
   border: 1px solid #000;
   transition: 0.4s;
 }
 
-#titulo {
-  font-size: 50px;
-  font-weight:900;
-  color: #C4DC65;
-  padding-left: 245px;
-  margin-bottom: -8px;
+#lista {
+  margin-top: -30px;
 }
 
-#linha {
-  margin-top: 10px;
-  background-color: #C4DC65;
-  width: 450px;
-  height: 2px;
-  margin-left: 245px;
-  margin-bottom: 50px;
-}
 .conteudo {
   height: fit-content;
   width: 840px;
-  margin: 20px;
+  margin-left: 20px;
 }
 
 .h2 {
-  font-size: 25px;
+  margin-left: 20px;
+  font-size: 28px;
 }
 
 .conteudo p {
-  font-size: 28px;
+  font-size: 22px;
 }

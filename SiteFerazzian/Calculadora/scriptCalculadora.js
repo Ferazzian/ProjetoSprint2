@@ -24,13 +24,13 @@ function calcular() {
     } else {
         div1.innerHTML = `
             <span class="H2">Simulando:</span>
-            <span>Ao não utilizar nossos processos de monitoramento, você tem uma perda de <span class="perda">R$${perda.toFixed(2).replaceAll('.', ',')}</span> por hectare pela Ferrugem Asiática
+            <span>Ao não utilizar nossos processos de monitoramento, você tem uma perda de <span class="perda">R$${perda.toFixed(2).replaceAll('.', ',')}</span> por hectare pela Ferrugem Asiática.
             <br>
             Já com o nosso monitoramento, você perde <span class="ganho">R$${perda20.toFixed(2).replaceAll('.', ',')}</span> por hectare, elevando os lucros de <span class="perda">R$${total2.toFixed(2).replaceAll('.', ',')}</span> para <span class="ganho">R$${final.toFixed(2).replaceAll('.', ',')}</span>
             <br><br>
             <span class="H2">Como Funciona?</span>
             <br><br>
-            Com nossos serviços de monitoramento da temperatura e umidade de sua plantação, há uma diminuição percentual de 10% na perda pela Ferrugem Asiática, gerando um retorno de 20% de lucro.</span>
+            Com nossos serviços de monitoramento da temperatura e umidade de sua plantação, há uma diminuição percentual de 10% na perda pela Ferrugem Asiática, o que pode triplicar o lucro.</span>
             `
     }
 }
