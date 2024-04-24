@@ -5,8 +5,8 @@ function calcular() {
     var PerdaHec = Number(input_perda.value); // perdas por cada hectare
 
     if (PerdaHec == '') {
-        PerdaHec = Number(50);
-        input_perda.placeholder = `Em média, 50%`;
+        PerdaHec = Number(90);
+        input_perda.placeholder = `Em média, 90%`;
     }
 
     var perda = (PerdaHec * Faturamento) / 100; // encontra a porcentagem da perda dentro do faturamento
@@ -30,7 +30,7 @@ function calcular() {
             <br><br>
             <span class="H2">Como Funciona?</span>
             <br><br>
-            Com nossos serviços de monitoramento da temperatura e umidade de sua plantação, há uma diminuição percentual de 10% na perda pela Ferrugem Asiática, o que pode triplicar o lucro.</span>
+            Com nossos serviços de monitoramento da temperatura e umidade de sua plantação, há uma diminuição percentual de 20% na perda pela Ferrugem Asiática, o que pode triplicar o lucro.</span>
             `
     }
 }

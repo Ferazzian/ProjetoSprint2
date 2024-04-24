@@ -224,9 +224,21 @@ body {
   border-radius: 4px;
   opacity: 90%;
   width: 1190px;
-  height: 600px;
+  height: 650px;
   margin-left: 20px;
+}
 
+.container_grafico {
+  display: flex;
+  /* width: 1150px; */
+  /* height: 500px; */
+  justify-content: space-around;
+}
+
+#div1 {
+  margin-right: 10px;
+  border-right: solid white 2px;
+  padding-right: 15px;
 }
 
 .linha {

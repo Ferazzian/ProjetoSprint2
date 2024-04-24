@@ -76,6 +76,9 @@
         <section class="informacao">
           <div class="conteudoInf">
             <span>Fazenda: AAC</span>
+            <!-- <select id="select_grafico">
+              <option value="1"></option>
+            </select> -->
             <span>Tipo: Conservada</span>
             <span>Hora da coleta: 12:00</span>
           </div>
@@ -109,7 +112,7 @@
         </section>
       </div>
 
-      <section class="dashboard">
+      <section class="dashboard" id="dashboard">
         <div class="alinharGraficoKpi">
           <div class="alinharKpi">
             <div>
@@ -124,11 +127,19 @@
               </div>
             </div>
           </div>
+          <div class="container_grafico">
+            <div class="grafico" id="div5" style="display: none;">
+              <canvas id="dht11_1TU"></canvas>
+            </div>
 
-          <div class="grafico" id="div1" style="display: none;">
-            <canvas id="dht11_1"></canvas>
+            <div class="grafico" id="div1" style="display: none;">
+              <canvas id="dht11_1T"></canvas>
+            </div>
+
+            <div class="grafico" id="div4" style="display: none;">
+              <canvas id="dht11_1U"></canvas>
+            </div>
           </div>
-
           <div class="grafico" id="div2" style="display: none;">
             <canvas id="dht11_2"></canvas>
           </div>
@@ -154,14 +165,19 @@
   function hectare1() {
     tela_hectare.style.display = `none`;
     tela_grafico.style.display = `unset`;
+    dashboard.style.height = `640px`;
     div1.style.display = `unset`;
     div2.style.display = `none`;
     div3.style.display = `none`;
+    div4.style.display = `unset`;
+    div5.style.display = `none`;
     risco.innerHTML = `Baixo`;
     risco.style = `color: white`;
     riscoKpi.style = `background-color: #395D05`;
     temp.innerHTML = '35°C';
     umid.innerHTML = '48%';
+
+    var select = Number(select_grafico.value);
   }
 
   function hectare2() {
@@ -170,6 +186,8 @@
     div1.style.display = `none`;
     div2.style.display = `unset`;
     div3.style.display = `none`;
+    div4.style.display = `none`;
+    div5.style.display = `none`;
     risco.innerHTML = `Médio`;
     risco.style = `color: white`;
     riscoKpi.style = `background-color: orange`;
@@ -183,6 +201,8 @@
     div1.style.display = `none`;
     div2.style.display = `none`;
     div3.style.display = `unset`;
+    div4.style.display = `none`;
+    div5.style.display = `none`;
     risco.innerHTML = `<b>ALTO</b>`;
     risco.style = `color: white`;
     riscoKpi.style = `background-color: red`;
@@ -197,20 +217,27 @@
 
   /* -- dht11Umidade -- */
   // Configuração do contexto para o gráfico de umidade do sensor DHT11
-  var contextoDht11Umidade1 = document.getElementById('dht11_1').getContext('2d');
-  contextoDht11Umidade1.canvas.width = 1000;
-  contextoDht11Umidade1.canvas.height = 445;
+  var contextoDht11Umidade1TU = document.getElementById('dht11_1TU').getContext('2d');
+  contextoDht11Umidade1TU.canvas.width = 1000;
+  contextoDht11Umidade1TU.canvas.height = 430;
+
+  var contextoDht11Umidade1T = document.getElementById('dht11_1T').getContext('2d');
+  contextoDht11Umidade1T.canvas.height = 260;
+
+  var contextoDht11Umidade1U = document.getElementById('dht11_1U').getContext('2d');
+  contextoDht11Umidade1U.canvas.height = 260;
 
   var contextoDht11Umidade2 = document.getElementById('dht11_2').getContext('2d');
   contextoDht11Umidade2.canvas.width = 1000;
-  contextoDht11Umidade2.canvas.height = 445;
+  contextoDht11Umidade2.canvas.height = 430;
 
   var contextoDht11Umidade3 = document.getElementById('dht11_3').getContext('2d');
   contextoDht11Umidade3.canvas.width = 1000;
-  contextoDht11Umidade3.canvas.height = 445;
+  contextoDht11Umidade3.canvas.height = 430;
+
   // Criação do gráfico de umidade do sensor DHT11
-  var dht11_1 = new Chart(
-    contextoDht11Umidade1,
+  var dht11_1TU = new Chart(
+    contextoDht11Umidade1TU,
     {
       type: 'line', // Tipo de gráfico: linha
       data: {
@@ -220,35 +247,30 @@
           type: 'line', // Tipo de linha
           data: [32, 34, 36, 32, 30, 35],
           borderColor: ['yellow'], // Cor da borda
-          // backgroundColor: ['yellow'] // Cor de fundo
-        },
-        {
-          label: 'Umidade', // Rótulo do conjunto de dados
-          type: 'line', // Tipo de linha
-          data: [60, 62, 55, 61, 51, 48],
-          borderColor: ['blue'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Temperatura Máxima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [28, 28, 28, 28, 28, 28],
           borderColor: ['red'], // Cor da borda
-          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
           borderColor: ['cyan'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
+        },
+        {
+          label: 'Umidade', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [60, 62, 55, 61, 51, 48],
+          borderColor: ['blue'], // Cor da borda
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [80, 80, 80, 80, 80, 80],
           borderColor: ['orange'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         }],
       },
       options: {
@@ -262,7 +284,103 @@
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Temperatura e Umidade'// Rótulo do eixo y
+              labelString: 'TEMPERATURA E UMIDADE'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_1T = new Chart(
+    contextoDht11Umidade1T,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [{
+          label: 'Temperatura', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [32, 34, 36, 32, 30, 35],
+          borderColor: ['yellow'], // Cor da borda
+        },
+        {
+          label: 'Temperatura Máxima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [28, 28, 28, 28, 28, 28],
+          borderColor: ['red'], // Cor da borda
+        },
+        {
+          label: 'Temperatura Mínima', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [18, 18, 18, 18, 18, 18],
+          borderColor: ['cyan'], // Cor da borda
+        },
+        ],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'TEMPERATURA'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_1U = new Chart(
+    contextoDht11Umidade1U,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [
+          {
+            label: 'Umidade', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: [60, 62, 55, 61, 51, 48],
+            borderColor: ['blue'], // Cor da borda
+          },
+          {
+            label: 'Umidade Mínima', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: [80, 80, 80, 80, 80, 80],
+            borderColor: ['orange'], // Cor da borda
+          }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'UMIDADE'// Rótulo do eixo y
             },
             ticks: {
               beginAtZero: true // Começar no zero
@@ -287,35 +405,30 @@
           type: 'line', // Tipo de linha
           data: [18, 17, 18, 20, 22, 24],
           borderColor: ['yellow'], // Cor da borda
-          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Umidade', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [60, 62, 55, 61, 51, 55],
           borderColor: ['blue'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Temperatura Máxima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [28, 28, 28, 28, 28, 28],
           borderColor: ['red'], // Cor da borda
-          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
           borderColor: ['cyan'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [80, 80, 80, 80, 80, 80],
           borderColor: ['orangered'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         }],
       },
       options: {
@@ -354,35 +467,30 @@
           type: 'line', // Tipo de linha
           data: [18, 17, 18, 20, 22, 22],
           borderColor: ['yellow'], // Cor da borda
-          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Umidade', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [80, 85, 80, 95, 85, 90],
           borderColor: ['blue'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Temperatura Máxima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [28, 28, 28, 28, 28, 28],
           borderColor: ['red'], // Cor da borda
-          // backgroundColor: ['yellow'] // Cor de fundo
         },
         {
           label: 'Temperatura Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [18, 18, 18, 18, 18, 18],
           borderColor: ['cyan'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         },
         {
           label: 'Umidade Mínima', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
           data: [80, 80, 80, 80, 80, 80],
           borderColor: ['orangered'], // Cor da borda
-          // backgroundColor: ['blue'] // Cor de fundo
         }],
       },
       options: {
