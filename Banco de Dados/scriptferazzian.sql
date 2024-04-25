@@ -25,9 +25,9 @@ CREATE TABLE funcionario (
   );
 
 INSERT INTO funcionario VALUES
-(1,'54198667767','1','Antonio','Supevisor'),
+(1,'54198667767','1','Antonio','Supervisor'),
 (2,'35168661167','2','Renan','Gerente de Produção'),
-(3,'24138768717','3','Pedro','Supevisor');
+(3,'24138768717','3','Pedro','Supervisor');
 
 
 CREATE TABLE usuario (
