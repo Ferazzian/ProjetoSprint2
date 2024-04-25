@@ -27,7 +27,7 @@ void loop() {
 
   else {
     Serial.print(temperatura);
-    Serial.print(";");
+    Serial.print(",");
     Serial.println(umidade);
   }
   delay(5000);  // faz uma leitura a cada 5 segundo
