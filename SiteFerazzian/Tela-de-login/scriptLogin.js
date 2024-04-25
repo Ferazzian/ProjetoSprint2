@@ -7,6 +7,9 @@ function Cadastro() { // Validações de todas as entradas de dados
     var cpf = input_cpf.value;
     var empresa = input_selecionar_empresa_cadastro.value;
 
+    var nome_up = nome_cadastro.toUpperCase();
+    console.log(nome_up);
+
     var tamanho_email = email_cadastro.length;
     var arroba = email_cadastro.indexOf('@'); // Procura o caractere @
     var ponto = email_cadastro.indexOf('.'); // Procura o caractere .
@@ -63,7 +66,17 @@ function Login() { // Validação de todas as entradas de dados
     var senha_cadastro = input_senha_cadastro.value;
     var nome_cadastro = input_nome_cadastro.value;
 
-    if (email_login != email_cadastro || senha_login != senha_cadastro) {
+    var tamanho_email = email_login.length;
+    var arroba = email_login.indexOf('@'); // Procura o caractere @
+    var ponto = email_login.indexOf('.'); // Procura o caractere .
+
+    if (email_login == "" || tamanho_email < 5 || arroba < 0 || ponto < 0) {
+        input_email_login.value = ``; // Apaga o que foi escrito
+        input_email_login.placeholder = `Email Inválido.`;
+    } else if (senha_login == "") {
+        input_senha_login.value = ``; // Apaga o que foi escrito
+        input_senha_login.placeholder = `Senha Inválida.`;
+    } else if (email_login != email_cadastro && senha_login != senha_cadastro) {
         input_email_login.value = ``; // Apaga o que foi escrito
         input_senha_login.value = ``; // Apaga o que foi escrito
         contador--; // Diminui em 1 as chances
