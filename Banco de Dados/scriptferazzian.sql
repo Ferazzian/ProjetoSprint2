@@ -50,7 +50,6 @@ CREATE TABLE fazenda (
   idFazenda INT PRIMARY KEY AUTO_INCREMENT,
   tipoSoja VARCHAR(45),
   dataPlantio DATE,
-  dataColheita DATE,
   tamHectare float,
   fkEmpresaFazenda INT, CONSTRAINT fkEmpFazenda FOREIGN KEY (fkEmpresaFazenda) REFERENCES empresa(idEmpresa)
 );
