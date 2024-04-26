@@ -29,7 +29,6 @@ INSERT INTO funcionario VALUES
 (2,'35168661167','2','Renan','Gerente de Produção'),
 (3,'24138768717','3','Pedro','Supervisor');
 
-
 CREATE TABLE usuario (
   idUsuario INT UNIQUE,
   nomeUsuario VARCHAR(45),
@@ -127,4 +126,11 @@ fazenda.tipoSoja as TipoSoja,
 fazenda.dataColheita as DataColheita
 from empresa join fazenda on fazenda.fkEmpresaFazenda = empresa.idEmpresa; 
 
+select * from funcionario;
+select * from usuario;
 
+
+select nomeFuncionario as Funcionario, email as Email, nomeEmpresa as Empresa from funcionario join usuario on usuario.fkFuncionarioUsuario = funcionario.idFuncionario join empresa on fkEmpresaFuncionario = idEmpresa;
+select * from funcionario join usuario on fkFuncionarioUsuario = idFuncionario;
+
+select funcionario.nomeFuncionario as funcionario, empresa.nomeEmpresa as empresa, usuario.email from usuario join funcionario on usuario.fkFuncionarioUsuario = funcionario.idFuncionario join empresa on idEmpresa = funcionario.fkEmpresaFuncionario;
