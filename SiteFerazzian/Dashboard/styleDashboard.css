@@ -115,8 +115,8 @@ body {
   cursor: pointer;
 }
 
-#hectare1 {
-  background-color: orange;
+#hectare_nome {
+  color: white;
 }
 
 #hectare2 {
@@ -159,24 +159,6 @@ body {
   justify-content: space-between;
   padding: 10px;
   font-size: 20px;
-}
-
-.conteudoInf select {
-  color: white;
-  background-color: #395D05;
-  border-radius: 2px;
-  border-style: none;
-  align-items: center;
-  font-size: 15px;
-}
-
-#select {
-  display: flex;
-  border-radius: 3px;
-  background-color: #395D05;
-  width: 130px;
-  align-items: center;
-  justify-content: center;
 }
 
 .legenda {
@@ -355,8 +337,8 @@ body {
   margin-top: 5px;
 }
 
-#riscoKpi span {
-  color: orange;
+#risco {
+  color: white;
 }
 
 #tempKpi span {

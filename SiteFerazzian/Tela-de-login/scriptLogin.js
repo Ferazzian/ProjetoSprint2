@@ -52,7 +52,7 @@ function Cadastro() { // Validações de todas as entradas de dados
         senha_cadastro.value = ``; // Apaga o que está escrito
         confirmar_cadastro.value = ``; // Apaga o que está escrito
         cpf.value = ``; // Apaga o que está escrito
-        alert(`${nome_cadastro}, uma mensagem foi enviada para o número ${telefone_cadastro} e um email para ${email_cadastro}`);
+        alert(`${nome_cadastro}, sua conta foi ativada com sucesso.`);
         Tela_Cadastro(); // Todas as telas para direita
     }
 }

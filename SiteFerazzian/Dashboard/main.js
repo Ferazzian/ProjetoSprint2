@@ -28,7 +28,7 @@ const serial = async (
         {
             // altere!
             // Credenciais do banco de dados
-            host: '10.18.33.46',
+            host: 'localhost',
             user: 'aluno',
             password: 'Sptech#2024',
             database: 'ferazzian',
@@ -59,16 +59,14 @@ const serial = async (
     // Processa os dados recebidos do Arduino
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         console.log(data);
-        const valores = data.split(',');
+        const valores = data.split(';');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
-        // const lm35Temperatura = parseFloat(valores[2]);
-        // const luminosidade = parseFloat(valores[3]);
-        // const chave = parseInt(valores[4]);
 
         // Armazena os valores dos sensores nos arrays correspondentes
         valoresDht11Umidade.push(dht11Umidade);
         valoresDht11Temperatura.push(dht11Temperatura);
+        
 
         // Insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
@@ -80,9 +78,9 @@ const serial = async (
                 [dht11Temperatura, dht11Umidade]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
-        
+
         }
-        
+
     });
 
     // Evento para lidar com erros na comunicação serial
@@ -96,7 +94,7 @@ const serial = async (
 // Função para criar e configurar o servidor web
 const servidor = (
     valoresDht11Umidade,
-    valoresDht11Temperatura
+    valoresDht11Temperatura,
 ) => {
     const app = express();
 
@@ -118,15 +116,6 @@ const servidor = (
     });
     app.get('/sensores/dht11/temperatura', (_, response) => {
         return response.json(valoresDht11Temperatura);
-    });
-    app.get('/sensores/luminosidade', (_, response) => {
-        return response.json(valoresLuminosidade);
-    });
-    app.get('/sensores/lm35/temperatura', (_, response) => {
-        return response.json(valoresLm35Temperatura);
-    });
-    app.get('/sensores/chave', (_, response) => {
-        return response.json(valoresChave);
     });
 }
 

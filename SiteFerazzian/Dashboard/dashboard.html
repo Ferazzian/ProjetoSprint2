@@ -26,7 +26,7 @@
       <div class="caixa">
         <div class="hectare" id="hectare1" onclick="hectare1()">
           <h3>Hectare: 1</h3>
-          <h3>Risco: Médio</h3>
+          <h3 id="hectare1_h3"></h3>
         </div>
 
         <div class="hectare" id="hectare2" onclick="hectare2()">
@@ -76,6 +76,7 @@
         <section class="informacao">
           <div class="conteudoInf">
             <span>Fazenda: AAC</span>
+            <span id="hectare_numero"></span>
             <span>Tipo: Conservada</span>
             <span>Hora da coleta: 12:00</span>
           </div>
@@ -157,6 +158,54 @@
 
 
 <script>
+  const UmidMin = 80;
+  const TempMin = 18;
+  const TempMax = 26;
+
+  if (dht11_1T >= TempMin && dht11_1T <= TempMax && dht11_1U >= UmidMin) {
+    risco.innerHTML = `<b>ALTO</b>`;
+    riscoKpi.style = `background-color: red`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: red`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: red`;
+    hectare1_h3.innerHTML = `Risco: ALTO`;
+    hectare1.style = `background-color: red`;
+  }
+
+  if (dht11_1T >= TempMin && dht11_1T <= TempMax && dht11_1U < UmidMin) {
+    risco.innerHTML = `<b>Médio</b>`;
+    riscoKpi.style = `background-color: orange`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: red`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: #395D05`;
+    hectare1_h3.innerHTML = `Risco: Médio`;
+    hectare1.style = `background-color: orange`;
+  }
+
+  if ((dht11_1T < TempMin || dht11_1T > TempMax) && dht11_1U >= UmidMin) {
+    risco.innerHTML = `<b>Médio</b>`;
+    riscoKpi.style = `background-color: orange`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: #395D05`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: red`;
+    hectare1_h3.innerHTML = `Risco: Médio`;
+    hectare1.style = `background-color: orange`;
+  }
+
+  if ((dht11_1T < TempMin || dht11_1T > TempMax) && dht11_1U < UmidMin) {
+    risco.innerHTML = `<b>Baixo</b>`;
+    riscoKpi.style = `background-color: #395D05`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: #395D05`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: #395D05`;
+    hectare1_h3.innerHTML = `Risco: Baixo`;
+    hectare1.style = `background-color: #395D05`;
+  }
+
   function informado() {
     container_alerta.style.display = `none`;
     container_hectare.style.display = `flex`;
@@ -172,11 +221,7 @@
     div2U.style.display = `none`;
     div3T.style.display = `none`;
     div3U.style.display = `none`;
-    risco.innerHTML = `Médio`;
-    risco.style = `color: white`;
-    riscoKpi.style = `background-color: orange`;
-    temp.innerHTML = '20°C';
-    umid.innerHTML = '48%';
+    hectare_numero.innerHTML = `Hectare: 1`;
   }
 
   function hectare2() {
@@ -188,11 +233,7 @@
     div2U.style.display = `unset`;
     div3T.style.display = `none`;
     div3U.style.display = `none`;
-    risco.innerHTML = `Baixo`;
-    risco.style = `color: white`;
-    riscoKpi.style = `background-color: #395D05`;
-    temp.innerHTML = '24°C';
-    umid.innerHTML = '55%';
+    hectare_numero.innerHTML = `Hectare: 2`;
   }
 
   function hectare3() {
@@ -204,11 +245,7 @@
     div2U.style.display = `none`;
     div3T.style.display = `unset`;
     div3U.style.display = `unset`;
-    risco.innerHTML = `<b>ALTO</b>`;
-    risco.style = `color: white`;
-    riscoKpi.style = `background-color: red`;
-    temp.innerHTML = '22°C';
-    umid.innerHTML = '90%';
+    hectare_numero.innerHTML = `Hectare: 3`;
   }
 
   function Voltar() {
@@ -251,13 +288,13 @@
         {
           label: 'Faixa de Risco Max', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28],
+          data: [TempMax],
           borderColor: ['red'], // Cor da borda
         },
         {
           label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18],
+          data: [TempMin],
           borderColor: ['red'], // Cor da borda
         },
         ],
@@ -302,7 +339,7 @@
           {
             label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
             type: 'line', // Tipo de linha
-            data: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80],
+            data: [UmidMin],
             borderColor: ['lime'], // Cor da borda
           }],
       },
@@ -340,19 +377,20 @@
         datasets: [{
           label: 'Temperatura', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [38, 37, 38, 36, 32, 34],
+          // data: [38, 37, 38, 36, 32, 34],
+          data: [dht11_1T + 10],
           borderColor: ['yellow'], // Cor da borda
         },
         {
           label: 'Faixa de Risco Max', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [28, 28, 28, 28, 28, 28],
+          data: [TempMax],
           borderColor: ['red'], // Cor da borda
         },
         {
           label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [18, 18, 18, 18, 18, 18],
+          data: [TempMin],
           borderColor: ['red'], // Cor da borda
         }],
       },
@@ -391,13 +429,13 @@
           {
             label: 'Umidade', // Rótulo do conjunto de dados
             type: 'line', // Tipo de linha
-            data: [60, 62, 55, 61, 51, 55],
+            data: [dht11_1U + 2],
             borderColor: ['blue'], // Cor da borda
           },
           {
             label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
             type: 'line', // Tipo de linha
-            data: [80, 80, 80, 80, 80, 80],
+            data: [UmidMin],
             borderColor: ['lime'], // Cor da borda
           }],
       },
@@ -435,19 +473,19 @@
         datasets: [{
           label: 'Temperatura', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [18, 17, 18, 20, 22, 22],
+          data: [dht11_1T - 3],
           borderColor: ['yellow'], // Cor da borda
         },
         {
           label: 'Faixa de Risco Max', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [28, 28, 28, 28, 28, 28],
+          data: [TempMax],
           borderColor: ['red'], // Cor da borda
         },
         {
           label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
           type: 'line', // Tipo de linha
-          data: [18, 18, 18, 18, 18, 18],
+          data: [TempMin],
           borderColor: ['red'], // Cor da borda
         }],
       },
@@ -486,13 +524,13 @@
           {
             label: 'Umidade', // Rótulo do conjunto de dados
             type: 'line', // Tipo de linha
-            data: [80, 85, 80, 95, 85, 90],
+            data: [dht11_1U + 10],
             borderColor: ['blue'], // Cor da borda
           },
           {
             label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
             type: 'line', // Tipo de linha
-            data: [80, 80, 80, 80, 80, 80],
+            data: [UmidMin],
             borderColor: ['lime'], // Cor da borda
           }],
       },
@@ -507,7 +545,7 @@
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Temperatura e Umidade'// Rótulo do eixo y
+              labelString: 'UMIDADE'// Rótulo do eixo y
             },
             ticks: {
               beginAtZero: true // Começar no zero
