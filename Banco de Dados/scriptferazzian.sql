@@ -1,3 +1,4 @@
+-- Active: 1713288107577@@127.0.0.1@3306@ferazzian
 create database ferazzian;
 use ferazzian;
 
@@ -14,39 +15,26 @@ INSERT INTO empresa VALUES
 (default, 'Fazenda Santa Rita','54321-876','26.186.289/0001-77','333');
 
 
-CREATE TABLE funcionario (
-  idFuncionario INT UNIQUE,
-  cpf CHAR(11) UNIQUE NOT NULL,
-  fkEmpresaFuncionario INT, PRIMARY KEY (cpf, fkEmpresaFuncionario), 
-  FOREIGN KEY (fkEmpresaFuncionario) 
-  REFERENCES empresa(idEmpresa),
-  nomeFuncionario VARCHAR(45),
-  cargo VARCHAR(45));
-
-INSERT INTO funcionario VALUES
-(1,'54198667767','1','Antonio','Supervisor'),
-(2,'35168661167','2','Renan','Gerente de Produção'),
-(3,'24138768717','3','Pedro','Supervisor');
-
 CREATE TABLE usuario (
-  idUsuario INT UNIQUE,
+  idUsuario INT UNIQUE auto_increment,
   nomeUsuario VARCHAR(45),
   email VARCHAR(30),
   telefone VARCHAR(12),
   senha VARCHAR(45),
-  fkFuncionarioUsuario INT, 
-  PRIMARY KEY (idUsuario, fkFuncionarioUsuario), 
-  FOREIGN KEY (fkFuncionarioUsuario) 
-  REFERENCES funcionario(idFuncionario));
+  cpf CHAR(11),
+  fkUsuarioEmpresa INT, 
+  PRIMARY KEY (idUsuario, fkUsuarioEmpresa),
+  FOREIGN KEY (fkUsuarioEmpresa)
+  REFERENCES empresa(idEmpresa));
 
-INSERT INTO usuario VALUES
-(1,'ANTONIO','antonio@belavista.com','11961713435','76hf238rB',1),
-(2,'RENAN','renan@vistaverde.com','11962719090','sdh586T',2),
-(3,'PEDRO','pedro@santarita.com','11966723334','Hrfer3412',3);
+INSERT INTO usuario (nomeUsuario, email, telefone, senha, cpf, fkUsuarioEmpresa) VALUES
+('ANTONIO','antonio@belavista.com','11961713435','76hf238rB', '46464798833',1),
+('RENAN','renan@vistaverde.com','11962719090','sdh586T', '46464795522', 2),
+('PEDRO','pedro@santarita.com','11966723334','Hrfer3412', '46464782266',3);
 
 CREATE TABLE fazenda (
   idFazenda INT PRIMARY KEY AUTO_INCREMENT,
-  nomeFazenda VARCHAR(45),
+  nomeEmpresa VARCHAR(45),
   tipoSoja VARCHAR(45),
   tamHectare INT,
   fkEmpresaFazenda INT, CONSTRAINT fkEmpFazenda FOREIGN KEY (fkEmpresaFazenda) REFERENCES empresa(idEmpresa));
@@ -70,10 +58,10 @@ CREATE TABLE dadosSensor (
   idDadosSensor INT PRIMARY KEY AUTO_INCREMENT,
   sensorTemp DECIMAL,
   sensorUmid DECIMAL,
-  horaColeta DATETIME default current_timestamp);
+  horaColeta DATETIME default current_timestamp,
+  fkSensorDados INT, CONSTRAINT fkDadosSensor FOREIGN KEY (fkSensorDados) REFERENCES sensor(idSensor));
 
 SELECT * FROM empresa;
-SELECT * FROM funcionario;
 SELECT * FROM usuario;
 SELECT * FROM fazenda;
 SELECT * FROM sensor;
@@ -81,10 +69,8 @@ SELECT * FROM dadosSensor;
 
 -- EXIBINDO O NOME DA EMPRESA, TIPO DE SOJA, DATAS DO PLANTIO E COLHEITA, NOME DO SENSOR, TEMPERATURAS E UMIDADES REGISTRADAS, E A HORA DESSE REGISTRO
 
-SELECT empresa.nomeFazenda AS Empresa,
+SELECT empresa.nomeEmpresa AS Empresa,
 	fazenda.tipoSoja AS 'Tipo de Soja',
-    fazenda.dataPlantio AS 'Data do plantio',
-    fazenda.dataColheita AS 'Data da colheita',
     sensor.nome AS Sensor,
     dadosSensor.sensorTemp AS Temperatura,
     dadosSensor.sensorUmid AS Umidade,
@@ -100,16 +86,10 @@ WHERE idEmpresa = 1;
 
 
 
-select empresa.nomeFazenda as NomeEmpresa,
-fazenda.tipoSoja as TipoSoja,
-fazenda.dataColheita as DataColheita
+select empresa.nomeEmpresa as NomeEmpresa,
+fazenda.tipoSoja as TipoSoja
 from empresa join fazenda on fazenda.fkEmpresaFazenda = empresa.idEmpresa; 
 
-select * from funcionario;
 select * from usuario;
 
-
-select nomeFuncionario as Funcionario, email as Email, nomeEmpresa as Empresa from funcionario join usuario on usuario.fkFuncionarioUsuario = funcionario.idFuncionario join empresa on fkEmpresaFuncionario = idEmpresa;
-select * from funcionario join usuario on fkFuncionarioUsuario = idFuncionario;
-
-select funcionario.nomeFuncionario as funcionario, empresa.nomeEmpresa as empresa, usuario.email from usuario join funcionario on usuario.fkFuncionarioUsuario = funcionario.idFuncionario join empresa on idEmpresa = funcionario.fkEmpresaFuncionario;
+select usuario.nomeUsuario as funcionario, empresa.nomeEmpresa as empresa, usuario.email from usuario join empresa on usuario.fkUsuarioEmpresa = empresa.idEmpresa;
