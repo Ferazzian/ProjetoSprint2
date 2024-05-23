@@ -44,6 +44,16 @@ INSERT INTO fazenda VALUES
 (null,'B','Soja Convencional', 4, 2),
 (null,'C','Soja Orgânica', 50, 3);
 
+CREATE TABLE parametros (
+	idParametro INT AUTO_INCREMENT,
+    tempMaxima DECIMAL,
+    tempoMinima DECIMAL,
+    umidMaxima DECIMAL,
+    umidMinima DECIMAL,
+    fkParametroFazenda INT,
+    PRIMARY KEY (idParametro, fkParametroFazenda), FOREIGN KEY (fkParametroFazenda) REFERENCES fazenda(idFazenda)
+);
+
 CREATE TABLE sensor (
   idSensor INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(45),
