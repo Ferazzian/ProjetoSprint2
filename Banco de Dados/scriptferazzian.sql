@@ -7,25 +7,26 @@ CREATE TABLE empresa (
   nomeEmpresa VARCHAR(45),
   cep CHAR(9),
   cnpj CHAR(18),
-  numero VARCHAR(45));
+  numero VARCHAR(45),
+  telefone CHAR(12));
 
 INSERT INTO empresa VALUES
 (default, 'Fazenda Bela Vista','12345-678','26.186.289/0001-79','122'),
 (default, 'Fazenda Vista Verde','87654-321','26.186.289/0001-78','143'),
 (default, 'Fazenda Santa Rita','54321-876','26.186.289/0001-77','333');
 
-
 CREATE TABLE usuario (
   idUsuario INT UNIQUE auto_increment,
   nomeUsuario VARCHAR(45),
   email VARCHAR(30),
-  telefone VARCHAR(12),
   senha VARCHAR(45),
   cpf CHAR(11),
+  tipoUsuario VARCHAR(45),
   fkUsuarioEmpresa INT, 
   PRIMARY KEY (idUsuario, fkUsuarioEmpresa),
   FOREIGN KEY (fkUsuarioEmpresa)
   REFERENCES empresa(idEmpresa));
+  
 
 INSERT INTO usuario (nomeUsuario, email, telefone, senha, cpf, fkUsuarioEmpresa) VALUES
 ('ANTONIO','antonio@belavista.com','11961713435','76hf238rB', '46464798833',1),
