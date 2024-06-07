@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="styleDashboard.css">
+  <link rel="icon" href="../assets/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Ferazzian</title>
+</head>
+
+<body>
+  <div class="tela_hectare" id="tela_hectare">
+    <a href="../cadastro.html" id="botao_Cadastrar" style="display: none;">
+      <button>cadastrar Funcionario</button>
+    </a>
+    <br>
+    <div class="header">
+      <h1>SELECIONE O HECTARE QUE DESEJA MONITORAR</h1>
+      <div class="linha_header"></div>
+    </div>
+    <div class="container_center" id="container_hectare">
+      <div class="caixa">
+        <div class="hectare" id="hectare1" onclick="hectare1()">
+          <h3>Hectare: 1</h3>
+          <h3 id="hectare1_h3"></h3>
+        </div>
+
+        <div class="hectare" id="hectare2" onclick="hectare2()">
+          <h3>Hectare: 2</h3>
+          <h3>Risco: Baixo</h3>
+        </div>
+
+        <div class="hectare" id="hectare3" onclick="hectare3()">
+          <h3>Hectare: 3</h3>
+          <h3>Risco: ALTO</h3>
+        </div>
+
+        <div class="hectare" id="hectare2" onclick="hectare2()">
+          <h3>Hectare: 4</h3>
+          <h3>Risco: Baixo</h3>
+        </div>
+
+        <div class="hectare" id="hectare2" onclick="hectare2()">
+          <h3>Hectare: 5</h3>
+          <h3>Risco: Baixo</h3>
+        </div>
+
+        <div class="hectare" id="hectare2" onclick="hectare2()">
+          <h3>Hectare: 6</h3>
+          <h3>Risco: Baixo</h3>
+        </div>
+      </div>
+    </div>
+    <div class="container_alerta" id="container_alerta">
+      <div class="Alerta" id="alerta">
+        <center>
+          <h3>O monitoramento da FERAZZIAN detectou hectares com risco de desenvolvimento da Ferrugem Asiática.</h3>
+          <h3 class="h3">Clique para continuar:</h3>
+          <button class="button_continuar" onclick="informado()">Continuar</button>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <div class="tela_grafico" id="tela_grafico">
+    <div class="container_button_voltar">
+      <button class="button" onclick="Voltar()">Voltar</button>
+    </div>
+
+    <div class="container">
+      <div class="legInf">
+        <section class="informacao">
+          <div class="conteudoInf">
+            <span>Fazenda: AAC</span>
+            <span id="hectare_numero"></span>
+            <span>Tipo: Conservada</span>
+            <span>Hora da coleta: 12:00</span>
+          </div>
+        </section>
+
+        <section class="legenda">
+          <div class="conteudoLeg">
+            <h2>Legenda</h2>
+
+            <div id="conteudoLeg">
+              <div class="grupoDados">
+                <span class="dados">- A temperatura está acima do ideal (de 18°C à 28°C)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="dashboard" id="dashboard">
+        <div class="alinharGraficoKpi">
+          <div class="alinharKpi">
+            <div>
+              <div id="tempKpi" class="KPI">
+                <h2>Temperatura</h2><span id="temp"></span>
+              </div>
+              <div id="riscoKpi" class="KPI">
+                <h2>Risco</h2><span id="risco"></span>
+              </div>
+              <div id="umidKpi" class="KPI">
+                <h2>Umidade</h2><span id="umid"></span>
+              </div>
+            </div>
+          </div>
+          <div class="container_grafico">
+            <div class="grafico" id="div1T" style="display: none;">
+              <canvas id="myChartCanvasTemp"></canvas>
+            </div>
+
+            <div class="grafico" id="div1U" style="display: none;">
+              <canvas id="myChartCanvasUmid"></canvas>
+            </div>
+          </div>
+        </div>
+    </div>
+    </section>
+  </div>
+</body>
+
+</html>
+
+
+<script>
+<<<<<<< HEAD:SiteFerazzian/Dashboard/dashboard.html
+  var UmidMin = Number(input_UmidMin);
+  var TempMin = Number(input_TempMin);
+  var TempMax = Number(input_TempMax);
+=======
+  if( sessionStorage.TP_USUARIO == 'Administrador'){
+    botao_Cadastrar.style.display = 'block'
+  }
+  const UmidMin = 80;
+  const TempMin = 18;
+  const TempMax = 26;
+>>>>>>> 24d64f1f456eaed365df4390216ca94efe58f375:SiteFerazzian/public/Dashboard/dashboard.html
+
+  if (dht11_1T >= TempMin && dht11_1T <= TempMax && dht11_1U >= UmidMin) {
+    risco.innerHTML = `<b>ALTO</b>`;
+    riscoKpi.style = `background-color: red`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: red`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: red`;
+    hectare1_h3.innerHTML = `Risco: ALTO`;
+    hectare1.style = `background-color: red`;
+  }
+
+  if (dht11_1T >= TempMin && dht11_1T <= TempMax && dht11_1U < UmidMin) {
+    risco.innerHTML = `<b>Médio</b>`;
+    riscoKpi.style = `background-color: orange`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: red`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: #395D05`;
+    hectare1_h3.innerHTML = `Risco: Médio`;
+    hectare1.style = `background-color: orange`;
+  }
+
+  if ((dht11_1T < TempMin || dht11_1T > TempMax) && dht11_1U >= UmidMin) {
+    risco.innerHTML = `<b>Médio</b>`;
+    riscoKpi.style = `background-color: orange`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: #395D05`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: red`;
+    hectare1_h3.innerHTML = `Risco: Médio`;
+    hectare1.style = `background-color: orange`;
+  }
+
+  if ((dht11_1T < TempMin || dht11_1T > TempMax) && dht11_1U < UmidMin) {
+    risco.innerHTML = `<b>Baixo</b>`;
+    riscoKpi.style = `background-color: #395D05`;
+    temp.innerHTML = dht11_1T;
+    tempKpi.style = `background-color: #395D05`;
+    umid.innerHTML = dht11_1U;
+    umidKpi.style = `background-color: #395D05`;
+    hectare1_h3.innerHTML = `Risco: Baixo`;
+    hectare1.style = `background-color: #395D05`;
+  }
+
+  function informado() {
+    container_alerta.style.display = `none`;
+    container_hectare.style.display = `flex`;
+  }
+
+  var numero_hectare;
+
+  function hectare1() {
+    numero_hectare = 1;
+    tela_hectare.style.display = `none`;
+    tela_grafico.style.display = `unset`;
+    dashboard.style.height = `640px`;
+    hectare_numero.innerHTML = `Hectare: 1`;
+  }
+
+  function hectare2() {
+    numero_hectare = 2;
+    tela_hectare.style.display = `none`;
+    tela_grafico.style.display = `unset`;
+    hectare_numero.innerHTML = `Hectare: 2`;
+  }
+
+  function hectare3() {
+    numero_hectare = 3;
+    tela_hectare.style.display = `none`;
+    tela_grafico.style.display = `unset`;
+    hectare_numero.innerHTML = `Hectare: 3`;
+  }
+
+  function Voltar() {
+    tela_hectare.style.display = `unset`;
+    tela_grafico.style.display = `none`;
+  }
+
+  /* -- dht11Umidade -- */
+  // Configuração do contexto para o gráfico de umidade do sensor DHT11
+  // var contextoDht11Umidade1T = document.getElementById('dht11_1T').getContext('2d');
+  // contextoDht11Umidade1T.canvas.height = 260;
+
+  // var contextoDht11Umidade1U = document.getElementById('dht11_1U').getContext('2d');
+  // contextoDht11Umidade1U.canvas.height = 260;
+
+  // var contextoDht11Umidade2T = document.getElementById('dht11_2T').getContext('2d');
+  // contextoDht11Umidade2T.canvas.height = 260;
+
+  // var contextoDht11Umidade2U = document.getElementById('dht11_2U').getContext('2d');
+  // contextoDht11Umidade2U.canvas.height = 260;
+
+  // var contextoDht11Umidade3T = document.getElementById('dht11_3T').getContext('2d');
+  // contextoDht11Umidade3T.canvas.height = 260;
+
+  // var contextoDht11Umidade3U = document.getElementById('dht11_3U').getContext('2d');
+  // contextoDht11Umidade3U.canvas.height = 260;
+
+  function obterDadosGrafico() {
+    fetch(`/dashboard/dadosHectare/${numero_hectare}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (dados) {
+            console.log("Dados recebidos: ", JSON.stringify(dados));
+
+            plotarGraficoTemperatura(dados);
+            plotarGraficoUmidade(dados);
+          });
+        } else {
+          console.error('Nenhum dado encontrado da pergunta1 ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+
+  function plotarGraficoTemperatura(dados) {
+    console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
+    console.log('Iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels e data
+    let labels = dados.map(item => item.dataHora);
+    let Temperatura = dados.map(item => item.temperatura); // Mapeando o resultado do fetch e separando os itens encontrados.
+    let tempMin = dados.map(item => item.tempMin);
+    let tempMax = dados.map(item => item.tempMax);
+    Chart.defaults.color = '#ffffff';
+    Chart.defaults.font.size = 15;
+
+    let chartData = {
+      labels: labels,
+      datasets: [{
+        label: 'Temperatura',
+        data: temperatura,
+        borderColor: '#B0CDDA',
+        borderWidth: 2
+      },
+      {
+        label: 'Temperatura Mínima',
+        data: tempMin,
+        borderColor: '#B0CDDA',
+        borderWidth: 2
+      },
+      {
+        label: 'Temperatura Máxima',
+        data: tempMax,
+        borderColor: '#B0CDDA',
+        borderWidth: 2
+      },
+
+      ]
+    };
+
+    console.log('----------------------------------------------');
+    console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGrafico":');
+    console.log(dados);
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(temperatura, tempMax, TempMin);
+    console.log('----------------------------------------------');
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'line',
+      data: chartData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1
+            }
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+      document.getElementById('myChartCanvasTemp'),
+      config
+    );
+  }
+
+  function plotarGraficoUmidade(dados) {
+    console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
+    console.log('Iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels e data
+    let labels = dados.map(item => item.dataHora);
+    let Umidade = dados.map(item => item.umidade);
+    let umidMin = dados.map(item => item.umidMin);
+    Chart.defaults.color = '#ffffff';
+    Chart.defaults.font.size = 15;
+
+    let chartData = {
+      labels: labels,
+      datasets: [{
+        label: 'Umidade',
+        data: umidade,
+        borderColor: '#B0CDDA',
+        borderWidth: 2
+      },
+      {
+        label: 'Umidade Mínima',
+        data: umidMin,
+        borderColor: '#B0CDDA',
+        borderWidth: 2
+      }]
+    };
+
+    console.log('----------------------------------------------');
+    console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGraficoUmidade":');
+    console.log(dados);
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(Umidade, umidMin);
+    console.log('----------------------------------------------');
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'line',
+      data: chartData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1
+            }
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+      document.getElementById('myChartCanvasUmid'),
+      config
+    );
+  }
+
+
+  // Criação do gráfico de umidade do sensor DHT11
+  var dht11_1T = new Chart(
+    contextoDht11Umidade1T,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: dataHora,
+        datasets: [{
+          label: 'Temperatura', // Rótulo do conjunto de dados
+          data: temperatura,
+          type: 'line', // Tipo de linha
+          borderColor: ['yellow'], // Cor da borda
+        },
+        {
+          label: 'Faixa de Risco Max', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: TempMax,
+          borderColor: ['red'], // Cor da borda
+        },
+        {
+          label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: TempMin,
+          borderColor: ['red'], // Cor da borda
+        },
+        ],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'TEMPERATURA'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_1U = new Chart(
+    contextoDht11Umidade1U,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: dataHora,
+        datasets: [
+          {
+            label: 'Umidade', // Rótulo do conjunto de dados
+            data: umidade,
+            type: 'line', // Tipo de linha
+            borderColor: ['blue'], // Cor da borda
+          },
+          {
+            label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: UmidMin,
+            borderColor: ['lime'], // Cor da borda
+          }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'UMIDADE'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_2T = new Chart(
+    contextoDht11Umidade2T,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [{
+          label: 'Temperatura', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          // data: [38, 37, 38, 36, 32, 34],
+          data: [dht11_1T + 10],
+          borderColor: ['yellow'], // Cor da borda
+        },
+        {
+          label: 'Faixa de Risco Max', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [TempMax],
+          borderColor: ['red'], // Cor da borda
+        },
+        {
+          label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [TempMin],
+          borderColor: ['red'], // Cor da borda
+        }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'TEMPERATURA'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_2U = new Chart(
+    contextoDht11Umidade2U,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [
+          {
+            label: 'Umidade', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: [dht11_1U + 2],
+            borderColor: ['blue'], // Cor da borda
+          },
+          {
+            label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: [UmidMin],
+            borderColor: ['lime'], // Cor da borda
+          }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'UMIDADE'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_3T = new Chart(
+    contextoDht11Umidade3T,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [{
+          label: 'Temperatura', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [dht11_1T - 3],
+          borderColor: ['yellow'], // Cor da borda
+        },
+        {
+          label: 'Faixa de Risco Max', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [TempMax],
+          borderColor: ['red'], // Cor da borda
+        },
+        {
+          label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
+          type: 'line', // Tipo de linha
+          data: [TempMin],
+          borderColor: ['red'], // Cor da borda
+        }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'TEMPERATURA'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+
+  var dht11_3U = new Chart(
+    contextoDht11Umidade3U,
+    {
+      type: 'line', // Tipo de gráfico: linha
+      data: {
+        labels: ['10:45', '10:46', '10:47', '10:58', '11:00', '12:00'],
+        datasets: [
+          {
+            label: 'Umidade', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: [dht11_1U + 10],
+            borderColor: ['blue'], // Cor da borda
+          },
+          {
+            label: 'Faixa de Risco Min', // Rótulo do conjunto de dados
+            type: 'line', // Tipo de linha
+            data: [UmidMin],
+            borderColor: ['lime'], // Cor da borda
+          }],
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series', // Distribuição do eixo x
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'UMIDADE'// Rótulo do eixo y
+            },
+            ticks: {
+              beginAtZero: true // Começar no zero
+            }
+          }]
+        },
+        animation: {
+          duration: 0 // Duração da animação: 0 (desativado)
+        }
+      }
+    }
+  );
+</script>

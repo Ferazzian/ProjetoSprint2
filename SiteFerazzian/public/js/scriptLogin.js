@@ -90,6 +90,7 @@ function Login() { // Validação de todas as entradas de dados
         alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
         window.location.replace('../Dashboard/dashboard.html') // redireciona para a dashboard, caso seja efetuado o login
     }
+    
 }
 
 function Tela_Login() { // Todas as telas vão para esquerda

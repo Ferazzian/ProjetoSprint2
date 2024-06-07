@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('assets/background.jpg');
+  background-image: url('../assets/backgroundSobre.jpg');
   color: white;
   display: flex;
   font-family: 'Inter', sans-serif;
