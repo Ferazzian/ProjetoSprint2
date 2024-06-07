@@ -226,6 +226,15 @@ footer {
     background-repeat: no-repeat;
     background-size: 100%;
     object-fit: fit;
+    text-align: center;
+}
+
+footer a{
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #fff;
 }
 
 .footerPai {
