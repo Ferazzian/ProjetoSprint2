@@ -392,3 +392,9 @@ body {
   color: #395D05;
   transition: 0.4s;
 }
+
+.botoes{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

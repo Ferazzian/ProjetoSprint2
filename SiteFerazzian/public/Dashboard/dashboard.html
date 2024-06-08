@@ -18,10 +18,16 @@
 </head>
 
 <body>
-  <div class="tela_hectare" id="tela_hectare">
+  <div class="botoes">
     <a href="../cadastro.html" id="botao_Cadastrar" style="display: none;">
-      <button class="btnCadastro" >cadastrar Funcionario</button>
+      <button class="btnCadastro">cadastrar Funcionario</button>
     </a>
+    <a href="../index.html">
+      <button class="btnCadastro" onclick="sair()">Sair</button>
+    </a>
+  </div>
+  <div class="tela_hectare" id="tela_hectare">
+
     <br>
     <div class="header">
       <h1>SELECIONE O HECTARE QUE DESEJA MONITORAR</h1>
@@ -89,16 +95,20 @@
         <section class="legenda">
           <div class="conteudoLeg">
             <!-- <h2>Legenda</h2> -->
-<br><br><br>
+            <br><br><br>
             <div id="conteudoLeg">
               <div class="grupoDados">
-                <span class="dados">- Se a temperatura e a umidade estiverem FORA das zonas <span style="color: red">vermelhas</span>, sua plantação está <span style="color: lawngreen">segura</span>;
-                <br><br><br>
-                - Se a temperatura ou a umidade estiverem DENTRO das zonas <span style="color: red">vermelhas</span>, sua plantação está <span style="color: orange">segura</span>;
-                <br><br><br>
-                - Se a temperatura e a umidade estiverem DENTRO das zonas <span style="color: red">vermelhas</span>, sua plantação está <span style="color: red">segura</span>.
-              </span>
-                
+                <span class="dados">- Se a temperatura e a umidade estiverem FORA das zonas <span
+                    style="color: red">vermelhas</span>, sua plantação está <span
+                    style="color: lawngreen">segura</span>;
+                  <br><br><br>
+                  - Se a temperatura ou a umidade estiverem DENTRO das zonas <span style="color: red">vermelhas</span>,
+                  sua plantação está <span style="color: orange">segura</span>;
+                  <br><br><br>
+                  - Se a temperatura e a umidade estiverem DENTRO das zonas <span style="color: red">vermelhas</span>,
+                  sua plantação está <span style="color: red">segura</span>.
+                </span>
+
               </div>
             </div>
           </div>
@@ -140,9 +150,13 @@
 
 <script>
   obterDadosMacro();
+  function sair() {
+    
+    sessionStorage.clear();
 
+  }
   if (sessionStorage.TP_USUARIO == 'Administrador') {
-    botao_Cadastrar.style.display = 'block'
+    botao_Cadastrar.style.display = 'block';
   }
 
   function informado() {
@@ -178,7 +192,7 @@
     tela_grafico.style.display = `none`;
   }
 
-var cont;
+  var cont;
   function obterDadosMacro() {
     for (cont = 1; cont < 4; cont++) {
       fetch(`/medida/buscarPorHectare/${cont}`)
@@ -460,6 +474,6 @@ var cont;
 
   setInterval(() => {
     obterDadosMacro(),
-      obterDadosGrafico()
+      obterDadosGrafico();
   }, 20000);
 </script>
