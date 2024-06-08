@@ -372,3 +372,23 @@ body {
   height: 100px;
   background-color: #395D05;
 }
+
+.btnCadastro {
+  border: none;
+  border-radius: 10px;
+  /* padding: 10px; */
+  color: white;
+  font-size: 15px;
+  width: 180px;
+  height: 35px;
+  font-weight: bold;
+  background-color: #395D05;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.btnCadastro:hover {
+  background-color: white;
+  color: #395D05;
+  transition: 0.4s;
+}
