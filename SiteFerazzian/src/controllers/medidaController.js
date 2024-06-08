@@ -5,6 +5,7 @@ function buscarUltimasMedidas(req, res) {
     const limite_linhas = 7;
 
     var idSensor = req.params.idSensor;
+    console.log("🚀 ~ buscarUltimasMedidas ~ idSensor:", idSensor)
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
@@ -14,6 +15,7 @@ function buscarUltimasMedidas(req, res) {
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
+            console.log("🚀 ~ resultado:", resultado)
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);

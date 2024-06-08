@@ -5,11 +5,7 @@ function Login() { // Validação de todas as entradas de dados
     if (emailVar == "" || senhaVar == "") {
         cardErro.style.display = "block"
         mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        finalizarAguardar();
         return false;
-    }
-    else {
-        setInterval(sumirMensagem, 5000)
     }
 
     console.log("FORM LOGIN: ", emailVar);
@@ -53,7 +49,6 @@ function Login() { // Validação de todas as entradas de dados
 
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizarAguardar(texto);
             });
         }
 
@@ -62,8 +57,4 @@ function Login() { // Validação de todas as entradas de dados
     })
 
     return false;
-}
-
-function sumirMensagem() {
-    cardErro.style.display = "none"
 }

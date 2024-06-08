@@ -37,31 +37,37 @@
       <div class="caixa">
         <div class="hectare" id="hectare1" onclick="hectare1()">
           <h3>Hectare: 1</h3>
+          <p id="hectare1p"></p>
           <h3 id="hectare1_h3"></h3>
         </div>
 
         <div class="hectare" id="hectare2" onclick="hectare2()">
           <h3>Hectare: 2</h3>
+          <p id="hectare2p"></p>
           <h3 id="hectare2_h3"></h3>
         </div>
 
         <div class="hectare" id="hectare3" onclick="hectare3()">
           <h3>Hectare: 3</h3>
+          <p id="hectare3p"></p>
           <h3 id="hectare3_h3"></h3>
         </div>
 
-        <div class="hectare" id="hectare2" onclick="hectare2()">
+        <div class="hectare" id="hectare4" onclick="hectare2()">
           <h3>Hectare: 4</h3>
+          <p id="hectare4p"></p>
           <h3 id="hectare4_h3"></h3>
         </div>
 
-        <div class="hectare" id="hectare2" onclick="hectare2()">
+        <div class="hectare" id="hectare5" onclick="hectare2()">
           <h3>Hectare: 5</h3>
+          <p id="hectare5p"></p>
           <h3 id="hectare5_h3"></h3>
         </div>
 
-        <div class="hectare" id="hectare2" onclick="hectare2()">
+        <div class="hectare" id="hectare6" onclick="hectare2()">
           <h3>Hectare: 6</h3>
+          <p id="hectare6p"></p>
           <h3 id="hectare6_h3"></h3>
         </div>
       </div>
@@ -204,31 +210,32 @@
     tela_grafico.style.display = `none`;
   }
 
-  var cont;
-  var cont;
   function obterDadosMacro() {
     for (cont = 1; cont < 4; cont++) {
-      fetch(`/medida/buscarPorHectare/${cont}`)
+      (function(cont) {
+        fetch(`/medida/buscarPorHectare/${cont}`)
         .then(function (resposta) {
           if (resposta.ok) {
             resposta.json().then(function (dados1) {
               // console.log("Dados recebidos: ", JSON.stringify(dados));
 
               // verificacaoMacro(dados1, cont);
-              var temperatura_atual = dados1.sensorTemp;
-              var umidade_atual = dados1.sensorUmid;
-              var temperatura_Maxima = dados1.tempMaxima;
-              var temperatura_Minima = dados1.tempMinima;
-              var umidade_Minima = dados1.umidMinima;
-              console.log('Estou na verificação Macro: ' + dados1);
+              
+              var temperatura_atual = dados1[0]['sensorTemp'];
+              var umidade_atual = dados1[0]['sensorUmid'];
+              var temperatura_Maxima = dados1[0]['tempMaxima'];
+              var temperatura_Minima = dados1[0]['tempMinima'];
+              var umidade_Minima = dados1[0]['umidMinima'];
 
-              var resumo = document.getElementById(`hectare${cont}`);
-              var caixa = document.getElementById(`hectare${cont}_h3`);
+              var resumo = document.getElementById(`hectare${cont}p`);
+              var caixa = document.getElementById(`hectare${cont}`);
+
 
               if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual >= umidade_Minima) {
+                console.log(cont)
                 resumo.innerHTML = `<b>Risco: ALTO</b>`;
-                caixa.style = `background-color: red`;
-
+                caixa.style.backgroundColor = 'red';
+                console.log('Esta alto');
                 //   Swal.fire({
                 //   position: "bottom-end",
                 //   icon: "warning",
@@ -237,11 +244,12 @@
                 //   color: "#FFF",
                 //   showConfirmButton: false,
                 // });
+
               }
 
-              if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual < umidade_Minima || ((temperatura_atual < temperatura_Minima || temperatura_atual > temperatura_Maxima) && umidade_atual >= umidade_Minima)) {
+              else if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual < umidade_Minima || ((temperatura_atual < temperatura_Minima || temperatura_atual > temperatura_Maxima) && umidade_atual >= umidade_Minima)) {
                 resumo.innerHTML = `<b>Risco: Médio</b>`;
-                caixa.style = `background-color: orange`;
+                caixa.style.backgroundColor = 'orange';
                 console.log('Esta medio');
                 //   Swal.fire({
                 //   position: "bottom-end",
@@ -253,9 +261,9 @@
                 // });
               }
 
-              if ((temperatura_atual < temperatura_Minima || temperatura_atual > temperatura_Maxima) && umidade_atual < umidade_Minima) {
+              else if ((temperatura_atual < temperatura_Minima || temperatura_atual > temperatura_Maxima) && umidade_atual < umidade_Minima) {
                 resumo.innerHTML = `<b>Risco: Baixo</b>`;
-                caixa.style = `background-color: #395D05`;
+                caixa.style.backgroundColor = '#395D05';
                 console.log('Esta Baixo');
               }
             });
@@ -266,6 +274,8 @@
         .catch(function (error) {
           console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
+      }(cont))
+      
     }
   }
 
