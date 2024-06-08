@@ -3,7 +3,9 @@ var database = require("../database/config")
 function buscarUltimasMedidas(idSensor, limite_linhas) {
 
     var instrucaoSql = `
-    SELECT tempMaxima,
+    SELECT nomeEmpresa,
+	tipoSoja, 
+    tempMaxima,
     tempMinima,
     umidMinima,
     sensorTemp,
@@ -32,7 +34,7 @@ function buscarPorHectare(idSensor) {
     join sensor on fkSensorDados = idSensor
     join fazenda on fkSensorFazenda = idFazenda
     join parametros on fkParametroFazenda = idFazenda
-    WHERE idSensor = ${idSensor} order by horaColeta desc limit 1;`;
+    WHERE idSensor = ${idSensor} order by idDadosSensor desc limit 1;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

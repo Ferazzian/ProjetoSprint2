@@ -1,16 +1,6 @@
 -- Active: 1713288107577@@127.0.0.1@3306@ferazzian
 create database ferazzian;
 use ferazzian;
-
-SELECT idDadosSensor, sensorTemp, sensorUmid, DATE_FORMAT(horaColeta,'%H:%i:%s') as horaColeta
-     FROM dadosSensor WHERE fkSensorDados = 1 LIMIT 7;
-     
-     SELECT sensorTemp, sensorUmid, DATE_FORMAT(horaColeta,'%H:%i:%s') as horaColeta
-     FROM dadosSensor join sensor on fkSensorDados = idSensor WHERE idSensor = 1 and fkSensorFazenda = 1;
-     
-     select * from sensor;
-     select * from dadosSensor;
-     select * from fazenda;
      
 CREATE TABLE empresa (
   idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
@@ -37,13 +27,10 @@ CREATE TABLE usuario (
   FOREIGN KEY (fkUsuarioEmpresa)
   REFERENCES empresa(idEmpresa));
   
-
 INSERT INTO usuario (nomeUsuario, email, senha, cpf, fkUsuarioEmpresa) VALUES
 ('ANTONIO','antonio@belavista.com','76hf238rB', '46464798833',1),
 ('RENAN','renan@vistaverde.com','sdh586T', '46464795522', 2),
-('PEDRO','pedro@santarita.com','Hrfer3412', '46464782266',3);
-
-INSERT INTO usuario (nomeUsuario, email, senha, cpf, fkUsuarioEmpresa) VALUES
+('PEDRO','pedro@santarita.com','Hrfer3412', '46464782266',3),
 ('JOÃO','jpmorenoce@gmail.com','190406', '40790791846',3);
 
 CREATE TABLE fazenda (
@@ -73,18 +60,6 @@ insert into parametros values
 (null, 30, 20, 70, 2),
 (null, 26, 22, 90, 3);
 
-SELECT tempMaxima,
-    tempMinima,
-    umidMinima,
-    sensorTemp,
-    sensorUmid,
-    DATE_FORMAT(horaColeta,'%H:%i:%s') as horaColeta
-    FROM dadosSensor
-    join sensor on fkSensorDados = idSensor
-    join fazenda on fkSensorFazenda = idFazenda
-    join parametros on fkParametroFazenda = idFazenda
-    WHERE idSensor = 3 order by horaColeta desc limit 1;
-select * from parametros;
 CREATE TABLE sensor (
   idSensor INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(45),
@@ -107,26 +82,23 @@ SELECT * FROM usuario;
 SELECT * FROM fazenda;
 SELECT * FROM sensor;
 SELECT * FROM dadosSensor;
+SELECT * FROM parametros;
+select * from dadosSensor;
+truncate table dadosSensor;
+insert into dadosSensor values
+(null, 20, 64, default, 1),
+(null, 39, 75, default, 2),
+(null, 21, 84, default, 3);
 
 insert into dadosSensor values
-(null, 17, 64, default, 1),
-(null, 39, 85, default, 2),
-(null, 24, 91, default, 3);
-select * from dadosSensor;
+(null, 25, 74, default, 1),
+(null, 29, 95, default, 2),
+(null, 27, 96, default, 3);
 
-SELECT tempMaxima, tempMinima, umidMinima, sensorTemp, sensorUmid, DATE_FORMAT(horaColeta,'%H:%i:%s') as horaColeta
-     FROM dadosSensor join sensor on fkSensorDados = idSensor join fazenda on fkSensorFazenda = idFazenda join parametros on fkParametroFazenda = idFazenda WHERE idSensor = 1 limit 7;
-
-
-
-
-
-
-
-
-
-
-
+insert into dadosSensor values
+(null, 30, 54, default, 1),
+(null, 34, 78, default, 2),
+(null, 24, 92, default, 3);
 
 -- EXIBINDO O NOME DA EMPRESA, TIPO DE SOJA, DATAS DO PLANTIO E COLHEITA, NOME DO SENSOR, TEMPERATURAS E UMIDADES REGISTRADAS, E A HORA DESSE REGISTRO
 
@@ -154,3 +126,19 @@ from empresa join fazenda on fazenda.fkEmpresaFazenda = empresa.idEmpresa;
 select * from usuario;
 
 select usuario.nomeUsuario as funcionario, empresa.nomeEmpresa as empresa, usuario.email from usuario join empresa on usuario.fkUsuarioEmpresa = empresa.idEmpresa;
+    
+    SET GLOBAL event_scheduler = ON;
+
+    DELIMITER //
+CREATE EVENT IF NOT EXISTS limite_ids
+ON SCHEDULE EVERY 1 MINUTE
+DO
+BEGIN
+    -- Verifica a contagem de registros na tabela
+    IF (SELECT COUNT(*) FROM dadosSensor) > 10 THEN
+        -- Trunca a tabela se o número de registros for maior que 10
+        TRUNCATE TABLE dadosSensor;
+    END IF;
+END //
+
+DELIMITER ;

@@ -10,11 +10,6 @@ body {
   overflow-x: hidden;
 }
 
-.container_alerta {
-  display: flex;
-  justify-content: center;
-}
-
 
 .Alerta {
   margin-top: 20vh;
@@ -93,7 +88,7 @@ body {
 
 .container_center {
   margin-top: 20vh;
-  display: none;
+  display: flex;
   justify-content: center;
   height: 300px;
 }
@@ -110,6 +105,7 @@ body {
   height: 120px;
   border-radius: 10px;
   text-align: center;
+  background-color: #1d1d1d;
 }
 
 .hectare:hover {
@@ -118,14 +114,6 @@ body {
 
 #hectare_nome {
   color: white;
-}
-
-#hectare2 {
-  background-color: #395D05;
-}
-
-#hectare3 {
-  background-color: red;
 }
 
 .tela_grafico {
