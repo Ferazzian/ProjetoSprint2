@@ -145,9 +145,8 @@ body {
 
 .informacao {
   display: flex;
-  background-color: black;
+  background-color:rgba(0, 0, 0, 0.6);
   border-radius: 4px;
-  opacity: 60%;
   width: 300px;
   height: 160px;
   color: white;
@@ -162,9 +161,8 @@ body {
 }
 
 .legenda {
-  background-color: black;
+  background-color:rgba(0, 0, 0, 0.6);
   border-radius: 4px;
-  opacity: 60%;
   width: 300px;
   height: 400px;
   margin-top: 20px;
