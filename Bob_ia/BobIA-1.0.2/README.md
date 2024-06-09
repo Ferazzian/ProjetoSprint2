@@ -18,6 +18,11 @@ Diante deste contexto, a ferrugem asiática emerge como uma das principais preoc
 Vamos implementar um sistema de solução (IoT) que utiliza sensores de temperatura e umidade para monitorar continuamente as plantações de soja. Esses sensores irão identificar e alertar caso a temperatura ou umidade estejam propícios para o desenvolvimento da Ferrugem Asiática, contribuindo para reduzir as perdas em até 30%. Além disso, os dados coletados pelos sensores serão apresentados de forma gráfica em uma aplicação web, facilitando o acompanhamento e a tomada de decisões pelos agricultores. Esse monitoramento constante é essencial para prevenir danos significativos às plantações, garantindo uma produção mais estável e sustentável. 
 <br><br>
 
+## Grupo 5
+
+[**Ferazzian**](https://github.com/Ferazzian/projeto-ferazzian)
+<br>
+
 
 ## Instituição
 
