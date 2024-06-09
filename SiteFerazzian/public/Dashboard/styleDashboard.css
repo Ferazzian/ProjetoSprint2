@@ -4,12 +4,12 @@ body {
   color: white;
   font-family: 'Inter', sans-serif;
   width: 100%;
+  height: 100vh;
   background-image: url('assets/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: hidden;
 }
-
 
 .Alerta {
   margin-top: 20vh;
@@ -73,7 +73,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -5px;
+  margin-top: -25px;
   font-size: 15px;
   font-weight: bold;
   color: white;
@@ -87,7 +87,7 @@ body {
 }
 
 .container_center {
-  margin-top: 20vh;
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
   height: 300px;
@@ -387,3 +387,40 @@ body {
   width: 100%;
   justify-content: space-between;
 }
+
+footer {
+  border-top: solid 2px #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  background-color: #385d0572;
+  background-size: 100%;
+  object-fit: fit;
+  text-align: center;
+  
+}
+
+footer a{
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #fff;
+}
+
+.footerPai {
+  
+  width: 100%;
+  color: #fff;
+  font-weight: 400;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 30px;
+
+
+}
+
+
