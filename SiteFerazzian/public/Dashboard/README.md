@@ -1,34 +1,24 @@
-<img src="https://user-images.githubusercontent.com/46379117/189931169-9df7b283-bf43-4af4-8154-b1669862090e.png" width="600px">
+# Projeto de Grupo - Ferazzian
 
-_Data Acquisition Arduino API = API Arduino para Aquisição de Dados_
+Este repositório contém o projeto desenvolvido para a disciplina de Pesquisa e Inovação da faculdade São Paulo Tech School. O projeto tem como objetivo abordar a temática referente ao desenvolvimento da ferrugem asiática no plantio de soja.
+<br><br>
 
-<hr>
+## Contexto
 
-# Como usar
+O Brasil é atualmente o maior produtor de soja do mundo, desempenhando um papel vital no cenário internacional de exportação deste produto. Em 2022, foram exportadas 78.730 milhões de toneladas de soja em grão, evidenciando a relevância econômica deste produto. Dada a importância desse setor, é fundamental que o cultivo da soja seja conduzido com extremo cuidado, visando garantir altos padrões de produtividade e qualidade dos grãos. Isso não apenas assegura maior índices de lucro aos agricultores, como também fortalece a posição agroexportadora do país. 
 
-1. Certifique-se de que o Arduino está em funcionamento e capturando dados de temperatura, umidade, luminosidade e proximidade utilizando os sensores DHT11, TRC5000, LDR e LM35.
+ 
+Diante deste contexto, a ferrugem asiática emerge como uma das principais preocupações dos produtores de soja, devido ao seu potencial devastador. Segundo a Embrapa, quando não controlada, essa doença pode resultar em perdas de até 90% na produção de grãos. Originada no Brasil durante a safra 2001/2002, a ferrugem asiática agora é uma ameaça presente em lavouras por todo o país, devido à fácil disseminação de seus esporos pelo ar. É importante destacar que a ferrugem asiática prospera em temperaturas entre 18°C e 26°C, umidade maior ou igual a 80%, e molhamento foliar de ao menos seis horas (ideal entre 12h e 14h), fator que indica alta temperatura e alta umidade e que favorece a infecção e disseminação deste fungo. Além disso, a alta umidade e o prolongado período de molhamento foliar também são condições críticas para seu desenvolvimento. Chuvas frequentes e ambientes úmidos proporcionam as condições ideais para a proliferação desse fungo. 
 
-1. Clone este repositório em sua máquina.
+ 
+<br>
 
-1. Acesse o arquivo **main.js** e parametrize:
+## Objetivo
 
-- Gostaria de efetuar a inserção dos dados capturados no Banco de Dados? **Linha 15 - HABILITAR_OPERACAO_INSERIR;**
+Vamos implementar um sistema de solução (IoT) que utiliza sensores de temperatura e umidade para monitorar continuamente as plantações de soja. Esses sensores irão identificar e alertar caso a temperatura ou umidade estejam propícios para o desenvolvimento da Ferrugem Asiática, contribuindo para reduzir as perdas em até 30%. Além disso, os dados coletados pelos sensores serão apresentados de forma gráfica em uma aplicação web, facilitando o acompanhamento e a tomada de decisões pelos agricultores. Esse monitoramento constante é essencial para prevenir danos significativos às plantações, garantindo uma produção mais estável e sustentável. 
+<br><br>
 
-- Para configurar as credenciais do banco de dados: adicione as credenciais para inserção no banco MySQL (**Linhas 32 - 36**) e ajuste seu INSERT para que esteja de acordo com a tabela que receberá as medidas (**Linhas 84 e 85**).
 
-4. Acesse o local deste repositório no terminal (GitBash ou VSCode) e execute os comandos abaixo:
+## Instituição
 
-```
-npm i
-``` 
-_O comando acima irá instalar as bibliotecas necessárias para o funcionamento da API. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
-
-```
-npm start
-``` 
-
-_O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
-
-5. Para "ver" sua API funcionando você pode visualizar os gráficos das capturas sendo exibidos no seu navegador pelo caminho **http://localhost:3300** ou efetuando SELECT no seu Banco de Dados, caso tenha optado por inseri-los.
-
-6. Caso queira parar a API, tecle **CTRL+C** no terminal em que a API está rodando.
+São Paulo Tech School | Análise e Desenvolvimento de Sistemas 
