@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../assets/backgroundSobre.jpg');
+  /* background-image: url('../assets/backgroundSobre.jpg'); */
+  background-color: #1D1D1D;
   color: white;
   display: flex;
   font-family: 'Inter', sans-serif;
@@ -47,7 +48,7 @@ a {
 
 #linha {
   margin-top: -20px;
-  background-color: white;
+  background-color: #395D05;
   width: 420px;
   height: 2px;
   margin-bottom: 50px;
