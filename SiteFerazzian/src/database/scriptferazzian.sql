@@ -35,7 +35,7 @@ INSERT INTO usuario (nomeUsuario, email, senha, cpf, fkUsuarioEmpresa) VALUES
 
 CREATE TABLE fazenda (
   idFazenda INT PRIMARY KEY AUTO_INCREMENT,
-  nomeEmpresa VARCHAR(45),
+  nomeFazenda VARCHAR(45),
   tipoSoja VARCHAR(45),
   tamHectare INT,
   fkEmpresaFazenda INT, CONSTRAINT fkEmpFazenda FOREIGN KEY (fkEmpresaFazenda) REFERENCES empresa(idEmpresa));

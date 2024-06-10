@@ -9,7 +9,7 @@ function autenticar(email, senha) {
             u.email, 
             u.fkUsuarioEmpresa AS empresaId, 
             u.tipoUsuario, 
-            f.nomeEmpresa AS nomeFazenda
+            f.nomeFazenda AS nomeFazenda
         FROM 
             usuario u
         LEFT JOIN 

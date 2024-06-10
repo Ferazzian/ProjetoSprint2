@@ -28,11 +28,8 @@ const serial = async (
         {
             // altere!
             // Credenciais do banco de dados
-<<<<<<< HEAD:SiteFerazzian/Dashboard/main.js
             host: '10.18.32.21',
-=======
             host: 'localhost',
->>>>>>> 07a1dc786608597426ac2c6fc0baebc36d06046e:SiteFerazzian/public/Dashboard/main.js
             user: 'aluno',
             password: 'Sptech#2024',
             database: 'ferazzian',

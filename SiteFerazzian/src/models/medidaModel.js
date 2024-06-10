@@ -3,7 +3,7 @@ var database = require("../database/config")
 function buscarUltimasMedidas(idSensor, limite_linhas) {
 
     var instrucaoSql = `
-    SELECT nomeEmpresa,
+    SELECT nomeFazenda,
 	tipoSoja, 
     tempMaxima,
     tempMinima,
