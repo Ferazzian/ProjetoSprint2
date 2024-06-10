@@ -34,7 +34,7 @@ function Login() { // Validação de todas as entradas de dados
                 sessionStorage.ID_USUARIO = json.idUsuario;
                 sessionStorage.ID_EMPRESA = json.empresaId;
                 sessionStorage.TP_USUARIO = json.tipoUsuario;
-
+                sessionStorage.NOME_FAZENDA = json.nomeFazenda;
                 
                 setTimeout(function () {
                     alert(`Email e senha corretos. Bem vindo`);
