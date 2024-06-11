@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="main.js" defer></script>
+  <script data-jsd-embedded data-key="5476b741-70cd-4068-85af-310b59ac509d" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
   <link rel="stylesheet" href="styleDashboard.css">
   <link rel="icon" href="../assets/logo.png">
   <meta charset="UTF-8">
@@ -310,7 +311,7 @@
                 if (lista_medio.length > 0 && lista_alto.length > 0) {
                   if (!viuAlerta) {
                     Swal.fire({
-                      position: "bottom-end",
+                      position: "center",
                       icon: "warning",
                       html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span> <br><br> HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
                       background: "#1D1D1D",
@@ -327,7 +328,7 @@
                 else if (lista_medio.length > 0) {
                   if (!viuAlerta) {
                     Swal.fire({
-                      position: "bottom-end",
+                      position: "center",
                       icon: "warning",
                       html: `HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
                       background: "#1D1D1D",
@@ -343,7 +344,7 @@
                   else if (lista_alto.length > 0) {
                     if (!viuAlerta) {
                       Swal.fire({
-                        position: "bottom-end",
+                        position: "center",
                         icon: "warning",
                         html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span>`,
                         background: "#1D1D1D",
