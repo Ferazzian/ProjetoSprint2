@@ -84,7 +84,11 @@
         <section class="informacao">
           <div class="conteudoInf">
             <span id="nomeFazenda"></span>
-            <span id="hectare_numero"></span>
+            <select id="select_hectare" onchange="hectare_select()">
+              <option value="hectare 1">Hectare 1</option>
+              <option value="hectare 2">Hectare 2</option>
+              <option value="hectare 3">Hectare 3</option>
+            </select>
             <span id="tipo_soja"></span>
           </div>
         </section>
@@ -156,6 +160,19 @@
 
   var idSensor;
   var alerta;
+
+  function hectare_select() {
+    if (select_hectare.value == 'hectare 1') {
+      hectare1();
+    }
+    if (select_hectare.value == 'hectare 2') {
+      hectare2();
+    }
+    if (select_hectare.value == 'hectare 3') {
+      hectare3();
+    }
+  }
+
   function hectare1() {
     alerta = true;
     div_botoes.style.display = 'none';
@@ -197,7 +214,7 @@
     for (cont = 1; cont < 4; cont++) {
       (function (cont) {
         fetch(`/medida/buscarPorHectare/${cont}`)
-        .then(function (resposta) {
+          .then(function (resposta) {
             var resumo = document.getElementById(`hectare${cont}p`);
             var caixa = document.getElementById(`hectare${cont}`);
             if (resposta.ok) {
@@ -208,7 +225,7 @@
                 var temperatura_Maxima = dados1[0]['tempMaxima'];
                 var temperatura_Minima = dados1[0]['tempMinima'];
                 var umidade_Minima = dados1[0]['umidMinima'];
-                
+
 
                 console.log('Hectare: ' + cont);
                 console.log('Temperatura mínima: ' + temperatura_Minima);

@@ -419,8 +419,12 @@ footer a{
   align-items: center;
   justify-content: space-around;
   padding-top: 30px;
-
-
 }
 
-
+select {
+  background-color: #000;
+  color: #FFF;
+  font-size: 20px;
+  width: fit-content;
+  border: transparent;
+}
