@@ -54,19 +54,19 @@
           <h3 id="hectare3_h3"></h3>
         </div>
 
-        <div class="hectare" id="hectare4" onclick="hectare2()">
+        <div class="hectare" id="hectare4" onclick="hectare4()">
           <h3>Hectare: 4</h3>
           <p id="hectare4p"></p>
           <h3 id="hectare4_h3"></h3>
         </div>
 
-        <div class="hectare" id="hectare5" onclick="hectare2()">
+        <div class="hectare" id="hectare5" onclick="hectare5()">
           <h3>Hectare: 5</h3>
           <p id="hectare5p"></p>
           <h3 id="hectare5_h3"></h3>
         </div>
 
-        <div class="hectare" id="hectare6" onclick="hectare2()">
+        <div class="hectare" id="hectare6" onclick="hectare6()">
           <h3>Hectare: 6</h3>
           <p id="hectare6p"></p>
           <h3 id="hectare6_h3"></h3>
@@ -202,7 +202,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
-    select_hectare.value = 'hectare 1'
+    select_hectare.value = 'hectare 1';
   }
 
   function hectare2() {
@@ -213,7 +213,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
-    select_hectare.value = 'hectare 2'
+    select_hectare.value = 'hectare 2';
 
   }
 
@@ -225,7 +225,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
-    select_hectare.value = 'hectare 3'
+    select_hectare.value = 'hectare 3';
   }
 
   function hectare4() {
@@ -236,7 +236,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
-    select_hectare.value = 'hectare 4'
+    select_hectare.value = 'hectare 4';
   }
 
   function hectare5() {
@@ -247,7 +247,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
-    select_hectare.value = 'hectare 5'
+    select_hectare.value = 'hectare 5';
   }
 
   function hectare6() {
@@ -258,7 +258,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
-    select_hectare.value = 'hectare 6'
+    select_hectare.value = 'hectare 6';
   }
 
   function Voltar() {
@@ -445,6 +445,7 @@
         animation: false,
         scales: {
           y: {
+            suggestedMax: 50,
             beginAtZero: true,
             ticks: {
               stepSize: 5
@@ -506,7 +507,7 @@
         animation: false,
         scales: {
           y: {
-            beginAtZero: true,
+            suggestedMax: 100,
             ticks: {
               stepSize: 10
             }

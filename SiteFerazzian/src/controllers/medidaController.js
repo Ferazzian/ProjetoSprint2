@@ -27,7 +27,7 @@ function buscarPorHectare(req, res) {
 
     medidaModel.buscarPorHectare(idSensor).then(function (resultado) {
         var temperatura_atual = resultado[0]['sensorTemp'];
-                var umidade_atual = resultado[0]['sensorUmid'];
+        var umidade_atual = resultado[0]['sensorUmid'];
         if (temperatura_atual != '0' || umidade_atual != '0') {
             console.log('Estou no controller do buscarPorHectare');
             res.status(200).json(resultado);
