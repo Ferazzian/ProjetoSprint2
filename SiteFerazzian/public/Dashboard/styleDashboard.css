@@ -189,9 +189,8 @@ body {
 
 .dashboard {
   display: flex;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
-  opacity: 90%;
   width: 1190px;
   height: 650px;
   margin-left: 20px;
@@ -234,42 +233,6 @@ body {
 
 #conteudoLeg div span {
   padding-left: 10px;
-}
-
-#amarelo {
-  width: 10px;
-  height: 10px;
-  background-color: yellow;
-}
-
-#vermelho {
-  width: 10px;
-  height: 10px;
-  background-color: red;
-}
-
-#ciano {
-  width: 10px;
-  height: 10px;
-  background-color: cyan;
-}
-
-#azul {
-  width: 10px;
-  height: 10px;
-  background-color: blue;
-}
-
-#laranja {
-  width: 10px;
-  height: 10px;
-  background-color: orangered;
-}
-
-#lemon {
-  width: 10px;
-  height: 10px;
-  background-color: lime;
 }
 
 .alinharKpi {

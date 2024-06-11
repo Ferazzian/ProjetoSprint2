@@ -217,6 +217,7 @@
     tela_hectare.style.display = `unset`;
     tela_grafico.style.display = `none`;
     viuAlerta = false;
+    obterDadosMacro();
   }
 
   function obterDadosMacro() {
@@ -243,8 +244,7 @@
                 console.log('Temperatura mínima: ' + temperatura_Minima);
                 console.log('Temperatura máxima: ' + temperatura_Maxima);
                 console.log('Temperatura atual: ' + temperatura_atual);
-                tempIdeal.innerHTML = `<b>Temperatura ideal:</b> Entre ${temperatura_Minima}C° e ${temperatura_Maxima}C°`;
-                umidIdeal.innerHTML = `<b>Umidade ideal:</b> Abaixo de ${umidade_Minima}%`;
+
                 if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual >= umidade_Minima) {
                   resumo.innerHTML = `<b>Risco: ALTO</b>`;
                   caixa.style.backgroundColor = 'red';
@@ -265,45 +265,57 @@
                   console.log('Esta Baixo');
                 }
 
-                  if (lista_medio.length > 0 && lista_alto.length > 0) {
-                      if (viuAlerta == false) {
-                        Swal.fire({
+                if (lista_medio.length > 0 && lista_alto.length > 0) {
+                  if (!viuAlerta) {
+                    Swal.fire({
                       position: "bottom-end",
                       icon: "warning",
                       html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span> <br><br> HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
                       background: "#1D1D1D",
                       color: "#FFF",
                       showConfirmButton: true,
-                    });
-                    viuAlerta = true;
+
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        viuAlerta = true;
                       }
+                    });
                   }
-                   else if (lista_medio.length > 0 && lista_alto.length != 0) {
-                      if (viuAlerta == false) {
-                      Swal.fire({
+                }
+                else if (lista_medio.length > 0) {
+                  if (!viuAlerta) {
+                    Swal.fire({
                       position: "bottom-end",
                       icon: "warning",
                       html: `HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
                       background: "#1D1D1D",
                       color: "#FFF",
                       showConfirmButton: true,
-                    });
-                    viuAlerta = true;
-                      }
-                  } 
-                  else if (lista_alto.length > 0 && lista_medio != 0) {
-                      if (viuAlerta == false) {
-                      Swal.fire({
-                      position: "bottom-end",
-                      icon: "warning",
-                      html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span>`,
-                      background: "#1D1D1D",
-                      color: "#FFF",
-                      showConfirmButton: true,
-                    });
-                    viuAlerta = true;
-                      }
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        viuAlerta = true;
+                      };
+                    }
+                    )
                   }
+                  else if (lista_alto.length > 0) {
+                    if (!viuAlerta) {
+                      Swal.fire({
+                        position: "bottom-end",
+                        icon: "warning",
+                        html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span>`,
+                        background: "#1D1D1D",
+                        color: "#FFF",
+                        showConfirmButton: true,
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          viuAlerta = true;
+                        };
+                      }
+                      )
+                    }
+                  }
+                }
               });
             } else {
               console.error('Nenhum dado encontrado no banco ou erro na API');
@@ -332,8 +344,9 @@
             plotarGraficoUmidade(dados);
 
             nomeFazenda.innerHTML = 'Fazenda: ' + dados[0]['nomeFazenda'];
-            hectare_numero.innerHTML = 'Hectare: ' + idSensor;
-            tipo_soja.innerHTML = dados[0]['tipoSoja'];
+            var tipo = dados[0]['tipoSoja'];
+            tipo_soja.innerHTML = tipo;
+            console.log('tipo: ' + tipo);
           });
         } else {
           console.error('Nenhum dado encontrado no banco ou erro na API');
@@ -495,6 +508,8 @@
     var temperatura_Maxima = registro.tempMaxima;
     var temperatura_Minima = registro.tempMinima;
     var umidade_Minima = registro.umidMinima;
+    tempIdeal.innerHTML = `<b>Temperatura ideal:</b> Entre ${temperatura_Minima}C° e ${temperatura_Maxima}C°`;
+    umidIdeal.innerHTML = `<b>Umidade ideal:</b> Abaixo de ${umidade_Minima}%`;
     console.log('Estou na verificação: ' + dados);
 
     if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual >= umidade_Minima) {
