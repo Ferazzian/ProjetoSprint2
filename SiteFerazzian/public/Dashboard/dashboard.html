@@ -104,10 +104,15 @@
                   <br><br><br>
                   - Se a temperatura ou a umidade estiver DENTRO da zona <span style="color: red">vermelha</span>, sua
                   plantação está em<span style="color: orange">risco médio</span>;
+                  <br><br>
+                  <span id="tempIdeal"></span>
+                  <br><br>
+                  <span id="umidIdeal"></span>
                   <br><br><br>
                   - Se a temperatura e a umidade estiverem DENTRO das zonas <span style="color: red">vermelhas</span>,
                   sua plantação está em<span style="color: red">risco alto</span>.
                 </span>
+                <br><br>
               </div>
             </div>
           </div>
@@ -148,6 +153,8 @@
 
 
 <script>
+  var viuAlerta = false;
+
   obterDadosMacro();
   function sair() {
 
@@ -180,6 +187,7 @@
     tela_hectare.style.display = `none`;
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
+    viuAlerta = true;
   }
 
   function hectare2() {
@@ -189,6 +197,8 @@
     tela_hectare.style.display = `none`;
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
+    viuAlerta = true;
+
   }
 
   function hectare3() {
@@ -198,6 +208,7 @@
     tela_hectare.style.display = `none`;
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
+    viuAlerta = true;
   }
 
   function Voltar() {
@@ -205,6 +216,7 @@
     div_botoes.style.display = 'flex';
     tela_hectare.style.display = `unset`;
     tela_grafico.style.display = `none`;
+    viuAlerta = false;
   }
 
   function obterDadosMacro() {
@@ -231,6 +243,8 @@
                 console.log('Temperatura mínima: ' + temperatura_Minima);
                 console.log('Temperatura máxima: ' + temperatura_Maxima);
                 console.log('Temperatura atual: ' + temperatura_atual);
+                tempIdeal.innerHTML = `<b>Temperatura ideal:</b> Entre ${temperatura_Minima}C° e ${temperatura_Maxima}C°`;
+                umidIdeal.innerHTML = `<b>Umidade ideal:</b> Abaixo de ${umidade_Minima}%`;
                 if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual >= umidade_Minima) {
                   resumo.innerHTML = `<b>Risco: ALTO</b>`;
                   caixa.style.backgroundColor = 'red';
@@ -251,39 +265,45 @@
                   console.log('Esta Baixo');
                 }
 
-                if (!alerta) {
                   if (lista_medio.length > 0 && lista_alto.length > 0) {
-                    Swal.fire({
+                      if (viuAlerta == false) {
+                        Swal.fire({
                       position: "bottom-end",
                       icon: "warning",
                       html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span> <br><br> HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
                       background: "#1D1D1D",
                       color: "#FFF",
-                      showConfirmButton: false,
+                      showConfirmButton: true,
                     });
+                    viuAlerta = true;
+                      }
                   }
-                  else if (lista_medio.length > 0) {
-                    Swal.fire({
+                   else if (lista_medio.length > 0 && lista_alto.length != 0) {
+                      if (viuAlerta == false) {
+                      Swal.fire({
                       position: "bottom-end",
                       icon: "warning",
                       html: `HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
                       background: "#1D1D1D",
                       color: "#FFF",
-                      showConfirmButton: false,
+                      showConfirmButton: true,
                     });
-                  } else if (lista_alto.length > 0) {
-                    Swal.fire({
+                    viuAlerta = true;
+                      }
+                  } 
+                  else if (lista_alto.length > 0 && lista_medio != 0) {
+                      if (viuAlerta == false) {
+                      Swal.fire({
                       position: "bottom-end",
                       icon: "warning",
                       html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span>`,
                       background: "#1D1D1D",
                       color: "#FFF",
-                      showConfirmButton: false,
+                      showConfirmButton: true,
                     });
-                  } else {
-                    // Nenhum problema a reportar
+                    viuAlerta = true;
+                      }
                   }
-                }
               });
             } else {
               console.error('Nenhum dado encontrado no banco ou erro na API');
@@ -311,7 +331,7 @@
             plotarGraficoTemperatura(dados);
             plotarGraficoUmidade(dados);
 
-            nomeFazenda.innerHTML = 'Fazenda: ' + dados[0]['nomeEmpresa'];
+            nomeFazenda.innerHTML = 'Fazenda: ' + dados[0]['nomeFazenda'];
             hectare_numero.innerHTML = 'Hectare: ' + idSensor;
             tipo_soja.innerHTML = dados[0]['tipoSoja'];
           });
@@ -374,6 +394,7 @@
       type: 'line',
       data: chartData,
       options: {
+        animation: false,
         scales: {
           y: {
             beginAtZero: true,
@@ -441,6 +462,7 @@
       type: 'line',
       data: chartData,
       options: {
+        animation: false,
         scales: {
           y: {
             beginAtZero: true,

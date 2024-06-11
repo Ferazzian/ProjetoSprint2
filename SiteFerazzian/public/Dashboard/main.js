@@ -28,6 +28,7 @@ const serial = async (
         {
             // altere!
             // Credenciais do banco de dados
+            host: '10.18.32.21',
             host: 'localhost',
             user: 'aluno',
             password: 'Sptech#2024',
