@@ -148,3 +148,38 @@ H1 {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.modal{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.itens-modal{
+    background-color: #fff;
+    width: 30%;
+    padding: 20px;
+    height: 450px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    color: #000;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.itens-modal h1{
+    color: #000;
+}

@@ -37,6 +37,8 @@ function Login() { // Validação de todas as entradas de dados
                 sessionStorage.NOME_FAZENDA = json.nomeFazenda;
                 
                 setTimeout(function () {
+                    modal_login.style.display = 'block'
+
                     alert(`Email e senha corretos. Bem vindo`);
                     window.location = "../Dashboard/dashboard.html";
                 }, 1000);
