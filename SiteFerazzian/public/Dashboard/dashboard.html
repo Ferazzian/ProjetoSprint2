@@ -88,6 +88,9 @@
               <option value="hectare 1">Hectare 1</option>
               <option value="hectare 2">Hectare 2</option>
               <option value="hectare 3">Hectare 3</option>
+              <option value="hectare 4">Hectare 4</option>
+              <option value="hectare 5">Hectare 5</option>
+              <option value="hectare 6">Hectare 6</option>
             </select>
             <span id="tipo_soja"></span>
           </div>
@@ -178,6 +181,16 @@
     if (select_hectare.value == 'hectare 3') {
       hectare3();
     }
+    if (select_hectare.value == 'hectare 4') {
+      hectare4();
+    }
+    if (select_hectare.value == 'hectare 5') {
+      hectare5();
+    }
+    if (select_hectare.value == 'hectare 6') {
+      hectare6();
+    }
+
   }
 
   function hectare1() {
@@ -188,6 +201,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
+    select_hectare.value = 'hectare 1'
   }
 
   function hectare2() {
@@ -198,6 +212,7 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
+    select_hectare.value = 'hectare 2'
 
   }
 
@@ -209,6 +224,40 @@
     tela_grafico.style.display = `unset`;
     obterDadosGrafico();
     viuAlerta = true;
+    select_hectare.value = 'hectare 3'
+  }
+
+  function hectare4() {
+    alerta = true;
+    div_botoes.style.display = 'none';
+    idSensor = 4;
+    tela_hectare.style.display = `none`;
+    tela_grafico.style.display = `unset`;
+    obterDadosGrafico();
+    viuAlerta = true;
+    select_hectare.value = 'hectare 4'
+  }
+
+  function hectare5() {
+    alerta = true;
+    div_botoes.style.display = 'none';
+    idSensor = 5;
+    tela_hectare.style.display = `none`;
+    tela_grafico.style.display = `unset`;
+    obterDadosGrafico();
+    viuAlerta = true;
+    select_hectare.value = 'hectare 5'
+  }
+
+  function hectare6() {
+    alerta = true;
+    div_botoes.style.display = 'none';
+    idSensor = 6;
+    tela_hectare.style.display = `none`;
+    tela_grafico.style.display = `unset`;
+    obterDadosGrafico();
+    viuAlerta = true;
+    select_hectare.value = 'hectare 6'
   }
 
   function Voltar() {
@@ -224,7 +273,7 @@
     var lista_medio = [];
     var lista_alto = [];
 
-    for (cont = 1; cont < 4; cont++) {
+    for (cont = 1; cont <= 6; cont++) {
       (function (cont) {
         fetch(`/medida/buscarPorHectare/${cont}`)
           .then(function (resposta) {
@@ -239,30 +288,23 @@
                 var temperatura_Minima = dados1[0]['tempMinima'];
                 var umidade_Minima = dados1[0]['umidMinima'];
 
-
-                console.log('Hectare: ' + cont);
-                console.log('Temperatura mínima: ' + temperatura_Minima);
-                console.log('Temperatura máxima: ' + temperatura_Maxima);
-                console.log('Temperatura atual: ' + temperatura_atual);
+                console.table(dados1);
 
                 if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual >= umidade_Minima) {
                   resumo.innerHTML = `<b>Risco: ALTO</b>`;
                   caixa.style.backgroundColor = 'red';
-                  console.log('Esta alto');
                   lista_alto.push(cont);
                 }
 
                 else if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual < umidade_Minima || ((temperatura_atual < temperatura_Minima || temperatura_atual > temperatura_Maxima) && umidade_atual >= umidade_Minima)) {
                   resumo.innerHTML = `<b>Risco: Médio</b>`;
                   caixa.style.backgroundColor = 'orange';
-                  console.log('Esta medio');
                   lista_medio.push(cont);
                 }
 
                 else if ((temperatura_atual < temperatura_Minima || temperatura_atual > temperatura_Maxima) && umidade_atual < umidade_Minima) {
                   resumo.innerHTML = `<b>Risco: Baixo</b>`;
                   caixa.style.backgroundColor = '#395D05';
-                  console.log('Esta Baixo');
                 }
 
                 if (lista_medio.length > 0 && lista_alto.length > 0) {
@@ -346,7 +388,6 @@
             nomeFazenda.innerHTML = 'Fazenda: ' + dados[0]['nomeFazenda'];
             var tipo = dados[0]['tipoSoja'];
             tipo_soja.innerHTML = tipo;
-            console.log('tipo: ' + tipo);
           });
         } else {
           console.error('Nenhum dado encontrado no banco ou erro na API');
@@ -364,9 +405,6 @@
     if (Chart.getChart(ctx)) {
       Chart.getChart(ctx).destroy();
     }
-
-    console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
-    console.log('Iniciando plotagem do gráfico...');
 
     // Criando estrutura para plotar gráfico - labels e data
     let labels = [];
@@ -397,10 +435,6 @@
 
       ]
     };
-
-    console.log('----------------------------------------------');
-    console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGraficoTemperatura":');
-    console.log(dados);
 
     // Criando estrutura para plotar gráfico - config
     const config = {
@@ -441,9 +475,6 @@
       Chart.getChart(ctx).destroy();
     }
 
-    console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
-    console.log('Iniciando plotagem do gráfico...');
-
     // Criando estrutura para plotar gráfico - labels e data
     let labels = [];
 
@@ -465,10 +496,6 @@
         borderWidth: 2
       }]
     };
-
-    console.log('----------------------------------------------');
-    console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGraficoUmidade":');
-    console.log(dados);
 
     // Criando estrutura para plotar gráfico - config
     const config = {
@@ -510,7 +537,7 @@
     var umidade_Minima = registro.umidMinima;
     tempIdeal.innerHTML = `<b>Temperatura ideal:</b> Entre ${temperatura_Minima}C° e ${temperatura_Maxima}C°`;
     umidIdeal.innerHTML = `<b>Umidade ideal:</b> Abaixo de ${umidade_Minima}%`;
-    console.log('Estou na verificação: ' + dados);
+    console.table(dados);
 
     if (temperatura_atual >= temperatura_Minima && temperatura_atual <= temperatura_Maxima && umidade_atual >= umidade_Minima) {
       risco.innerHTML = `<b>ALTO</b>`;

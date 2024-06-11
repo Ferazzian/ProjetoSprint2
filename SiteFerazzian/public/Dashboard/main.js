@@ -94,6 +94,21 @@ const serial = async (
                 'INSERT INTO dadosSensor (sensorTemp, sensorUmid, fkSensorDados) VALUES (?, ?, ?)',
                 [dht11Umidade - 10, dht11Temperatura + 40, 3],
             );
+
+            // await poolBancoDados.execute(
+            //     'INSERT INTO dadosSensor (sensorTemp, sensorUmid, fkSensorDados) VALUES (?, ?, ?)',
+            //     [, , 4],
+            // );
+
+            await poolBancoDados.execute(
+                'INSERT INTO dadosSensor (sensorTemp, sensorUmid, fkSensorDados) VALUES (?, ?, ?)',
+                [dht11Umidade - 10, dht11Temperatura + 10, 5],
+            );
+
+            await poolBancoDados.execute(
+                'INSERT INTO dadosSensor (sensorTemp, sensorUmid, fkSensorDados) VALUES (?, ?, ?)',
+                [dht11Umidade - 5, dht11Temperatura + 40, 6],
+            );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
 
         }
