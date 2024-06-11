@@ -136,7 +136,7 @@ body {
 
 .informacao {
   display: flex;
-  background-color:rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   width: 300px;
   height: 160px;
@@ -152,7 +152,11 @@ body {
 }
 
 .legenda {
-  background-color:rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   width: 300px;
   height: 400px;
@@ -203,7 +207,7 @@ body {
   justify-content: space-around;
 }
 
-#div1T {
+/* #div1T {
   margin-right: 10px;
   border-right: solid white 2px;
   padding-right: 15px;
@@ -219,7 +223,7 @@ body {
   margin-right: 10px;
   border-right: solid white 2px;
   padding-right: 15px;
-}
+} */
 
 .linha {
   background-color: white;
@@ -330,7 +334,6 @@ body {
 .btnCadastro {
   border: none;
   border-radius: 10px;
-  /* padding: 10px; */
   color: white;
   font-size: 15px;
   width: 180px;
@@ -347,47 +350,14 @@ body {
   transition: 0.4s;
 }
 
-.botoes{
+.botoes {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-footer {
-  border-top: solid 2px #fff;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  height: 70px;
-  background-color: #385d0572;
-  background-size: 100%;
-  object-fit: fit;
-  text-align: center;
-  
-}
-
-footer a{
-  font-style: normal;
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
-  color: #fff;
-}
-
-.footerPai {
-  
-  width: 100%;
-  color: #fff;
-  font-weight: 400;
-  font-style: italic;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-top: 30px;
-}
-
 select {
-  background-color:rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #FFF;
   font-size: 20px;
   width: fit-content;

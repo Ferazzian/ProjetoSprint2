@@ -8,7 +8,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="main.js" defer></script>
-  <script data-jsd-embedded data-key="5476b741-70cd-4068-85af-310b59ac509d" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+  <script data-jsd-embedded data-key="5476b741-70cd-4068-85af-310b59ac509d"
+    data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
   <link rel="stylesheet" href="styleDashboard.css">
   <link rel="icon" href="../assets/logo.png">
   <meta charset="UTF-8">
@@ -98,28 +99,8 @@
         </section>
 
         <section class="legenda">
-          <div class="conteudoLeg">
-            <br><br><br>
-            <div id="conteudoLeg">
-              <div class="grupoDados">
-                <span class="dados">- Se a temperatura e a umidade estiverem FORA das zonas <span
-                    style="color: red">vermelhas</span>, sua plantação está <span
-                    style="color: lawngreen">segura</span>;
-                  <br><br><br>
-                  - Se a temperatura ou a umidade estiver DENTRO da zona <span style="color: red">vermelha</span>, sua
-                  plantação está em<span style="color: orange">risco médio</span>;
-                  <br><br>
-                  <span id="tempIdeal"></span>
-                  <br><br>
-                  <span id="umidIdeal"></span>
-                  <br><br><br>
-                  - Se a temperatura e a umidade estiverem DENTRO das zonas <span style="color: red">vermelhas</span>,
-                  sua plantação está em<span style="color: red">risco alto</span>.
-                </span>
-                <br><br>
-              </div>
-            </div>
-          </div>
+          <span id="tempIdeal" style="font-size: 14px;"><b>Temperatura ideal:</b> Entre 20C° e 28C°</span>
+          <span id="umidIdeal"><b>Umidade ideal:</b> Abaixo de 80%</span>
         </section>
       </div>
 

@@ -42,9 +42,11 @@ CREATE TABLE fazenda (
 
 
 INSERT INTO fazenda VALUES
-(null,'A','Soja Orgânica', 2, 1),
-(null,'B','Soja Convencional', 4, 2),
-(null,'C','Soja Orgânica', 50, 3);
+(null,'A','Campos Orgânicos', 2, 1),
+(null,'Fazenda Convência','Soja Convencional', 4, 2),
+(null,'Orgânicolândia','Soja Orgânica', 50, 3);
+
+
 
 CREATE TABLE parametros (
 	idParametro INT AUTO_INCREMENT,
@@ -68,7 +70,11 @@ CREATE TABLE sensor (
 INSERT INTO sensor VALUES
 (1,'DHT11-A1',1),
 (2,'DHT11-A2',2),
-(3,'DHT11-A3',3);
+(3,'DHT11-A3',3),
+(4,'DHT11-A4',1),
+(5,'DHT11-A5',2),
+(6,'DHT11-A6',3);
+
 
 CREATE TABLE dadosSensor (
   idDadosSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -84,21 +90,6 @@ SELECT * FROM sensor;
 SELECT * FROM dadosSensor;
 SELECT * FROM parametros;
 select * from dadosSensor;
-truncate table dadosSensor;
-insert into dadosSensor values
-(null, 20, 64, default, 1),
-(null, 39, 75, default, 2),
-(null, 21, 84, default, 3);
-
-insert into dadosSensor values
-(null, 25, 74, default, 1),
-(null, 29, 95, default, 2),
-(null, 27, 96, default, 3);
-
-insert into dadosSensor values
-(null, 30, 54, default, 1),
-(null, 34, 78, default, 2),
-(null, 24, 92, default, 3);
 
 -- EXIBINDO O NOME DA EMPRESA, TIPO DE SOJA, DATAS DO PLANTIO E COLHEITA, NOME DO SENSOR, TEMPERATURAS E UMIDADES REGISTRADAS, E A HORA DESSE REGISTRO
 
@@ -126,19 +117,7 @@ from empresa join fazenda on fazenda.fkEmpresaFazenda = empresa.idEmpresa;
 select * from usuario;
 
 select usuario.nomeUsuario as funcionario, empresa.nomeEmpresa as empresa, usuario.email from usuario join empresa on usuario.fkUsuarioEmpresa = empresa.idEmpresa;
-    
-    SET GLOBAL event_scheduler = ON;
 
-    DELIMITER //
-CREATE EVENT IF NOT EXISTS limite_ids
-ON SCHEDULE EVERY 1 MINUTE
-DO
-BEGIN
-    -- Verifica a contagem de registros na tabela
-    IF (SELECT COUNT(*) FROM dadosSensor) > 10 THEN
-        -- Trunca a tabela se o número de registros for maior que 10
-        TRUNCATE TABLE dadosSensor;
-    END IF;
-END //
-
-DELIMITER ;
+select * from dadosSensor;
+select * from usuario;
+update usuario set tipoUsuario = 'Administrador' where idUsuario = 4;
