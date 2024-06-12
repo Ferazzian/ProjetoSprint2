@@ -120,11 +120,11 @@
             </div>
           </div>
           <div class="container_grafico">
-            <div class="grafico" id="div1T">
+            <div class="grafico">
               <canvas id="myChartCanvasTemp" style="height: 230px;"></canvas>
             </div>
-
-            <div class="grafico" id="div1U">
+            <div class="line"></div>
+            <div class="grafico">
               <canvas id="myChartCanvasUmid" style="height: 230px;"></canvas>
             </div>
           </div>
@@ -184,6 +184,7 @@
     obterDadosGrafico();
     viuAlerta = true;
     select_hectare.value = 'hectare 1';
+    document.body.style.overflowY = 'hidden';
   }
 
   function hectare2() {
@@ -195,6 +196,7 @@
     obterDadosGrafico();
     viuAlerta = true;
     select_hectare.value = 'hectare 2';
+    document.body.style.overflowY = 'hidden';
 
   }
 
@@ -207,6 +209,7 @@
     obterDadosGrafico();
     viuAlerta = true;
     select_hectare.value = 'hectare 3';
+    document.body.style.overflowY = 'hidden';
   }
 
   function hectare4() {
@@ -218,6 +221,7 @@
     obterDadosGrafico();
     viuAlerta = true;
     select_hectare.value = 'hectare 4';
+    document.body.style.overflowY = 'hidden';
   }
 
   function hectare5() {
@@ -229,6 +233,7 @@
     obterDadosGrafico();
     viuAlerta = true;
     select_hectare.value = 'hectare 5';
+    document.body.style.overflowY = 'hidden';
   }
 
   function hectare6() {
@@ -240,6 +245,7 @@
     obterDadosGrafico();
     viuAlerta = true;
     select_hectare.value = 'hectare 6';
+    document.body.style.overflowY = 'hidden';
   }
 
   function Voltar() {
@@ -254,6 +260,7 @@
   function obterDadosMacro() {
     var lista_medio = [];
     var lista_alto = [];
+    var lista_erro = [];
 
     for (cont = 1; cont <= 6; cont++) {
       (function (cont) {
@@ -344,6 +351,8 @@
             } else {
               console.error('Nenhum dado encontrado no banco ou erro na API');
               resumo.innerHTML = 'ERRO';
+              lista_erro.push(cont);
+
               caixa.style.backgroundColor = '#1D1D1D';
             }
           })
@@ -489,6 +498,7 @@
         scales: {
           y: {
             suggestedMax: 100,
+            beginAtZero: true,
             ticks: {
               stepSize: 10
             }

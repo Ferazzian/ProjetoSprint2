@@ -207,23 +207,14 @@ body {
   justify-content: space-around;
 }
 
-/* #div1T {
-  margin-right: 10px;
-  border-right: solid white 2px;
-  padding-right: 15px;
+.grafico {
+  margin-right: 1%;
 }
 
-#div2T {
-  margin-right: 10px;
-  border-right: solid white 2px;
-  padding-right: 15px;
+.line {
+  height: 450px;
+border: solid #FFF 1px;
 }
-
-#div3T {
-  margin-right: 10px;
-  border-right: solid white 2px;
-  padding-right: 15px;
-} */
 
 .linha {
   background-color: white;

@@ -35,6 +35,7 @@ function Login() { // Validação de todas as entradas de dados
                 background: "#1D1D1D",
                 color: "#FFF",
                 text: "LOGIN REALIZADO COM SUCESSO",
+                showConfirmButton: false,
               });
 
             resposta.json().then(json => {
