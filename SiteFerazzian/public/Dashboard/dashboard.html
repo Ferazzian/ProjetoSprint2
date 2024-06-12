@@ -402,6 +402,7 @@
 
     Chart.defaults.color = '#ffffff';
     Chart.defaults.font.size = 15;
+    dados.reverse();
 
     let chartData = {
       labels: labels,
@@ -471,7 +472,6 @@
     let labels = [];
 
     Chart.defaults.color = '#ffffff';
-    // Chart.defaults.font.size = 15;
 
     let chartData = {
       labels: labels,
@@ -522,13 +522,13 @@
 
   function verificacao(dados) {
     var tamanho = dados.length;
-    var registro = dados[tamanho - 1];
+    var registro = dados[0];
     var temperatura_atual = registro.sensorTemp;
     var umidade_atual = registro.sensorUmid;
     var temperatura_Maxima = registro.tempMaxima;
     var temperatura_Minima = registro.tempMinima;
     var umidade_Minima = registro.umidMinima;
-    tempIdeal.innerHTML = `<b>Temperatura ideal:</b> Entre ${temperatura_Minima}C° e ${temperatura_Maxima}C°`;
+    tempIdeal.innerHTML = `<b>Temperatura ideal:</b> Fora de ${temperatura_Minima}°C e ${temperatura_Maxima}°C`;
     umidIdeal.innerHTML = `<b>Umidade ideal:</b> Abaixo de ${umidade_Minima}%`;
     console.table(dados);
 
@@ -574,5 +574,5 @@
   setInterval(() => {
     obterDadosMacro(),
       obterDadosGrafico();
-  }, 5000);
+  }, 20000);
 </script>

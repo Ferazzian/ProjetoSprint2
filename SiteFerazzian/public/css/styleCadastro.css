@@ -13,8 +13,6 @@ body {
     display: unset;
     height: 100vh; /* Pegando tudo em altura */
     width: 100vw; /* Pegando metade da tela */
-    background-color: black;
-    opacity: 80%;
 }
 
 .container_button_voltar_login {
@@ -54,7 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -10px;
+    margin-top: -50px;
 }
 
 .CenterCadastro {
@@ -68,27 +66,30 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 450px;
-    height: 480px;
+    width: 30vw;
+    height: 40vh;
     border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .pCadastro {
-    margin-left: 50px;
+    margin-left: 12%;
+    margin-bottom: 3%;
+    font-size: 16px;
 }
 
 
 .input_Cadastro {
-    margin-top: -10px;
-    margin-left: 35px;
+    margin-left: 10%;
     width: 350px;
-    height: 90px;
+    height: 110px;
     background-color: transparent;
     border: solid white;
     border-radius: 5px;
     font-weight: bold;
     padding-left: 20px;
     color: white;
+    outline: none;
 }
 
 #input_selecionar_tipo_cadastro {
