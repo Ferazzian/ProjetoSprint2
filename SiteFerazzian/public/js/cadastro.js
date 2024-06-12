@@ -17,43 +17,76 @@ function cadastrar() { // Validações de todas as entradas de dados
   var tamanho_senha = senhaVar.length;
   var tamanho_cpf = cpfVar.length;
 
-  if (nomeVar == "") {
-    input_nome_cadastro.value = ``; 
-    input_nome_cadastro.placeholder = `O campo 'nome' é necessário para cadastro.`;
+  if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "") {
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "CAMPO EM BRANCO",
+    });
   } else if (arroba < 0 || ponto < 0) {
-    input_email_cadastro.value = ``; 
-    input_email_cadastro.placeholder = `O campo 'email' está inválido.`;
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "O campo 'email' está inválido",
+    });
   } else if (tamanho_email < 5) {
-    input_email_cadastro.value = ``; 
-    input_email_cadastro.placeholder = `O campo 'email' está inválido.`;
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "O campo 'email' está inválido",
+    });
   } else if (tamanho_senha < 8) {
-    input_senha_cadastro.value = ``; 
-    input_confirmar_senha_cadastro.value = ``; 
-    input_senha_cadastro.placeholder = `Senha muito fraca. Necessário no mínimo 8 caracteres.`;
-
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "Senha muito fraca. Necessário no mínimo 8 caracteres",
+    });
   } else if (senhaVar != confirmacaoSenhaVar) {
-    input_senha_cadastro.value = ``; 
-    input_confirmar_senha_cadastro.value = ``; 
-    input_senha_cadastro.placeholder = `Falha ao autenticar senha.`;
-    input_confirmar_senha_cadastro.placeholder = `Falha ao autenticar senha.`;
-  } else if (cpfVar == "") {
-    input_cpf.placeholder = `O campo 'CPF' é necessário para cadastro.`;
-
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "Falha ao autenticar senha",
+    });
   } else if (tamanho_cpf < 11) {
     input_cpf.value = ``; 
-    input_cpf.placeholder = `O campo 'CPF' está inválido.`;
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "O campo 'CPF' está inválido.",
+    });
   } else if (tipoUsuarioVar == "#") {
-    alert("O campo 'tipo Usuario' é necessário para cadastro");
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "Selecione o tipo do usuário",
+    });
   } else {
     nomeVar.value = ``; 
     emailVar.value = ``; 
     senhaVar.value = ``; 
     confirmacaoSenhaVar.value = ``; 
     cpfVar.value = ``; 
-    alert(`${nomeVar}, sua conta foi cadastrada com sucesso.`);
-  }
-
-  if (nomeVar != "" && emailVar && senhaVar != "" && confirmacaoSenhaVar != "" && cpfVar != "" && senhaVar == confirmacaoSenhaVar) {
+    Swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "CADASTRO REALIZADO COM SUCESSO",
+    });
     fetch(`/usuarios/cadastrar/${idEmpresa}`, {
       method: "POST",
       headers: {
@@ -66,11 +99,14 @@ function cadastrar() { // Validações de todas as entradas de dados
         cpfServer: cpfVar,
         tipoServer: tipoUsuarioVar
       })
+      
     }).then(function (resposta) {
       console.log(resposta)
     });
   }
-}
+
+  }
+
 
 
 function sumirMensagem() {

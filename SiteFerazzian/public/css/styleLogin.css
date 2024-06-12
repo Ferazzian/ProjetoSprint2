@@ -9,15 +9,17 @@ body {
     overflow-y: hidden;
 }
 
-.Cadastro { /* Divisória do cadastro que pega metade da tela */
+.Cadastro {
+    /* Divisória do cadastro que pega metade da tela */
     display: unset;
-    height: 100vh; /* Pegando tudo em altura */
-    width: 100vw; /* Pegando metade da tela */
-    background-color: black;
-    opacity: 80%;
+    height: 100vh;
+    /* Pegando tudo em altura */
+    width: 100vw;
+    /* Pegando metade da tela */
 }
 
-.container_button_voltar_login { /* Coloca uma leve margem no botão */
+.container_button_voltar_login {
+    /* Coloca uma leve margem no botão */
     padding-left: 10px;
     padding-top: 10px;
 }
@@ -34,7 +36,8 @@ body {
     cursor: pointer;
 }
 
-.button_voltar:hover {  /* Ao passar o mouse por cima */
+.button_voltar:hover {
+    /* Ao passar o mouse por cima */
     background-color: white;
     color: #395D05;
     transition: 0.4s;
@@ -50,7 +53,8 @@ body {
     align-items: center;
 }
 
-.buttonLogin:hover { /* Ao passar o mouse por cima */
+.buttonLogin:hover {
+    /* Ao passar o mouse por cima */
     cursor: pointer;
     text-decoration: underline;
 }
@@ -87,13 +91,17 @@ H1 {
     width: 450px;
     height: 430px;
     border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .pLogin {
-    margin-left: 50px;
+    margin-left: 11%;
+    margin-bottom: -1%;
+    font-size: 18px;
 }
 
 .input_Login {
+    outline: none;
     margin-top: -25px;
     margin-left: 35px;
     width: 350px;
@@ -149,7 +157,7 @@ H1 {
     text-decoration: underline;
 }
 
-.modal{
+.modal {
     position: fixed;
     z-index: 999;
     top: 0;
@@ -164,7 +172,7 @@ H1 {
     backdrop-filter: blur(10px);
 }
 
-.itens-modal{
+.itens-modal {
     background-color: #fff;
     width: 30%;
     padding: 20px;
@@ -180,6 +188,6 @@ H1 {
     transition: 0.5s;
 }
 
-.itens-modal h1{
+.itens-modal h1 {
     color: #000;
 }

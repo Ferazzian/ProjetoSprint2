@@ -3,9 +3,13 @@ function Login() { // Validação de todas as entradas de dados
     var senhaVar = input_senha_login.value;
 
     if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        return false;
+        Swal.fire({
+            icon: "error",
+            title: "Erro...",
+            background: "#1D1D1D",
+            color: "#FFF",
+            text: "CAMPO EM BRANCO",
+          });
     }
 
     console.log("FORM LOGIN: ", emailVar);
@@ -25,6 +29,14 @@ function Login() { // Validação de todas as entradas de dados
 
         if (resposta.ok) {
             console.log(resposta);
+            Swal.fire({
+                icon: "success",
+                title: "Sucesso!",
+                background: "#1D1D1D",
+                color: "#FFF",
+                text: "LOGIN REALIZADO COM SUCESSO",
+                showConfirmButton: false,
+              });
 
             resposta.json().then(json => {
                 console.log(json);
@@ -37,16 +49,20 @@ function Login() { // Validação de todas as entradas de dados
                 sessionStorage.NOME_FAZENDA = json.nomeFazenda;
                 
                 setTimeout(function () {
-                    modal_login.style.display = 'block'
 
-                    alert(`Email e senha corretos. Bem vindo`);
                     window.location = "../Dashboard/dashboard.html";
-                }, 1000);
+                }, 1700);
 
             });
 
         } else {
-
+            Swal.fire({
+                icon: "error",
+                title: "Erro...",
+                background: "#1D1D1D",
+                color: "#FFF",
+                text: "Houve um erro ao tentar realizar o login!",
+              });
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {

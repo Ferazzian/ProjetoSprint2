@@ -8,11 +8,11 @@
     <script type="text/javascript" src="js/login.js"></script>
     <link rel="stylesheet" href="css/styleLogin.css">
     <link rel="icon" href="assets/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="CadastroLeft" id="CadastroLeft"></div> <!-- Animação para enviar para esquerda -->
-    <div class="CadastroRight" id="CadastroRight"></div> <!-- Animação para enviar para direita -->
     <div class="Cadastro" id="tela_cadastro"> <!-- Divisória que envolve metade da tela -->
         <div class="container_button_voltar_login">
             <a href="index.html">
@@ -26,19 +26,17 @@
         <div class="CenterLogin">
             <div class="container_input_Login">
 
-                <p class="pLogin">Email</p>
+                <p class="pLogin">Email:</p>
                 <input class="input_Login" type="text" id="input_email_login">
-                <p class="pLogin">Senha</p>
+                <p class="pLogin">Senha:</p>
                 <input class="input_Login" type="password" id="input_senha_login">
-                <div class="Lembrar">
-                    <input type="checkbox" id="chk_Lembrar" class="chk">Lembrar meus dados
-                </div>
 
                 <div class="container_button">
                     <button class="button" onclick="Login()">Entrar</button>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 
         <section class="modal" id="modal_login">
             <div class="itens-modal">
@@ -47,6 +45,8 @@
                 <p>Redirecionando...</p>
             </div>
         </section>
+=======
+>>>>>>> 185580cbef7ad10c7fa8639d4d8db8cbc87a3d99
     </div>
 </body>
 </html>

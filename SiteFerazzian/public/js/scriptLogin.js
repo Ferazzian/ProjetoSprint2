@@ -62,9 +62,6 @@ var contador = 4; // Inicia com 4 chances
 function Login() { // Validação de todas as entradas de dados
     var email_login = input_email_login.value;
     var senha_login = input_senha_login.value;
-    var email_cadastro = input_email_cadastro.value;
-    var senha_cadastro = input_senha_cadastro.value;
-    var nome_cadastro = input_nome_cadastro.value;
 
     var tamanho_email = email_login.length;
     var arroba = email_login.indexOf('@'); // Procura o caractere @
@@ -87,7 +84,14 @@ function Login() { // Validação de todas as entradas de dados
         }
     } else { // Email e seha corretos
         contador = 4; // Volta todas as tentativas
-        alert(`Email e senha corretos. Bem vindo, ${nome_cadastro}`);
+        Swal.fire({
+            position: "center",
+            icon: "warning",
+            html: `HECTARES ${lista_alto} COM RISCO <span style="color: red">ALTO</span> <br><br> HECTARES ${lista_medio} COM RISCO <span style="color: orange">MÉDIO</span>`,
+            background: "#1D1D1D",
+            color: "#FFF",
+            showConfirmButton: true,
+          })
         window.location.replace('../Dashboard/dashboard.html') // redireciona para a dashboard, caso seja efetuado o login
     }
     

@@ -15,7 +15,7 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
     join sensor on fkSensorDados = idSensor
     join fazenda on fkSensorFazenda = idFazenda
     join parametros on fkParametroFazenda = idFazenda
-    WHERE idSensor = ${idSensor} limit ${limite_linhas};`;
+    WHERE idSensor = ${idSensor} order by idDadosSensor desc limit ${limite_linhas};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
