@@ -42,11 +42,9 @@ CREATE TABLE fazenda (
 
 
 INSERT INTO fazenda VALUES
-(null,'A','Campos Orgânicos', 2, 1),
+(null,'Campos Orgânicos','Soja Orgânica', 2, 1),
 (null,'Fazenda Convência','Soja Convencional', 4, 2),
 (null,'Orgânicolândia','Soja Orgânica', 50, 3);
-
-
 
 CREATE TABLE parametros (
 	idParametro INT AUTO_INCREMENT,
@@ -118,6 +116,19 @@ select * from usuario;
 
 select usuario.nomeUsuario as funcionario, empresa.nomeEmpresa as empresa, usuario.email from usuario join empresa on usuario.fkUsuarioEmpresa = empresa.idEmpresa;
 
-select * from dadosSensor;
-select * from usuario;
-update usuario set tipoUsuario = 'Administrador' where idUsuario = 4;
+SELECT nomeFazenda,
+	tipoSoja, 
+    tempMaxima,
+    tempMinima,
+    umidMinima,
+    sensorTemp,
+    sensorUmid,
+    DATE_FORMAT(horaColeta,'%H:%i:%s') as horaColeta
+    FROM dadosSensor
+    join sensor on fkSensorDados = idSensor
+    join fazenda on fkSensorFazenda = idFazenda
+    join parametros on fkParametroFazenda = idFazenda
+    WHERE idSensor = 1 order by idDadosSensor desc limit 7;
+    
+    select * from dadosSensor;
+    truncate table dadosSensor;
